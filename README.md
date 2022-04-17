@@ -17,4 +17,4 @@ php artisan migrate
 php artisan serve
 // the last one will run the project on the server 
 // open the browser and copy this http://127.0.0.1:8000/ and paste it there and u can see the project now
-``
+```
