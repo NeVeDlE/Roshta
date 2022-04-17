@@ -25,7 +25,7 @@ class RegisterForm extends Component
         'email' => 'required|string|email|max:255|min:5|unique:users,email',
         'national_id' => 'required|string|max:14|min:14|unique:users,national_id',
         'phone' => 'required|string|size:11|unique:users,phone',
-        'picture' => ['image'],
+        'picture' => ['image:img'],
         'birthday' => 'required|date',
         'password' => ['required', 'confirmed'],
     ];
