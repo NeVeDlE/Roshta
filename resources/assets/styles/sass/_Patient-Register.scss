@@ -1,0 +1,62 @@
+@use "sass/colors" as *;
+@use "sass/fonts";
+@use "sass/global";
+
+.formbox {
+  .row {
+      .birthdate{
+        input[type="date"]::-webkit-calendar-picker-indicator {
+            width: 40px;
+            padding: 0px;
+            margin: 0px;
+        }
+          display: flex;
+          justify-content:center;
+          .birthday{
+            margin-right:5px;
+          }
+      }
+    .more-info {
+        display: flex;
+        align-items: center;
+        justify-content:center;
+        h4{
+            font-size: 16px;
+            margin-right:10px;
+            margin-top:2px;
+        }
+        .form-check{
+            margin-right:10px;
+        }
+      input[type="radio"] {
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+        border-radius: 50%;
+        width: 16px;
+        height: 16px;
+        border: 2px solid #999;
+        transition: 0.2s all linear;
+        margin-right: 0px;
+        position: relative;
+      }
+    }
+  }
+}
+.form-group{
+    .donebtn{
+        background-color: #ed2929 !important;
+    }
+}
+@media  (max-width:768px) {
+    .formbox{
+        .form-group{
+            .form-placeholder{
+                font-size:12px;
+            }
+        }
+    }
+}
+#form1{
+    left:450px;
+}

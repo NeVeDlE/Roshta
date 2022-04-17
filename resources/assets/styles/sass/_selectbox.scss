@@ -1,0 +1,12 @@
+@use "sass/colors" as *;
+@use "sass/fonts";
+@use "sass/global";
+@use "Progressform";
+@use "validation";
+select{
+    font-size: 1rem;
+    background-color: $blueColorDark;
+    color:white;
+    padding:8px 0;
+    border-radius: 5px;
+}

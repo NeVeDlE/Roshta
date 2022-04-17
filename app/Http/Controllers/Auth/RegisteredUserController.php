@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
-use App\Models\Patient;
+use App\Models\User;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Http\Request;
@@ -26,24 +26,36 @@ class RegisteredUserController extends Controller
     /**
      * Handle an incoming registration request.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param \Illuminate\Http\Request $request
      * @return \Illuminate\Http\RedirectResponse
      *
      * @throws \Illuminate\Validation\ValidationException
      */
     public function store(Request $request)
     {
+
         $request->validate([
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+            'national_id' => ['required', 'string', 'size:14', 'unique:users,national_id'],
+            'phone' => ['required', 'string', 'size:11', 'unique:users,phone'],
+            'picture' => ['image:img'],
+            'birthday' => ['required', 'date'],
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
         ]);
 
-        $user = Patient::create([
+
+        $user = User::create([
             'name' => $request->name,
             'email' => $request->email,
+            'national_id' => $request->national_id,
+            'phone' => $request->phone,
+            'picture' => isset(request()->picture) ?
+                $request->file('picture')->store('profile_pictures') : null,
+            'birthday' => $request->birthday,
             'password' => Hash::make($request->password),
         ]);
+
 
         event(new Registered($user));
 

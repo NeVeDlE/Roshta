@@ -1,0 +1,27 @@
+@use "sass/colors" as *;
+@use "sass/fonts";
+@use "sass/global";
+
+.error input{
+    border-color:$errorColor !important;
+}
+.success input{
+    border-color: $rightColor !important;
+}
+.error-msg{
+    color:$errorColor;
+    font-size: 12px;
+    height: 10px;
+    top:50px;
+    left:60px;
+    display:flex;
+}
+.form-group{
+    position: relative;
+    z-index:1000;
+    .error-msg{
+        position: absolute;
+        z-index:1001;
+    }
+}
+

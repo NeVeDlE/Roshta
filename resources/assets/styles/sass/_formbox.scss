@@ -1,0 +1,170 @@
+.forms {
+  display: inline;
+}
+.formbox {
+  padding: 7em 0;
+}
+.form-container {
+  width: 100%;
+  overflow: hidden;
+  background: #fff;
+  border-radius: 5px;
+  box-shadow: 0px 10px 34px -15px rgba(0, 0, 0, 0.24);
+}
+.form-container .form-title h3 {
+  font-weight: 600;
+  margin-bottom: 5px;
+  text-align: center;
+  color: #26a0db;
+}
+.form-container .form-title p {
+  font-weight: 400;
+  margin-bottom: 5px;
+  text-align: center;
+  color: darkgray;
+}
+.form-title {
+  position: relative;
+}
+.form-container .form-group {
+  position: relative;
+  z-index: 0;
+  margin-bottom: 20px !important;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.form-container .form-group .controller {
+  height: 48px;
+  background: #fff;
+  color: #000;
+  font-size: 16px;
+  border-radius: 5px;
+  box-shadow: none;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  width: 75%;
+}
+.form-container .form-group .controller:active,
+.form-container .form-group .controller:focus-visible {
+  outline: none;
+  border-color: #22ceec;
+}
+.form-container .form-group {
+  display: flex;
+}
+
+.form-container .form-group .showpass {
+  position: absolute;
+  top: 50%;
+  right: 80px;
+  transform: translateY(-50%);
+  color: #0000004d;
+  cursor: pointer;
+  border: none;
+  background-color: none;
+}
+.form-group .showpass {
+  background-color: transparent;
+}
+.form-container .form-group .form-placeholder {
+  position: absolute;
+  top: 2px;
+  padding: 7px 0 0 15px;
+  transition: all 400ms;
+  opacity: 0.6;
+  z-index: 1;
+}
+.form-container .btn.btn-primary {
+  background: #ec4e4e !important;
+  border: 1px solid #ec4e4e !important;
+  color: #fff !important;
+}
+.form-group a {
+  color: gray;
+}
+.form-group .form-checkbox {
+  display: block;
+  position: relative;
+  padding-left: 30px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 500;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  color: #26a0db;
+}
+.form-group .controller:focus + .form-placeholder,
+.form-group .controller:valid + .form-placeholder {
+  transform: translate3d(0, -120%, 0);
+  padding: 5px 0 0 0;
+  opacity: 1;
+  text-transform: uppercase;
+  font-size: 10px;
+  letter-spacing: 1px;
+  color: #1cb3fe;
+  font-weight: 700;
+}
+.form-container .form-group .btn {
+  cursor: pointer;
+  -webkit-box-shadow: none !important;
+  box-shadow: none !important;
+  font-size: 15px;
+  padding: 10px 20px;
+}
+.form-container .btns {
+  display: flex;
+  justify-content: space-around;
+}
+.form-container .form-group .nextbtn {
+  background-color: #26a0db !important;
+  border: 1px solid #1cb3fe !important;
+  color: #fff !important;
+  width: 25%;
+}
+.form-container .form-group .bckbtn {
+  background-color: white !important;
+  border: 1px solid #26a0db !important;
+  color: #26a0db !important;
+  width: 25%;
+}
+.form-container .form-group .dnbtn {
+  width: 25%;
+  color: white;
+}
+#profilePhoto,
+#universityDegree,#graduation-year,#syndicate {
+  margin-top: -10px;
+  display: flex;
+  flex-direction: column-reverse;
+  label {
+    opacity: 0.7;
+  }
+  .placeHolder {
+    transition: all 400ms;
+  }
+  .controller:focus + .placeHolder,
+  .controller:valid + .placeHolder {
+    padding: 5px 0 0 0;
+    opacity: 1;
+    text-transform: uppercase;
+    font-size: 10px;
+    letter-spacing: 1px;
+    color: #1cb3fe;
+    font-weight: 700;
+  }
+}
+#birthdate-form {
+  margin-top: -10px;
+  display: flex;
+  flex-direction: column-reverse;
+  position: relative;
+  label {
+    opacity: 0.7;
+  }
+  input {
+    color: rgba(0, 0, 0, 0.6);
+  }
+}

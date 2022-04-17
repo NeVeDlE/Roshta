@@ -1,0 +1,93 @@
+@use "sass/colors" as *;
+@use "sass/fonts";
+@use "sass/global";
+
+.form-step {
+  display: none;
+  transform-origin: top;
+  animation: formTranslate 0.5s;
+  z-index: -1;
+}
+.active-form {
+  display: block;
+}
+.progressbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  position: relative;
+  counter-reset: step;
+
+  // &::before,.progressbar-color {
+  //   content: "";
+  //   position: absolute;
+  //   top: 50%;
+  //   transform: translateY(-50%);
+  //   height: 4px;
+  //   width: 70%;
+  //   background-color: #dcdcdc;
+  //   z-index: 0;
+  // }
+  .progressbar-color{
+    background-color: $blueColorDark;
+    width:0%;
+    transition: 0.3s;
+  }
+  .progressbar-steps {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    background-color: #dcdcdc;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1;
+
+    &::before {
+      counter-increment: step;
+      content: counter(step);
+    }
+  }
+  .progress-step-active{
+    background-color: $blueColorDark;
+    color:white;
+  }
+}
+
+@keyframes formTranslate {
+  from {
+    transform: scale(1, 0);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1, 1);
+    opacity: 1;
+  }
+}
+.form-step{
+  .medical{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    // background-color: $blueColorDark;
+    .grid-container{
+      display:grid;
+      grid-template-columns:auto auto;
+      align-items: center;
+      justify-content: space-between;
+      padding:10px;
+      // background-color: $blueColorDark;
+      color:$blueColorDark;
+      
+    }
+    h4{
+      background-color: white;
+      text-align: center;
+      display:block;
+      // margin-right:10px;
+      padding:5px;
+      color:$blueColorDark;
+    }
+  }
+}

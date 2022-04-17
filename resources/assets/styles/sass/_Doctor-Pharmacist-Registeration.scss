@@ -1,0 +1,33 @@
+@use "sass/colors" as *;
+@use "sass/fonts";
+@use "sass/global";
+
+.form-group{
+    img{
+        width:80px;
+        margin-bottom: 10px;
+    }
+    .doctor-label,.doctor-label1{
+        display:flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        flex-wrap: wrap;
+        h5{
+            text-align: center;
+            margin-top:10px;
+        }
+    }
+    .doctor-label1{
+        h5{
+            margin-top:25px;
+
+        }
+    }
+}
+.job{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
