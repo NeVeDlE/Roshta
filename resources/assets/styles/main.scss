@@ -10,3 +10,6 @@
 @use "Header/footerstyle";
 @use "Header/headerstyle";
 @use "sass/homepage";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;

@@ -76,11 +76,11 @@
               <h3 class="mb-3 text-center">Create Account</h3>
             </div>
 
-            <div class="progressbar">
+            <!-- <div class="progressbar">
               <div class="progressbar-steps progress-step-active" data-title="first-form"><small></small></div>
               <div class="progressbar-steps" data-title="second-form"><small></small></div>
               <div class="progressbar-steps" data-title="third-form"><small></small></div>
-            </div>
+            </div> -->
 
             <div class="form-step active-form">
 
@@ -91,7 +91,7 @@
                   <div id="username-errors" class="error-msg"></div>
                 </div>
                 <div class="form-group mt-3 mb-5" id="e-mail-form">
-                  <input type="text" class="mail controller" id="e-mail-input" required />
+                  <input type="email" class="mail controller" id="e-mail-input" required />
                   <label class="form-placeholder" for="mail">Enter Your E-mail</label>
                   <div id="e-mail-errors" class="error-msg"></div>
                 </div>
@@ -101,88 +101,68 @@
                   <label class="form-placeholder" for="phoneNum">Enter National Id</label>
                   <div id="nationalId-errors" class="error-msg "></div>
                 </div>
-                <div class="form-group mt-3 mb-5 btns1 btns">
-                  <button type="submit" form="patient-register-form" class="controller btn nextbtn" id="submit-button1">
-                    Next
-                  </button>
-                </div>
+               
             </div>
-            <div class="form-step">
-              <div class="form-group mt-3 mb-5" id="password-form">
-                <input id="password-filed" type="password" class="paswrd controller" required />
-                <label class="form-placeholder" for="paswrd">Password</label>
-                <button type="button" id="showpas" class="showpass toggle">
-                  <i id="shopas" class="fa-solid fa-eye showpass-sign"></i>
-                </button>
-                <div id="password-errors" class="error-msg"></div>
 
-              </div>
-              <div class="form-group mt3 mb-5" id="confirm-password-form">
-                <input id="password-filed1" type="password" class="paswrd controller" required />
-                <label class="form-placeholder" for="paswrd">Confirm Password</label>
-                <button type="button" id="showpas1" class="showpass toggle">
-                  <i id="shopas" class="fa-solid fa-eye showpass-sign"></i>
-                </button>
-                <div id="password-confirm-errors" class="error-msg"></div>
-              </div>
-              <div class="form-group mt-3 mb-5 btns text-left">
-                <button type="button" class="controller bckbtn btn">
-                  Back
-                </button>
-                <button type="submit" class="controller btn nextbtn" id="submit-button2">
-                  Next
-                </button>
-              </div>
+            <div class="form-group mt-3 mb-5" id="password-form">
+              <input id="password-filed" type="password" class="paswrd controller" required />
+              <label class="form-placeholder" for="paswrd">Password</label>
+              <button type="button" id="showpas" class="showpass toggle">
+                <i id="shopas" class="fa-solid fa-eye showpass-sign"></i>
+              </button>
+              <div id="password-errors" class="error-msg"></div>
+
             </div>
-            <div class="form-step">
-              <div class="form-group more-info mt-4" id="sex-form">
-                <h4>Sex:</h4>
-                <div class="form-check">
-                  <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1" />
-                  <label class="form-check-label" for="flexRadioDefault1">
-                    Male
-                  </label>
-
-                </div>
-                <div class="form-check">
-                  <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" />
-                  <label class="form-check-label" for="flexRadioDefault2">
-                    Female
-                  </label>
-                </div>
-                <div id="sex-errors" class="error-msg"></div>
-              </div>
-              <div class="form-group mt-3 mb-5 birthdate" id="birthdate-form">
-                <input type="date" id="birthday" class="controller" name="birthday" />
-                <label class="placeHolder birthday" for="birthday">Birthdate:</label>
-                <div id="birthdate-errors" class="error-msg"></div>
-
-              </div>
-              <div class="form-group mt-3 mb-5" id="phoneNumber-form">
-                <input type="text" class="phoneNum controller" id="phonenumber-input" required />
-                <label class="form-placeholder" for="phoneNum">Enter Your Phone Number</label>
-                <div id="phonenumber-errors" class="error-msg"></div>
-              </div>
-              <div class="form-group mt-3 mb-5 " id="profilePhoto">
-                <input type="file" class="ProfilePhoto controller" id="profilePhotoInput" required />
-                <label class="placeHolder mt-3">Upload your Photo</label>
-                <div id="phonenumber-errors" class="error-msg"></div>
-
-              </div>
-              <div class="form-group mt-3 mb-5 btns text-left" id="submit-button3">
-                <button type="button" class="controller bckbtn">
-                  Back
-                </button>
-                <button type="submit" class="controller btn dnbtn"
-                  style="background-color:#ed2929 !important; border: none;">
-                  Register
-                </button>
-              </div>
+            <div class="form-group mt3 mb-5" id="confirm-password-form">
+              <input id="password-filed1" type="password" class="paswrd controller" required />
+              <label class="form-placeholder" for="paswrd">Confirm Password</label>
+              <button type="button" id="showpas1" class="showpass toggle">
+                <i id="shopas" class="fa-solid fa-eye showpass-sign"></i>
+              </button>
+              <div id="password-confirm-errors" class="error-msg"></div>
             </div>
-            </form>
-          </div>
+            <div class="form-group more-info mt-4" id="sex-form">
+              <h4>Sex:</h4>
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1" />
+                <label class="form-check-label" for="flexRadioDefault1">
+                  Male
+                </label>
+
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" />
+                <label class="form-check-label" for="flexRadioDefault2">
+                  Female
+                </label>
+              </div>
+              <div id="sex-errors" class="error-msg"></div>
+            </div>
+            <div class="form-group mt-3 mb-5 birthdate" id="birthdate-form">
+              <input type="date" id="birthday" class="controller" name="birthday" />
+              <label class="placeHolder birthday" for="birthday">Birthdate:</label>
+              <div id="birthdate-errors" class="error-msg"></div>
+
+            </div>
+            <div class="form-group mt-3 mb-5" id="phoneNumber-form">
+              <input type="text" class="phoneNum controller" id="phonenumber-input" required />
+              <label class="form-placeholder" for="phoneNum">Enter Your Phone Number</label>
+              <div id="phonenumber-errors" class="error-msg"></div>
+            </div>
+            <div class="form-group mt-3 mb-5 " id="profilePhoto">
+              <input type="file" class="ProfilePhoto controller" id="profilePhotoInput" required />
+              <label class="placeHolder mt-3">Upload your Photo</label>
+              <div id="phonenumber-errors" class="error-msg"></div>
+            </div>
+            <div class="form-group mt-3 mb-5 btns1 btns">
+              <button type="submit" form="patient-register-form" class="controller btn dnbtn" id="submit-button1">
+                Register
+              </button>
+            </div>
+          </form>
         </div>
       </div>
+    </div>
     </div>
   </main>
   <footer class="pt-5 pb-5 text-center">

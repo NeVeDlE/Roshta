@@ -279,7 +279,7 @@ select {
 
 .form-container .form-group .controller {
   height: 48px;
-  background: #fff;
+  background: transparent;
   color: #000;
   font-size: 16px;
   border-radius: 5px;
@@ -324,7 +324,7 @@ select {
   -webkit-transition: all 400ms;
   transition: all 400ms;
   opacity: 0.6;
-  z-index: 1;
+  z-index: -1;
 }
 
 .form-container .btn.btn-primary {
@@ -381,7 +381,7 @@ select {
       justify-content: space-around;
 }
 
-.form-container .form-group .nextbtn {
+.form-container .form-group .dnbtn, .form-container .form-group .nextbtn {
   background-color: #26a0db !important;
   border: 1px solid #1cb3fe !important;
   color: #fff !important;
@@ -591,7 +591,7 @@ nav .btn:hover, nav .btn:focus {
 }
 
 .welcome-home {
-  background-image: url(../assets/images/main-slideShow/1.jpg);
+  background-image: url(../images/main-slideShow/1.jpg);
   background-size: cover;
   background-position: top center;
   position: relative;
@@ -618,8 +618,17 @@ nav .btn:hover, nav .btn:focus {
   min-height: calc(100vh - 75px);
 }
 
+header {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 1000;
+  background-color: #eee;
+}
+
 .welcome-home {
-  background-image: url(../assets/images/main-slideShow/1.jpg);
+  background-image: url(../images/main-slideShow/1.jpg);
   background-size: cover;
   background-position: top center;
   position: relative;
@@ -647,10 +656,8 @@ nav .btn:hover, nav .btn:focus {
 }
 
 .home-page {
-  background: -webkit-gradient(linear, left bottom, left top, from(white), to(transperant));
-  background: linear-gradient(to top, white, transperant);
   width: 100%;
-  min-height: calc(100vh - 75px);
+  height: calc(100vh - 75px);
   -webkit-animation: animate 30s ease-in-out infinite;
           animation: animate 30s ease-in-out infinite;
   background-size: cover;
@@ -667,6 +674,22 @@ nav .btn:hover, nav .btn:focus {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  position: fixed;
+}
+.home-page .Homelogo {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 .home-page .Homelogo img {
   width: 500px;
@@ -691,6 +714,10 @@ nav .btn:hover, nav .btn:focus {
 .home-page .Searching button {
   padding: 10px0 30px;
 }
+.home-page .Searching button:focus {
+  -webkit-box-shadow: none;
+          box-shadow: none;
+}
 .home-page .Searching .SearchDoctorButton button {
   background-color: #DF313B;
   border-color: #DF313B;
@@ -714,40 +741,58 @@ nav .btn:hover, nav .btn:focus {
   border-color: #DF313B;
 }
 
+footer {
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+  padding-bottom: 40px;
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  top: 100vh;
+}
+
 @-webkit-keyframes animate {
   0%, 100% {
     background-color: 0, 0, 0, 0.5;
-    background-image: url(../assets/images/main-slideShow/1.jpg);
+    background-image: url(../images/main-slideShow/1.jpg);
   }
   25% {
     background-color: 0, 0, 0, 0.5;
-    background-image: url(../assets/images/main-slideShow/2.jpg);
+    background-image: url(../images/main-slideShow/2.jpg);
   }
   50% {
     background-color: 0, 0, 0, 0.5;
-    background-image: url(../assets/images/main-slideShow/3.jpg);
+    background-image: url(../images/main-slideShow/3.jpg);
   }
   75% {
     background-color: 0, 0, 0, 0.5;
-    background-image: url(../assets/images/main-slideShow/4.jpg);
+    background-image: url(../images/main-slideShow/4.jpg);
   }
 }
 
 @keyframes animate {
   0%, 100% {
     background-color: 0, 0, 0, 0.5;
-    background-image: url(../assets/images/main-slideShow/1.jpg);
+    background-image: url(../images/main-slideShow/1.jpg);
   }
   25% {
     background-color: 0, 0, 0, 0.5;
-    background-image: url(../assets/images/main-slideShow/2.jpg);
+    background-image: url(../images/main-slideShow/2.jpg);
   }
   50% {
     background-color: 0, 0, 0, 0.5;
-    background-image: url(../assets/images/main-slideShow/3.jpg);
+    background-image: url(../images/main-slideShow/3.jpg);
   }
   75% {
     background-color: 0, 0, 0, 0.5;
-    background-image: url(../assets/images/main-slideShow/4.jpg);
+    background-image: url(../images/main-slideShow/4.jpg);
   }
 }
+@tailwind base;
+@tailwind components;
+@tailwind utilities;

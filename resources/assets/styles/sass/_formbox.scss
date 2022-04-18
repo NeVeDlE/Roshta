@@ -1,3 +1,6 @@
+@use "sass/colors" as *;
+@use "sass/fonts";
+@use "sass/global";
 .forms {
   display: inline;
 }
@@ -36,7 +39,7 @@
 }
 .form-container .form-group .controller {
   height: 48px;
-  background: #fff;
+  background: transparent;
   color: #000;
   font-size: 16px;
   border-radius: 5px;
@@ -72,7 +75,7 @@
   padding: 7px 0 0 15px;
   transition: all 400ms;
   opacity: 0.6;
-  z-index: 1;
+  z-index: -1;
 }
 .form-container .btn.btn-primary {
   background: #ec4e4e !important;
@@ -118,7 +121,7 @@
   display: flex;
   justify-content: space-around;
 }
-.form-container .form-group .nextbtn {
+.form-container .form-group  .dnbtn, .form-container .form-group  .nextbtn {
   background-color: #26a0db !important;
   border: 1px solid #1cb3fe !important;
   color: #fff !important;

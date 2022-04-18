@@ -1,6 +1,14 @@
 @use "sass/colors" as *;
 @use "sass/fonts";
 @use "sass/global";
+header{
+  position: fixed;
+  top:0;
+  right:0;
+  left:0;
+  z-index:1000;
+  background-color: #eee;
+}
 .welcome-home {
     background-image: url(../images/main-slideShow/1.jpg);
     background-size: cover;
@@ -28,16 +36,20 @@
   }
   
   .home-page {
-    background: linear-gradient(to top, white, transperant);
     width: 100%;
-    min-height: calc(100vh - 75px);
+    height: calc(100vh - 75px);
     animation: animate 30s ease-in-out infinite;
     background-size: cover;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    position: fixed;
     .Homelogo {
+      display:flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
       img {
         width: 500px;
       }
@@ -56,6 +68,9 @@
       justify-content: space-around;
       button {
         padding: 10px0 30px;
+        &:focus{
+          box-shadow: none;
+        }
       }
       .SearchDoctorButton {
         button {
@@ -85,7 +100,14 @@
       }
     }
   }
-  
+  footer{
+    justify-content: center;
+    align-items: flex-end;
+    padding-bottom: 40px;
+    position: relative;
+    display: flex;
+    top: 100vh;
+  }
   @keyframes animate {
     0%,
     100% {

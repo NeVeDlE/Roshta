@@ -89,7 +89,7 @@
               <form action="/" class="login-form" id="registerationForm">
                 <h4 class="text-center mt-2" style="color:#26A0DB;">Are You?</h4>
                 <div class="job">
-                  <div class="form-group mt-3 mb-5">
+                  <div class="form-group mt-3 mb-5" id="jobchecking">
                     <input type="radio" id="Doctor-checkBox" name="job" />
                     <label for="Doctor-checkBox" id="Doctor-checkBox-label" class="doctor-label"><img
                         src="../../assets/images/Doctor.png" />
@@ -104,6 +104,7 @@
                     </label>
                   </div>
                 </div>
+                <p id="jobSelectionError" class="error-msg"></p>
                 <div class="form-group mt-3 mb-5 btns1 btns">
                   <input type="submit" form="Doctor-Pharmacist-Registeration" class="controller btn nextbtn"
                     id="submit-button1" value="Next">
@@ -115,18 +116,18 @@
                 <div class="form-group mt-3 mb-5" id="username-form">
                   <input type="text" class="name controller" id="username-input" required />
                   <label class="form-placeholder" for="name">Enter Your Name</label>
-                  <div id="username-errors" class="error-msg"></div>
+                  <p id="username-errors" class="error-msg"></p>
                 </div>
                 <div class="form-group mt-3 mb-5" id="e-mail-form">
-                  <input type="text" class="mail controller" id="e-mail-input" required />
+                  <input type="email" class="mail controller" id="e-mail-input" required />
                   <label class="form-placeholder" for="mail">Enter Your E-mail</label>
-                  <div id="e-mail-errors" class="error-msg"></div>
+                  <p id="e-mail-errors" class="error-msg"></p>
                 </div>
 
                 <div class="form-group mt-3 mb-5" id="nationalId-form">
                   <input type="text" class="phoneNum controller" id="nationalId-input" required />
                   <label class="form-placeholder" for="phoneNum">Enter National Id</label>
-                  <div id="nationalId-errors" class="error-msg "></div>
+                  <p id="nationalId-errors" class="error-msg "></p>
                 </div>
                 <div class="form-group mt-3 mb-5 btns text-left">
                   <button type="button" class="controller bckbtn btn">
@@ -143,7 +144,7 @@
                 <button type="button" id="showpas" class="showpass toggle">
                   <i id="shopas" class="fa-solid fa-eye showpass-sign"></i>
                 </button>
-                <div id="password-errors" class="error-msg"></div>
+                <p id="password-errors" class="error-msg"></p>
               </div>
               <div class="form-group mt3 mb-5" id="confirm-password-form">
                 <input id="password-filed1" type="password" class="paswrd controller" required />
@@ -151,7 +152,7 @@
                 <button type="button" id="showpas1" class="showpass toggle">
                   <i id="shopas" class="fa-solid fa-eye showpass-sign"></i>
                 </button>
-                <div id="password-confirm-errors" class="error-msg"></div>
+                <p id="password-confirm-errors" class="error-msg"></p>
               </div>
               <div class="form-group mt-3 mb-5 btns text-left">
                 <button type="button" class="controller bckbtn btn">
@@ -201,7 +202,7 @@
               </div>
               <div class="form-group mt-3 mb-5 birthdate" id="university">
                 <label class="birthday" for="univercity">specialties </label>
-                <select name="university" id="universities-list" onmousedown="if(this.options.length>8){this.size=5;}"
+                <select name="university" id="spcialties-list" onmousedown="if(this.options.length>8){this.size=5;}"
                   onchange='this.size=0;' onblur="this.size=0;">
                   <option value="">Pediatrician</option>
                   <option value="">Neurologist</option>
@@ -231,53 +232,54 @@
               <div class="form-group mt-3 mb-5" id="universityDegree">
                 <input type="file" class="phoneNum controller" id="universityDegreeInputFile" required />
                 <label class="placeHolder mt-3">Upload your University degree</label>
-                <div id="phonenumber-errors" class="error-msg"></div>
+                <p id="phonenumber-errors" class="error-msg"></p>
               </div>
               <div class="form-group mt-3 mb-5" id="syndicate">
                 <input type="file" class="syndicate controller" id="syndicateInputFile" required />
-                <label class="placeHolder mt-3 text-center" style="font-size:12px;">Upload your Doctors / Pharmacists Syndicate ID</label>
-                <div id="phonenumber-errors" class="error-msg"></div>
+                <label class="placeHolder mt-3 text-center" style="font-size:12px;">Upload your Doctors / Pharmacists
+                  Syndicate ID</label>
+                <p id="phonenumber-errors" class="error-msg"></p>
 
               </div>
               <div class="form-group mt-3 mb-5 btns text-left">
                 <button type="button" class="controller bckbtn btn">
                   Back
                 </button>
-                <input type="submit" class="controller btn nextbtn" id="submit-button5" value="Next">
+                <input type="submit" class="controller btn nextbtn" id="submit-button4" value="Next">
                 </input>
               </div>
             </div>
-              <div class="form-step">
-                <div class="form-group mt-3 mb-5" id="nationalId-form">
-                  <input type="text" class="phoneNum controller" id="nameOfPlace" required />
-                  <label class="form-placeholder" for="phoneNum">Name of Clinc / Pharmacy</label>
-                  <div id="nationalId-errors" class="error-msg "></div>
-                </div>
-                <div class="form-group mt-3 mb-5" id="nationalId-form">
-                  <input type="text" class="phoneNum controller" id="nameOfOwner" required />
-                  <label class="form-placeholder" for="phoneNum">Name of Owner</label>
-                  <div id="nationalId-errors" class="error-msg "></div>
-                </div>
-                <div class="form-group mt-3 mb-5" id="nationalId-form">
-                  <input type="text" class="phoneNum controller" id="phoneOfPlace" required />
-                  <label class="form-placeholder" for="phoneNum">Clinc / Pharmacy Phone Number</label>
-                  <div id="nationalId-errors" class="error-msg "></div>
-                </div>
-                <div class="form-group mt-3 mb-5" id="nationalId-form">
-                  <input type="text" class="phoneNum controller" id="licenseNumber" required />
-                  <label class="form-placeholder" for="phoneNum">license number</label>
-                  <div id="nationalId-errors" class="error-msg "></div>
-                </div>
-                <div class="form-group mt-3 mb-5" id="nationalId-form">
-                  <input type="text" class="phoneNum controller" id="address1" required />
-                  <label class="form-placeholder" for="phoneNum">Clinc / Pharmacy Address1</label>
-                  <div id="nationalId-errors" class="error-msg "></div>
-                </div>
-                <div class="form-group mt-3 mb-5" id="nationalId-form">
-                  <input type="text" class="phoneNum controller" id="address2" required />
-                  <label class="form-placeholder" for="phoneNum">Clinc / Pharmacy Address2</label>
-                  <div id="nationalId-errors" class="error-msg "></div>
-                </div>
+            <div class="form-step">
+              <div class="form-group mt-3 mb-5" id="nationalId-form">
+                <input type="text" class="phoneNum controller" id="nameOfPlace" required />
+                <label class="form-placeholder" for="phoneNum">Name of Clinc / Pharmacy</label>
+                <p id="nationalId-errors" class="error-msg "></p>
+              </div>
+              <div class="form-group mt-3 mb-5" id="nationalId-form">
+                <input type="text" class="phoneNum controller" id="nameOfOwner" required />
+                <label class="form-placeholder" for="phoneNum">Name of Owner</label>
+                <p id="nationalId-errors" class="error-msg "></p>
+              </div>
+              <div class="form-group mt-3 mb-5" id="nationalId-form">
+                <input type="text" class="phoneNum controller" id="phoneOfPlace" required />
+                <label class="form-placeholder" for="phoneNum">Clinc / Pharmacy Phone Number</label>
+                <p id="nationalId-errors" class="error-msg "></p>
+              </div>
+              <div class="form-group mt-3 mb-5" id="nationalId-form">
+                <input type="text" class="phoneNum controller" id="licenseNumber" required />
+                <label class="form-placeholder" for="phoneNum">license number</label>
+                <p id="nationalId-errors" class="error-msg "></p>
+              </div>
+              <div class="form-group mt-3 mb-5" id="nationalId-form">
+                <input type="text" class="phoneNum controller" id="address1" required />
+                <label class="form-placeholder" for="phoneNum">Clinc / Pharmacy Address1</label>
+                <p id="nationalId-errors" class="error-msg "></p>
+              </div>
+              <div class="form-group mt-3 mb-5" id="nationalId-form">
+                <input type="text" class="phoneNum controller" id="address2" required />
+                <label class="form-placeholder" for="phoneNum">Clinc / Pharmacy Address2</label>
+                <p id="nationalId-errors" class="error-msg "></p>
+              </div>
 
               <div class="form-group mt-3 mb-5 btns text-left">
                 <button type="button" class="controller bckbtn btn">
@@ -303,67 +305,23 @@
                     Female
                   </label>
                 </div>
-                <div id="sex-errors" class="error-msg"></div>
+                <p id="sex-errors" class="error-msg"></p>
               </div>
               <div class="form-group mt-3 mb-5 birthdate" id="birthdate-form">
                 <label class="birthday" for="birthday">Birthday:</label>
                 <input type="date" id="birthday" class="controller" name="birthday" />
-                <div id="birthdate-errors" class="error-msg"></div>
+                <p id="birthdate-errors" class="error-msg"></p>
 
               </div>
               <div class="form-group mt-3 mb-5" id="phoneNumber-form">
                 <input type="text" class="phoneNum controller" id="phonenumber-input" required />
                 <label class="form-placeholder" for="phoneNum">Enter Your Phone Number</label>
-                <div id="phonenumber-errors" class="error-msg"></div>
+                <p id="phonenumber-errors" class="error-msg"></p>
               </div>
               <div class="form-group mt-3 mb-5" id="profilePhoto">
-                <input type="file" class="phoneNum controller" id="profilePhotoInput"/>
+                <input type="file" class="phoneNum controller" id="profilePhotoInput" />
                 <label class="placeHolder mt-3">Upload your Photo</label>
-                <div id="phonenumber-errors" class="error-msg"></div>
-
-              </div>
-              <div class="form-group mt-3 mb-5 btns text-left" id="submit-button3">
-                <button type="button" class="controller bckbtn">
-                  Back
-                </button>
-                <input type="submit" class="controller btn dnbtn"
-                  style="background-color:#ed2929 !important; border: none;" value="Register">
-                </input>
-              </div>
-            </div>
-            <div class="form-step">
-              <div class="form-group more-info mt-4" id="sex-form">
-                <h4>Sex:</h4>
-                <div class="form-check">
-                  <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1" />
-                  <label class="form-check-label" for="flexRadioDefault1">
-                    Male
-                  </label>
-
-                </div>
-                <div class="form-check">
-                  <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" />
-                  <label class="form-check-label" for="flexRadioDefault2">
-                    Female
-                  </label>
-                </div>
-                <div id="sex-errors" class="error-msg"></div>
-              </div>
-              <div class="form-group mt-3 mb-5 birthdate" id="birthdate-form">
-                <label class="birthday" for="birthday">Birthday:</label>
-                <input type="date" id="birthday" class="controller" name="birthday" />
-                <div id="birthdate-errors" class="error-msg"></div>
-
-              </div>
-              <div class="form-group mt-3 mb-5" id="phoneNumber-form">
-                <input type="text" class="phoneNum controller" id="phonenumber-input" required />
-                <label class="form-placeholder" for="phoneNum">Enter Your Phone Number</label>
-                <div id="phonenumber-errors" class="error-msg"></div>
-              </div>
-              <div class="form-group mt-3 mb-5" id="phoneNumber-form">
-                <input type="file" class="phoneNum controller" id="Profilephoto-input" required />
-                <label class="form-placeholder mt-3">Upload your Photo</label>
-                <div id="phonenumber-errors" class="error-msg"></div>
+                <p id="phonenumber-errors" class="error-msg"></p>
 
               </div>
               <div class="form-group mt-3 mb-5 btns text-left" id="submit-button3">
@@ -383,66 +341,64 @@
   </main>
   <footer class="pt-5 pb-5 text-center">
     <div class="container">
-        <div class="row">
-            <div class="col-md-6 col-lg-3">
-                <div class="General-info justify-content-center align-items-center">
-                    <img src="../../assets/images/Logo.png">
-                    <p class="text-center">All Healthcare in one Place</p>
-                   
-                </div>
-            </div>
-            <div class="col-md-6 col-lg-3 text-md-start">
-                <div class="links">
-                    <h5 class="fs-6">Important Links</h5>
-                    <ul class="list-unstyled lh-lg">
-                        <li><a href="Login.html">Log in</a></li>
-                        <li><a href="Patient-Register.html">Sign up as Patient</a></li>
-                        <li><a href="Doctor-Pharmacist-Registeration.html">Sign up as Doctor / Pharmacist</a></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="col-md-6 col-lg-3 text-md-start">
-                <div class="links">
-                    <h5 class="fs-6">Need Help?</h5>
-                    <ul class="list-unstyled lh-lg">
-                        <li><a href="#">Contact Us</a></li>
-                        <li><a href="#">Terms of Use</a></li>
-                        <li><a href="#">Privacy Policy</a></li>
-                        <li><a href="#">Doctors / Pharmacists Privacy Policy</a></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="col-md-6 col-lg-3 text-md-start">
-                <div class="links-mobile">
-                    <ul class="list-unstyled">
-                        <li><a href="#">
-                            <img src="../../assets/images/Get-it-on-google-play-badge.png" alt="Download From Google Play Store">
-                        </a></li>
-                        <li><a href="#">
-                            <img src="../../assets/images/download-on-the-app-store-apple.png">
-                        </a></li>
-                    </ul>
-                    <div class="social">
-                        <a href=""><i class="fa-brands fa-facebook-square"></i></a>
-                        <a href=""><i class="fa-brands fa-linkedin"></i></a>
-                        <a href=""><i class="fa-brands fa-twitter-square"></i></a>
-                    </div>
-                </div>
-            </div>
+      <div class="row">
+        <div class="col-md-6 col-lg-3">
+          <div class="General-info justify-content-center align-items-center">
+            <img src="../../assets/images/Logo.png">
+            <p class="text-center">All Healthcare in one Place</p>
+
+          </div>
         </div>
+        <div class="col-md-6 col-lg-3 text-md-start">
+          <div class="links">
+            <h5 class="fs-6">Important Links</h5>
+            <ul class="list-unstyled lh-lg">
+              <li><a href="Login.html">Log in</a></li>
+              <li><a href="Patient-Register.html">Sign up as Patient</a></li>
+              <li><a href="Doctor-Pharmacist-Registeration.html">Sign up as Doctor / Pharmacist</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-3 text-md-start">
+          <div class="links">
+            <h5 class="fs-6">Need Help?</h5>
+            <ul class="list-unstyled lh-lg">
+              <li><a href="#">Contact Us</a></li>
+              <li><a href="#">Terms of Use</a></li>
+              <li><a href="#">Privacy Policy</a></li>
+              <li><a href="#">Doctors / Pharmacists Privacy Policy</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-3 text-md-start">
+          <div class="links-mobile">
+            <ul class="list-unstyled">
+              <li><a href="#">
+                  <img src="../../assets/images/Get-it-on-google-play-badge.png" alt="Download From Google Play Store">
+                </a></li>
+              <li><a href="#">
+                  <img src="../../assets/images/download-on-the-app-store-apple.png">
+                </a></li>
+            </ul>
+            <div class="social">
+              <a href=""><i class="fa-brands fa-facebook-square"></i></a>
+              <a href=""><i class="fa-brands fa-linkedin"></i></a>
+              <a href=""><i class="fa-brands fa-twitter-square"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
     <div class="credits">
-        Created By <span style="color:#26A0DB;">Ro<span style="color:#DF313B;"> ش </span>ta</span> Team<br>
-        all Rights are Reserved                            
-        &copy; 2022 Rostha.Inc
+      Created By <span style="color:#26A0DB;">Ro<span style="color:#DF313B;"> ش </span>ta</span> Team<br>
+      all Rights are Reserved
+      &copy; 2022 Rostha.Inc
     </div>
-</footer>
+  </footer>
 
   <script src="../../assets/scripts/all.min.js"></script>
   <script src="../../assets/scripts/bootstrap.bundle.js"></script>
-  <script src="../../assets/scripts/showHidePass.js"></script>
   <script src="../../assets/scripts/main.js"></script>
-  <script src="../../assets/scripts/progrssform.js"></script>
-  <script src="../../assets/scripts/validation.js"></script>
 </body>
+
 </html>
