@@ -10,7 +10,10 @@
                         <form action="{{ route('register') }}" method="POST" class="mt-2"
                               enctype="multipart/form-data">
                             @csrf
-                            <x-form.input name="name" :value="old('name')" wire="name"/>
+                            <div class="form-group">
+                                <x-form.input name="name" :value="old('name')" wire="name"/>
+                                <label class="form-placeholder">Name</label>
+                            </div>
                             <x-form.input name="email" :value="old('email')" type="email" wire="email"/>
                             <x-form.input name="birthday" :value="old('birthday')" type="date" wire="birthday"/>
                             <x-form.input name="national_id" wire="national_id"/>
