@@ -11,7 +11,7 @@
 
         <!-- Validation Errors -->
         <x-auth-validation-errors class="mb-4" :errors="$errors"/>
-        <livewire:login-form/>
+        <livewire:sessions.login-form/>
 
 
     </x-auth-card>

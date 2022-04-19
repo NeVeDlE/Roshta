@@ -1,3 +1,3 @@
 <x-layout>
-    <livewire:register-form/>
+    <livewire:sessions.register-form/>
 </x-layout>

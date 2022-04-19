@@ -17,7 +17,7 @@ class User extends Authenticatable implements MustVerifyEmail
      *
      * @var array<int, string>
      */
-   protected $guarded=[];
+    protected $guarded = [];
 
     /**
      * The attributes that should be hidden for serialization.
@@ -37,4 +37,15 @@ class User extends Authenticatable implements MustVerifyEmail
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function role()
+    {
+      return $this->belongsTo(Role::class);
+    }
+
+    public function addRole($name)
+    {
+
+        return $this->role()->create(['name' => $name]);
+    }
 }
