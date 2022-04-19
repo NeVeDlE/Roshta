@@ -5,7 +5,7 @@
                 <div class="col-md-7 col-lg-5">
                     <div class="wrap form-container">
                         <div class="login-wrap form-title p-4 p-md-5">
-                            <h3 class="mb-3 text-center">Register!</h3>
+                            <h3 class="mb-3 text-center">Create Account</h3>
                         </div>
                         <form action="{{ route('register') }}" method="POST" class="mt-2"
                               enctype="multipart/form-data">
@@ -33,7 +33,7 @@
                             <x-form.input name="picture" type="file" wire="picture"/>
                             <div class="form-group mt-3 mb-5 btns1 btns">
                                 @if(!$errors->any())
-                                    <x-submit-button >Submit</x-submit-button>
+                                    <x-submit-button >Register</x-submit-button>
 
                                 @endif
                             </div>

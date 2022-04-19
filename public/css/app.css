@@ -1,5 +1,5 @@
 @import url(https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap);
-@charset "UTF-8";
+/* @charset "UTF-8"; */
 /*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */
 /* Document
    ========================================================================== */
@@ -787,9 +787,6 @@ nav .btn:hover, nav .btn:focus {
   justify-content: center;
   align-items: center;
 }
-.home-page .Homelogo img {
-  width: 500px;
-}
 .home-page h1 {
   margin-top: -5px;
   color: white;
@@ -803,11 +800,12 @@ nav .btn:hover, nav .btn:focus {
   justify-content: space-around;
 }
 .home-page .Searching button {
-  padding: 10px0 30px;
+  padding: 10px 30px;
 }
 .home-page .Searching .SearchDoctorButton button {
   background-color: #DF313B;
   border-color: #DF313B;
+  padding:10px;
 }
 .home-page .Searching .SearchDoctorButton button a {
   color: white;
