@@ -3,27 +3,14 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Gate;
 
 class RoleController extends Controller
 {
-    public function index()
+    public function __invoke()
     {
-
-    }
-
-    /**
-     * @throws \Illuminate\Auth\Access\AuthorizationException
-     */
-    public function store()
-    {
-        if (auth()->user()->role->name != 'admin') {
-            abort(403);
-        }
-        request()->validate([
-            'name' => 'required|min:2|max:255',
-        ]);
-        auth()->user()->addRole(request('name'));
-        return redirect('/roles');
-
+        if (Gate::authorize('admin')) {
+            return view('admin.roles.index');
+        } else return redirect('/');
     }
 }

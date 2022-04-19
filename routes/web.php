@@ -1,7 +1,7 @@
 <?php
 
 use App\Http\Controllers\Admin\RoleController;
-use Illuminate\Support\Facades\Route;
+use App\Http\Livewire\roles\RolesIndex;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,9 +17,11 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('index');
 });
+Route::middleware('can:admin')->group(function () {
+    Route::get('/dashboard/roles', RoleController::class);
 
-Route::get('/roles', [RoleController::class, 'index']);
-Route::post('/roles', [RoleController::class, 'store']);
+});
+
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');

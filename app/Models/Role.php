@@ -10,4 +10,9 @@ class Role extends Model
     use HasFactory;
 
     protected $guarded = [];
+
+    public function scopeFilter($query, $search)
+    {
+        $query->where('name', 'like', '%' . $search . '%');
+    }
 }
