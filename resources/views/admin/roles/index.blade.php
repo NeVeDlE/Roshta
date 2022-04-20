@@ -1,6 +1,6 @@
 <x-dashboard-layout>
 
     <x-settings heading="Roles">
-        <livewire:roles.roles-index/>
+        <livewire:admin.roles-index/>
     </x-settings>
 </x-dashboard-layout>

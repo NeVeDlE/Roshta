@@ -1,7 +1,8 @@
 <?php
 
 use App\Http\Controllers\Admin\RoleController;
-use App\Http\Livewire\roles\RolesIndex;
+use App\Http\Controllers\Admin\DiseaseController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -18,7 +19,8 @@ Route::get('/', function () {
     return view('index');
 });
 Route::middleware('can:admin')->group(function () {
-    Route::get('/dashboard/roles', RoleController::class);
+    Route::get('/dashboard/roles', RoleController::class)->name('roles');
+    Route::get('/dashboard/diseases', DiseaseController::class)->name('diseases');
 
 });
 

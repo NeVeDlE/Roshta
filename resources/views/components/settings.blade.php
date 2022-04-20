@@ -5,13 +5,13 @@
     </h1>
     <div class="flex">
         <aside class="w-48 flex-shrink-0">
-            <h4 class="font-semibold mb-4">Links</h4>
+            <h4 class="font-semibold mb-4">Admin</h4>
             <ul>
-                <li>
-                    <a href="/admin/posts" class="{{request()->is('rolesPolicy/posts')? 'text-blue-500':'' }}">All Post</a>
+                <li class="mb-2">
+                    <a href="/dashboard/roles" class="{{request()->routeIs('roles')? 'text-blue-500':'' }}">Roles</a>
                 </li>
-                <li>
-                    <a href="/admin/posts/create" class="{{request()->is('rolesPolicy/posts/create')? 'text-blue-500':'' }}">New Post</a>
+                <li class="mb-2">
+                    <a href="/dashboard/diseases" class="{{request()->routeIs('diseases')? 'text-blue-500':'' }}">Diseases</a>
                 </li>
             </ul>
 

@@ -2,7 +2,7 @@
 
 namespace Tests\Feature;
 
-use App\Http\Livewire\roles\RolesIndex;
+use App\Http\Livewire\admin\RolesIndex;
 use App\Models\Role;
 use App\Models\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
@@ -17,7 +17,7 @@ class ManageRolesTest extends TestCase
         $this->boot();
         $user = User::factory()->create(['role_id' => '1',]);
         $this->actingAs($user);
-        $this->get('/dashboard/roles')->assertSeeLivewire('roles.roles-index');
+        $this->get('/dashboard/roles')->assertSeeLivewire('admin.roles-index');
 
     }
 
@@ -34,6 +34,19 @@ class ManageRolesTest extends TestCase
         $this->assertDatabaseHas('roles', ['name' => $role['name']]);
     }
 
+    public function test_an_admin_can_edit_role_using_RolesIndex_livewire()
+    {
+
+        $this->boot();
+        $this->withoutExceptionHandling();
+        $user = User::factory()->create(['role_id' => '1',]);
+        $role = Role::factory()->create();
+        $this->actingAs($user);
+
+        \Livewire::test(RolesIndex::class)->assertSee($role->name)
+           ->call('editPage',$role)->set('name','meow')->call('editRole');
+        $this->assertDatabaseHas('roles', ['name' => 'meow']);
+    }
     public function test_an_admin_can_delete_role_using_RolesIndex_livewire()
     {
 

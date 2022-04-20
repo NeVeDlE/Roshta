@@ -9,6 +9,9 @@
         <input
             class="relative flex lg:inline-flex items-center bg-gray-100 rounded-xl px-3 py-2 bg-transparent placeholder-black font-semibold text-sm"
             placeholder="Search For Something!" type="search" id="search" wire:model.debounce.400="search">
+        @if($message!=null)
+            <p wire:click="$set('message',null)" class="text-red-500 text-xs mt-2">{{$message}}</p>
+        @endif
         <div class="flex flex-col">
             <main class="max-w-6xl mt-6  space-y-6">
                 <h1>Problems page</h1>
@@ -33,9 +36,10 @@
                                             @can('admin')
 
                                                 <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-                                                    <a href="#"
-                                                       class="transition-colors duration-300 text-xs font-semibold bg-green-200 hover:bg-green-300 rounded-full py-2 px-8"
-                                                    >Edit</a>
+                                                    <button wire:click="editPage({{$role}})"
+                                                            class="transition-colors duration-300 text-xs font-semibold bg-green-200 hover:bg-green-300 rounded-full py-2 px-8">
+                                                        Edit
+                                                    </button>
                                                 </td>
                                                 <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
                                                     <button wire:click="deleteRole({{$role}})"
@@ -58,7 +62,7 @@
 
             </main>
         </div>
-    @else
+    @elseif($page_id==1)
         <div class="mb-4">
             <button wire:click="setPage(0)"
                     class="transition-colors duration-300 text-xs font-semibold bg-white-200 ml-2 hover:bg-blue-300 rounded-full py-2 px-8"
@@ -67,10 +71,25 @@
         </div>
         <form wire:submit.prevent="addRole" method="POST">
             @csrf
-            <x-form.input wire:model.debounce="name" name="name" :value="old('name')"/>
+            <x-form.input wire="name" name="name" :value="old('name')"/>
             <button
                 class="transition-colors duration-300 text-xs font-semibold bg-green-200 hover:bg-green-300 rounded-full py-2 px-8">
                 Add
+            </button>
+        </form>
+    @else
+        <div class="mb-4">
+            <button wire:click="setPage(0)"
+                    class="transition-colors duration-300 text-xs font-semibold bg-white-200 ml-2 hover:bg-blue-300 rounded-full py-2 px-8"
+            > <--Return to Roles table
+            </button>
+        </div>
+        <form wire:submit.prevent="editRole" method="POST">
+            @csrf
+            <x-form.input wire="name" name="name" :value="old('name',$role->name)"/>
+            <button
+                class="transition-colors duration-300 text-xs font-semibold bg-green-200 hover:bg-green-300 rounded-full py-2 px-8">
+                Edit
             </button>
         </form>
     @endif
