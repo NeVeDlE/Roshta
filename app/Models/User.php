@@ -48,4 +48,5 @@ class User extends Authenticatable implements MustVerifyEmail
 
         return $this->role()->create(['name' => $name]);
     }
+
 }

@@ -3,7 +3,7 @@
         @can('admin')
             <button wire:click="setPage(1)"
                     class="transition-colors duration-300 text-xs font-semibold bg-blue-200 ml-2 hover:bg-blue-300 rounded-full py-2 px-8"
-            >Add a Role
+            >Add a Disease
             </button>
         @endcan
         <input
@@ -14,7 +14,7 @@
         @endif
         <div class="flex flex-col">
             <main class="max-w-6xl mt-6  space-y-6">
-                <h1>Roles page</h1>
+                <h1>Diseases page</h1>
 
                 <div class="flex flex-col">
                     <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
@@ -22,13 +22,22 @@
                             <div class="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">
                                 <table class="min-w-full divide-y divide-gray-200">
                                     <tbody class="bg-white divide-y divide-gray-200">
-                                    @foreach($roles as $role)
+                                    @foreach($diseases as $disease)
                                         <tr>
                                             <td class="px-6 py-4 whitespace-nowrap">
                                                 <div class="flex items-center">
                                                     <div class="text-sm font-medium text-gray-900">
                                                         <p>
-                                                            {{$role->name}}
+                                                            {{$disease->name}}
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td class="px-6 py-4 whitespace-nowrap">
+                                                <div class="flex items-center">
+                                                    <div class="text-sm font-medium text-gray-900">
+                                                        <p>
+                                                            {{$disease->description}}
                                                         </p>
                                                     </div>
                                                 </div>
@@ -36,13 +45,13 @@
                                             @can('admin')
 
                                                 <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-                                                    <button wire:click="editPage({{$role}})"
+                                                    <button wire:click="editPage({{$disease}})"
                                                             class="transition-colors duration-300 text-xs font-semibold bg-green-200 hover:bg-green-300 rounded-full py-2 px-8">
                                                         Edit
                                                     </button>
                                                 </td>
                                                 <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-                                                    <button wire:click="deleteRole({{$role}})"
+                                                    <button wire:click="deleteDisease({{$disease}})"
                                                             class="transition-colors duration-300 text-xs font-semibold bg-red-200 hover:bg-red-300 rounded-full py-2 px-8">
                                                         Delete
                                                     </button>
@@ -54,7 +63,7 @@
                                     </tbody>
 
                                 </table>
-                                {{$roles->links()}}
+                                {{$diseases->links()}}
                             </div>
                         </div>
                     </div>
@@ -69,9 +78,10 @@
             > <--Return to Roles table
             </button>
         </div>
-        <form wire:submit.prevent="addRole" method="POST">
+        <form wire:submit.prevent="addDisease" method="POST">
             @csrf
             <x-form.input wire="name" name="name" :value="old('name')"/>
+            <x-form.textarea name="description" wire="description">{{old('description')}}</x-form.textarea>
             <button
                 class="transition-colors duration-300 text-xs font-semibold bg-green-200 hover:bg-green-300 rounded-full py-2 px-8">
                 Add
@@ -81,12 +91,15 @@
         <div class="mb-4">
             <button wire:click="setPage(0)"
                     class="transition-colors duration-300 text-xs font-semibold bg-white-200 ml-2 hover:bg-blue-300 rounded-full py-2 px-8"
-            > <--Return to Roles table
+            > <--Return to diseases table
             </button>
         </div>
-        <form wire:submit.prevent="editRole" method="POST">
+        <form wire:submit.prevent="editDisease" method="POST">
             @csrf
-            <x-form.input wire="name" name="name" :value="old('name',$role->name)"/>
+            <x-form.input wire="name" name="name" :value="old('name',$disease->name)"/>
+            <x-form.textarea name="description"
+                             wire="description">{{old('description',$disease->description)}}</x-form.textarea>
+
             <button
                 class="transition-colors duration-300 text-xs font-semibold bg-green-200 hover:bg-green-300 rounded-full py-2 px-8">
                 Edit

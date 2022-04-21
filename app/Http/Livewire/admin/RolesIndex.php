@@ -87,6 +87,13 @@ class RolesIndex extends Component
         return true;
     }
 
+    public function index()
+    {
+        if (Gate::authorize('admin')) {
+            return view('admin.roles.index');
+        } else return redirect('/');
+    }
+
     public function render()
     {
         if (Gate::authorize('admin')) {

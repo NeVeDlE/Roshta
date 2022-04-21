@@ -18,12 +18,10 @@ class ManageRolesTest extends TestCase
         $user = User::factory()->create(['role_id' => '1',]);
         $this->actingAs($user);
         $this->get('/dashboard/roles')->assertSeeLivewire('admin.roles-index');
-
     }
 
     public function test_an_admin_can_add_new_role_using_RolesIndex_livewire()
     {
-
         $this->boot();
         $user = User::factory()->create(['role_id' => '1',]);
         $role = Role::factory()->raw();

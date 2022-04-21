@@ -33,7 +33,7 @@
                             <x-form.input name="picture" type="file" wire="picture"/>
                             <div class="form-group mt-3 mb-5 btns1 btns">
                                 @if(!$errors->any())
-                                    <x-submit-button >Submit</x-submit-button>
+                                    <x-submit-button>Submit</x-submit-button>
 
                                 @endif
                             </div>

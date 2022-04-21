@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Disease;
 use App\Models\Role;
 use App\Models\User;
 use Illuminate\Database\Seeder;
@@ -25,6 +26,9 @@ class DatabaseSeeder extends Seeder
             'email' => "shaherabdullah2000@gmail.com",
             'password' => Hash::make('12345678'),
             'role_id' => '1',
+        ]);
+        Disease::factory()->create(['name' => 'cold',
+            'description' => "Patient's internal organ's temperature get down"
         ]);
     }
 }
