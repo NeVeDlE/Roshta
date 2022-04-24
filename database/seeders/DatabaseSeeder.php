@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use App\Models\Disease;
+use App\Models\Medicine;
 use App\Models\Role;
 use App\Models\User;
 use Illuminate\Database\Seeder;
@@ -29,6 +30,11 @@ class DatabaseSeeder extends Seeder
         ]);
         Disease::factory()->create(['name' => 'cold',
             'description' => "Patient's internal organ's temperature get down"
+        ]);
+        Medicine::factory()->create([
+            'name' => 'Congestal',
+            'description' => "كونجستال أقراص | لعلاج البرد والرشح والزكام | 20 قرص",
+            'price' => '19.5',
         ]);
     }
 }

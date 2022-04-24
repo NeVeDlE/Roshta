@@ -102,7 +102,7 @@ class DiseasesIndex extends Component
                 ]);
             else if ($this->page_id == 1) {
                 return view('livewire.diseases.diseases-index');
-            } else if ($this->page_id == 2) {
+            } else {
                 return view('livewire.diseases.diseases-index', [
                     'disease' => $this->disease,
                 ]);

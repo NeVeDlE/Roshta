@@ -16,7 +16,6 @@ class ManageDiseasesTest extends TestCase
     {
         $this->boot();
         $user = User::factory()->create(['role_id' => '4',]);
-        $disease = Disease::factory()->raw();
         $this->actingAs($user);
         \Livewire::test(DiseasesIndex::class)->assertStatus(403);
     }
