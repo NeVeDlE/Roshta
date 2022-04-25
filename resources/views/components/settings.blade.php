@@ -5,16 +5,30 @@
     </h1>
     <div class="flex">
         <aside class="w-48 flex-shrink-0">
-            <h4 class="font-semibold mb-4">Admin</h4>
+            @can('admin')
+                <h4 class="font-semibold mb-4">Admin</h4>
+                <ul>
+                    <li class="mb-2">
+                        <a href="/dashboard/roles"
+                           class="{{request()->routeIs('roles')? 'text-blue-500':'' }}">Roles</a>
+                    </li>
+                    <li class="mb-2">
+                        <a href="/dashboard/diseases" class="{{request()->routeIs('diseases')? 'text-blue-500':'' }}">Diseases</a>
+                    </li>
+                    <li class="mb-2">
+                        <a href="/dashboard/medicines" class="{{request()->routeIs('medicines')? 'text-blue-500':'' }}">Medicines</a>
+                    </li>
+                </ul>
+            @endcan
+            <h4 class="font-semibold mb-4">Join Us!</h4>
             <ul>
                 <li class="mb-2">
-                    <a href="/dashboard/roles" class="{{request()->routeIs('roles')? 'text-blue-500':'' }}">Roles</a>
+                    <a href="/dashboard/doctors/register"
+                       class="{{request()->routeIs('doctors-register')? 'text-blue-500':'' }}">Doctor</a>
                 </li>
                 <li class="mb-2">
-                    <a href="/dashboard/diseases" class="{{request()->routeIs('diseases')? 'text-blue-500':'' }}">Diseases</a>
-                </li>
-                <li class="mb-2">
-                    <a href="/dashboard/medicines" class="{{request()->routeIs('medicines')? 'text-blue-500':'' }}">Medicines</a>
+                    <a href="#"
+                       class="{{request()->routeIs('roles')? 'text-blue-500':'' }}">Pharmacist</a>
                 </li>
             </ul>
 

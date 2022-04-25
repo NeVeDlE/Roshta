@@ -5,6 +5,7 @@ namespace Database\Seeders;
 use App\Models\Disease;
 use App\Models\Medicine;
 use App\Models\Role;
+use App\Models\Specializations;
 use App\Models\User;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Hash;
@@ -28,6 +29,11 @@ class DatabaseSeeder extends Seeder
             'password' => Hash::make('12345678'),
             'role_id' => '1',
         ]);
+        User::factory()->create([
+            'email' => "shaherabdullah2001@gmail.com",
+            'password' => Hash::make('12345678'),
+            'role_id' => '4',
+        ]);
         Disease::factory()->create(['name' => 'cold',
             'description' => "Patient's internal organ's temperature get down"
         ]);
@@ -36,5 +42,18 @@ class DatabaseSeeder extends Seeder
             'description' => "كونجستال أقراص | لعلاج البرد والرشح والزكام | 20 قرص",
             'price' => '19.5',
         ]);
+        $names = [
+            'Pediatrician', 'Neurologist', 'Otolaryngologist',
+            'Ophthalmologist', 'Emergency-Doctor Said', 'Psychiatrist', 'Dermatologist',
+            'Urologist', 'Cardiologist', 'Al-Veterinarian', 'Paramedic',
+            'Nephrologist', 'Obstetrician', 'ENTspecialist', 'Anesthetist',
+            'endocrinologist', 'Anatomist', 'Microbiologist', 'General-Practitioner',
+            'Hematologist', 'Surgeon'
+        ];
+        foreach ($names as $name) {
+            Specializations::factory()->create(['name' => $name]);
+        }
+
+
     }
 }
