@@ -20,17 +20,29 @@
                     </li>
                 </ul>
             @endcan
-            <h4 class="font-semibold mb-4">Join Us!</h4>
-            <ul>
-                <li class="mb-2">
-                    <a href="/dashboard/doctors/register"
-                       class="{{request()->routeIs('doctors-register')? 'text-blue-500':'' }}">Doctor</a>
-                </li>
-                <li class="mb-2">
-                    <a href="#"
-                       class="{{request()->routeIs('roles')? 'text-blue-500':'' }}">Pharmacist</a>
-                </li>
-            </ul>
+            @can('patient')
+                <h4 class="font-semibold mb-4">Join Us!</h4>
+                <ul>
+                    <li class="mb-2">
+                        <a href="/dashboard/jobs/index"
+                           class="{{request()->routeIs('jobs-index')? 'text-blue-500':'' }}">My Requests</a>
+                    </li>
+                    @if(!sizeof(\App\Models\Doctor::where('user_id', auth()->id())
+                    ->where('status', '!=', 'cancelled')->get())
+                    &&
+                    !sizeof(\App\Models\Pharmacist::where('user_id', auth()->id())
+                    ->where('status', '!=', 'cancelled')->get()))
+                        <li class="mb-2">
+                            <a href="/dashboard/doctors/register"
+                               class="{{request()->routeIs('doctors-register')? 'text-blue-500':'' }}">Doctor</a>
+                        </li>
+                        <li class="mb-2">
+                            <a href="/dashboard/pharmacists/register"
+                               class="{{request()->routeIs('pharmacists-register')? 'text-blue-500':'' }}">Pharmacist</a>
+                        </li>
+                    @endif
+                </ul>
+            @endcan
 
         </aside>
 

@@ -4,6 +4,8 @@ use App\Http\Livewire\admin\DiseasesIndex;
 use App\Http\Livewire\admin\MedicinesIndex;
 use App\Http\Livewire\admin\RolesIndex;
 use App\Http\Livewire\doctors\DoctorsCreate;
+use App\Http\Livewire\jobs\JobsIndex;
+use App\Http\Livewire\pharmacists\PharmacistsCreate;
 
 /*
 |--------------------------------------------------------------------------
@@ -27,6 +29,8 @@ Route::middleware('can:admin')->group(function () {
 });
 Route::middleware('can:patient')->group(function () {
     Route::get('/dashboard/doctors/register', [DoctorsCreate::class, 'index'])->name('doctors-register');
+    Route::get('/dashboard/pharmacists/register', [PharmacistsCreate::class, 'index'])->name('pharmacists-register');
+    Route::get('/dashboard/jobs/index', [JobsIndex::class, 'index'])->name('jobs-index');
 });
 
 Route::get('/dashboard', function () {
