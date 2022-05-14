@@ -10,6 +10,6 @@ class Doctor extends Model
     use HasFactory;
     protected $guarded=[];
     public function speciality(){
-        $this->belongsTo(Specializations::class);
+        return $this->belongsTo(Specialization::class,'specialization_id');
     }
 }

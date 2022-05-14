@@ -2,7 +2,7 @@
 
 namespace Database\Factories;
 
-use App\Models\Specializations;
+use App\Models\Specialization;
 use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
@@ -17,10 +17,11 @@ class DoctorFactory extends Factory
     {
         return [
             'user_id' => User::factory()->create()->id,
-            'specialization_id'=>1,
-            'university'=>$this->faker->name,
-            'status'=>'pending',
-            'graduate_date'=>$this->faker->date,
+            'specialization_id' => Specialization::factory()->create()->id,
+            'university' => $this->faker->name,
+            'degree' => '123',
+            'status' => 'pending',
+            'graduate_date' => $this->faker->date,
         ];
     }
 }

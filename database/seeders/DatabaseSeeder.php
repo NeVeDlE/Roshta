@@ -5,7 +5,7 @@ namespace Database\Seeders;
 use App\Models\Disease;
 use App\Models\Medicine;
 use App\Models\Role;
-use App\Models\Specializations;
+use App\Models\Specialization;
 use App\Models\User;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Hash;
@@ -51,7 +51,7 @@ class DatabaseSeeder extends Seeder
             'Hematologist', 'Surgeon'
         ];
         foreach ($names as $name) {
-            Specializations::factory()->create(['name' => $name]);
+            Specialization::factory()->create(['name' => $name]);
         }
 
 

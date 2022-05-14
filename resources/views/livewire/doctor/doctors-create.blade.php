@@ -7,7 +7,7 @@
             <label for="specialization"
                    class="block mb-2 uppercase font-bold text-xs text-gray-700">Speciality</label>
             <select wire:model="specialization_id" name="speciality_id" id="speciality_id">
-                @foreach(\App\Models\Specializations::all() as $Speciality)
+                @foreach(\App\Models\Specialization::all() as $Speciality)
 
                         <option value="{{$Speciality->id}}"
                             {{old('specialization_id')==$Speciality->id ?'selected':''}}

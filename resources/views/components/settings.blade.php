@@ -8,6 +8,12 @@
             @can('admin')
                 <h4 class="font-semibold mb-4">Admin</h4>
                 <ul>
+
+                    <li class="mb-2">
+                        <a href="/dashboard/jobRequests"
+                           class="{{request()->routeIs('job-requests')? 'text-blue-500':'' }}">Job
+                            Requests</a>
+                    </li>
                     <li class="mb-2">
                         <a href="/dashboard/roles"
                            class="{{request()->routeIs('roles')? 'text-blue-500':'' }}">Roles</a>
