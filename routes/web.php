@@ -1,12 +1,14 @@
 <?php
 
+use App\Http\Controllers\Locations\ClinicController;
+use App\Http\Controllers\Locations\PharmacyController;
 use App\Http\Livewire\admin\DiseasesIndex;
+use App\Http\Livewire\admin\jobs\JobsRequests;
 use App\Http\Livewire\admin\MedicinesIndex;
 use App\Http\Livewire\admin\RolesIndex;
 use App\Http\Livewire\doctors\DoctorsCreate;
 use App\Http\Livewire\jobs\JobsIndex;
 use App\Http\Livewire\pharmacists\PharmacistsCreate;
-use App\Http\Livewire\admin\jobs\JobsRequests;
 
 /*
 |--------------------------------------------------------------------------
@@ -32,6 +34,14 @@ Route::middleware('can:patient')->group(function () {
     Route::get('/dashboard/doctors/register', [DoctorsCreate::class, 'index'])->name('doctors-register');
     Route::get('/dashboard/pharmacists/register', [PharmacistsCreate::class, 'index'])->name('pharmacists-register');
     Route::get('/dashboard/jobs/index', [JobsIndex::class, 'index'])->name('jobs-index');
+});
+Route::middleware('can:doctor')->group(function () {
+    Route::get('/dashboard/clinics/register', [ClinicController::class, 'index'])->name('clinics-register');
+    Route::post('/dashboard/clinics', [ClinicController::class, 'store']);
+});
+Route::middleware('can:pharmacist')->group(function () {
+    Route::get('/dashboard/pharmacies/register', [PharmacyController::class, 'index'])->name('pharmacies-register');
+    Route::post('/dashboard/pharmacies', [PharmacyController::class, 'store']);
 });
 
 Route::get('/dashboard', function () {

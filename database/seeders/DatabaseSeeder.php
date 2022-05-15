@@ -34,6 +34,16 @@ class DatabaseSeeder extends Seeder
             'password' => Hash::make('12345678'),
             'role_id' => '4',
         ]);
+        User::factory()->create([
+            'email' => "shaherabdullah2002@gmail.com",
+            'password' => Hash::make('12345678'),
+            'role_id' => '2',
+        ]);
+        User::factory()->create([
+            'email' => "shaherabdullah2003@gmail.com",
+            'password' => Hash::make('12345678'),
+            'role_id' => '3',
+        ]);
         Disease::factory()->create(['name' => 'cold',
             'description' => "Patient's internal organ's temperature get down"
         ]);

@@ -28,10 +28,12 @@ class JobsRequests extends Component
     public function accept($id)
     {
         if (!$this->bool) {
-            $tmp = Doctor::where('id', $id)->update(['status' => 'accepted']);
+            $tmp = Doctor::where('id', $id)->first();
+            $tmp->update(['status' => 'accepted']);
             User::where('id', $tmp->user_id)->update(['role_id' => '2']);
         } else {
-            $tmp = Pharmacist::where('id', $id)->update(['status' => 'accepted']);
+            $tmp = Pharmacist::where('id', $id)->first();
+            $tmp->update(['status' => 'accepted']);
             User::where('id', $tmp->user_id)->update(['role_id' => '3']);
         };
     }
@@ -39,9 +41,11 @@ class JobsRequests extends Component
     public function decline($id)
     {
         if (!$this->bool) {
-            $tmp = Doctor::where('id', $id)->update(['status' => 'cancelled']);
+            $tmp = Doctor::where('id', $id)->first();
+            $tmp->update(['status' => 'cancelled']);
         } else {
-            $tmp = Pharmacist::where('id', $id)->update(['status' => 'cancelled']);
+            $tmp = Pharmacist::where('id', $id)->first();
+            $tmp->update(['status' => 'cancelled']);
         };
         User::where('id', $tmp->user_id)->update(['role_id' => '4']);
     }

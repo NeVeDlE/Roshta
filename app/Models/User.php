@@ -38,9 +38,25 @@ class User extends Authenticatable implements MustVerifyEmail
         'email_verified_at' => 'datetime',
     ];
 
+    public function locations()
+    {
+        return $this->hasMany(Location::Class, 'owner_id');
+    }
+
     public function role()
     {
-      return $this->belongsTo(Role::class);
+        return $this->belongsTo(Role::class);
+    }
+
+    public function addLocation($name, $lat, $lng, $type)
+    {
+        return $this->locations()->create([
+            'name' => $name,
+            'owner_id' => $this->id,
+            'lat' => $lat,
+            'lng' => $lng,
+            'type' => $type
+        ]);
     }
 
     public function addRole($name)

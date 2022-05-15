@@ -26,6 +26,29 @@
                     </li>
                 </ul>
             @endcan
+            @can('doctor')
+                <ul>
+
+                    <li class="mb-2">
+                        <a href="/dashboard/clinics/register"
+                           class="{{request()->routeIs('clinics-register')? 'text-blue-500':'' }}">Register a
+                            Clinic</a>
+                    </li>
+
+                </ul>
+            @endcan
+            @can('pharmacist')
+                <ul>
+
+                    <li class="mb-2">
+                        <a href="/dashboard/pharmacies/register"
+                           class="{{request()->routeIs('pharmacies-register')? 'text-blue-500':'' }}">Register a
+                            Pharmacy</a>
+                    </li>
+
+                </ul>
+            @endcan
+
             @can('patient')
                 <h4 class="font-semibold mb-4">Join Us!</h4>
                 <ul>
