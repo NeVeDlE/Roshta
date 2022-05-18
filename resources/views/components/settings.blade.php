@@ -12,7 +12,19 @@
                     <li class="mb-2">
                         <a href="/dashboard/jobRequests"
                            class="{{request()->routeIs('job-requests')? 'text-blue-500':'' }}">Job
-                            Requests</a>
+                            Requests
+                            @if(\App\Models\Doctor::where('status','pending')->count() >0
+                                 ||App\Models\Pharmacist::where('status','pending')->count())
+                                {{\App\Models\Doctor::where('status','pending')->count()
+                                + \App\Models\Pharmacist::where('status','pending')->count()}}
+                            @endif</a>
+                    </li>
+                    <li class="mb-2">
+                        <a href="/dashboard/locations"
+                           class="{{request()->routeIs('location-requests')? 'text-blue-500':'' }}">Location
+                            Requests @if(\App\Models\Location::where('status','pending')->count() >0)
+                                {{\App\Models\Location::where('status','pending')->count()}}
+                            @endif</a>
                     </li>
                     <li class="mb-2">
                         <a href="/dashboard/roles"
@@ -28,7 +40,11 @@
             @endcan
             @can('doctor')
                 <ul>
-
+                    <li class="mb-2">
+                        <a href="/dashboard/locations/preview"
+                           class="{{request()->routeIs('locations-request-preview')? 'text-blue-500':'' }}">My Location
+                            Requests</a>
+                    </li>
                     <li class="mb-2">
                         <a href="/dashboard/clinics/register"
                            class="{{request()->routeIs('clinics-register')? 'text-blue-500':'' }}">Register a
@@ -39,12 +55,17 @@
             @endcan
             @can('pharmacist')
                 <ul>
-
+                    <li class="mb-2">
+                        <a href="/dashboard/locations/preview"
+                           class="{{request()->routeIs('locations-request-preview')? 'text-blue-500':'' }}">My Location
+                            Requests</a>
+                    </li>
                     <li class="mb-2">
                         <a href="/dashboard/pharmacies/register"
                            class="{{request()->routeIs('pharmacies-register')? 'text-blue-500':'' }}">Register a
                             Pharmacy</a>
                     </li>
+
 
                 </ul>
             @endcan
@@ -54,8 +75,9 @@
                 <ul>
                     <li class="mb-2">
                         <a href="/dashboard/jobs/index"
-                           class="{{request()->routeIs('jobs-index')? 'text-blue-500':'' }}">My Requests</a>
+                           class="{{request()->routeIs('jobs-index')? 'text-blue-500':'' }}">My Job Requests</a>
                     </li>
+
                     @if(!sizeof(\App\Models\Doctor::where('user_id', auth()->id())
                     ->where('status', '!=', 'cancelled')->get())
                     &&
