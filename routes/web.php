@@ -11,6 +11,7 @@ use App\Http\Livewire\admin\RolesIndex;
 use App\Http\Livewire\doctors\DoctorsCreate;
 use App\Http\Livewire\jobs\JobsIndex;
 use App\Http\Livewire\pharmacists\PharmacistsCreate;
+use App\Http\Livewire\pharmacists\PharmacyIndex;
 
 /*
 |--------------------------------------------------------------------------
@@ -47,6 +48,7 @@ Route::middleware('can:doctor')->group(function () {
 });
 Route::middleware('can:pharmacist')->group(function () {
     Route::get('/dashboard/pharmacies/register', [PharmacyController::class, 'index'])->name('pharmacies-register');
+    Route::get('/dashboard/pharmacy/index', [PharmacyIndex::class, 'index'])->name('pharmacy-index');
     Route::post('/dashboard/pharmacies', [PharmacyController::class, 'store']);
 });
 

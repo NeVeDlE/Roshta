@@ -15,4 +15,14 @@ class Location extends Model
     {
         return $this->belongsTo(User::class, 'owner_id');
     }
+
+    public function addMedicine(Medicine $medicine, $quantity)
+    {
+        return $this->medicines()->attach($medicine, ['quantity' => $quantity]);
+    }
+
+    public function medicines()
+    {
+        return $this->belongsToMany(Medicine::class, 'location_medicines')->withTimestamps();
+    }
 }

@@ -34,7 +34,7 @@ class PharmacyController extends Controller
 
     public function multiItem()
     {
-        if (sizeof(Location::where('owner_id', auth()->id())->get()) > 1) return true;
+        if (sizeof(Location::where('owner_id', auth()->id())->where('status', '!=', 'cancelled')->get()) > 1) return true;
         return false;
     }
 }

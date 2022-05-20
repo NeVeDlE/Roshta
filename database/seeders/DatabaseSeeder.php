@@ -3,7 +3,9 @@
 namespace Database\Seeders;
 
 use App\Models\Disease;
+use App\Models\Doctor;
 use App\Models\Medicine;
+use App\Models\Pharmacist;
 use App\Models\Role;
 use App\Models\Specialization;
 use App\Models\User;
@@ -63,6 +65,17 @@ class DatabaseSeeder extends Seeder
         foreach ($names as $name) {
             Specialization::factory()->create(['name' => $name]);
         }
+        Doctor::factory()->create([
+            'user_id' => 3,
+            'specialization_id' => 1,
+            'degree' => '123',
+            'status' => 'accepted'
+        ]);
+        Pharmacist::factory()->create([
+            'user_id' => 4,
+            'degree' => '123',
+            'status' => 'accepted'
+        ]);
 
 
     }

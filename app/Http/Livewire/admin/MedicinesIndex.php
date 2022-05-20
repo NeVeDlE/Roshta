@@ -94,6 +94,7 @@ class MedicinesIndex extends Component
     public function mount()
     {
         $this->page_id = 0;
+        $this->medicine = 1;
     }
 
     public function index()
