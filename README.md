@@ -15,7 +15,7 @@ composer install
 ```
 
 
-<p align="center">6-after that open the .env file in the project and make DB_DATABASE=roshta and run these three</p>
+<p align="center">6-after that open the .env file in the project and make DB_DATABASE=roshta and run these three (first one is for first time)</p>
 
 ```
 php artisan key:generate
@@ -25,4 +25,11 @@ php artisan migrate
 php artisan serve
 ```
 
+<p align="center">6- if it's not ur first time using this project and u want a new database use this one instead of the second command</p>
+
+```
+
+php artisan migrate:fresh --seed
+
+```
 <p align="center">the last one will run the project on the server (http://127.0.0.1:8000/) </p>
