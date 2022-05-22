@@ -9,8 +9,8 @@ class SearchDropdown extends Component
 {
     public $search;
     public $searchResults = [];
-    public $lat;
-    public $lng;
+    public $lat=0;
+    public $lng=0;
     public $type;
     protected $listeners = [
         'changeLat', 'changeLng'
@@ -20,6 +20,7 @@ class SearchDropdown extends Component
     {
         $this->type = 'clinic';
     }
+
 
     public function changeLat($value)
     {
@@ -36,26 +37,27 @@ class SearchDropdown extends Component
         $this->searchResults = $this->Searching();
     }
 
-    public function updatedSearch()
+    public function updatingSearch()
     {
         $this->searchResults = $this->Searching();
     }
 
-    public function searching()
+    protected function searching()
     {
         if (strlen($this->search) < 3) {
             return [];
         }
 
+
         if ($this->type == 'pharmacy') {
             return \DB::select("select name ,
-         SQRT((lat-{$this->lat})*(lat-{$this->lat})+(lng-{$this->lng})*(lng-{$this->lng}))*100000 as distance
+         round(SQRT((lat-{$this->lat})*(lat-{$this->lat})+(lng-{$this->lng})*(lng-{$this->lng}))*100 ,2)as distance
         from locations where name like '%' '{$this->search}' '%' and type = 'pharmacy'
           order By SQRT((lat-{$this->lat})*(lat-{$this->lat})+(lng-{$this->lng})*(lng-{$this->lng}))
           limit 10");
         } else if ($this->type == 'clinic') {
             return \DB::select("select u.name as name ,s.name as SName,l.name as LName ,
-            SQRT((l.lat-{$this->lat})*(l.lat-{$this->lat})+(l.lng-{$this->lng})*(l.lng-{$this->lng}))*100000 as distance
+            round(SQRT((l.lat-{$this->lat})*(l.lat-{$this->lat})+(l.lng-{$this->lng})*(l.lng-{$this->lng}))*100,2) as distance
             from locations l
             join doctors d
             on l.owner_id = d.user_id
@@ -73,7 +75,6 @@ class SearchDropdown extends Component
 
         } else {
             return Medicine::where('name', 'like', '%' . $this->search . '%')->take(10)->get();
-
         }
     }
 

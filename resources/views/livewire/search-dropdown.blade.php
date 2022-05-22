@@ -17,27 +17,28 @@
             @if (strlen($search) > 2)
                 <ul
                     class="absolute z-50 bg-white border border-gray-300 w-full rounded-md mt-1 text-gray-700 text-sm divide-y divide-gray-200">
+
                     @if(sizeof($searchResults)>0)
-
-
                         @if($type=='pharmacy')
                             @foreach ($searchResults as $result)
                                 <li>
+
                                     <a
                                         href="#"
                                         class="flex items-center px-4 py-4 hover:bg-gray-200 transition ease-in-out duration-150">
                                         <div class="ml-4 leading-tight">
                                             <div class="font-semibold">
-                                                {{$result->name}}
+                                                {{ $result->name}}
                                             </div>
                                             <div class="text-gray-600">
-                                                {{(int)$result->distance}} m
+                                                {{(float)$result->distance}} km
                                             </div>
                                         </div>
                                     </a>
                                 </li>
                             @endforeach
                         @elseif($type=='clinic')
+
                             @foreach ($searchResults as $result)
 
                                 <li>
@@ -47,13 +48,13 @@
                                         <div class="ml-4 leading-tight">
                                             <div class="font-semibold">
                                                 {{$result->LName}}
-                                                Owned By {{$result->name}}
+                                                ,Owned By {{$result->name}}
                                             </div>
 
                                             <div class="text-gray-600">
-                                                For {{$result->SName}}
+                                                For {{$result->SName}},
                                                 Distance
-                                                {{(int)$result->distance}} m
+                                                {{(float)$result->distance}} km
                                             </div>
                                         </div>
                                     </a>
@@ -102,9 +103,11 @@
 </div>
 
 <script>
-    document.getElementById('search').addEventListener("keypress", () => {
+    let f=0;
+    document.getElementById('search').addEventListener("keyup", () => {
         // Try HTML5 geolocation.
-        if (navigator.geolocation) {
+
+        if (!f&&navigator.geolocation) {
             navigator.geolocation.getCurrentPosition(
                 (position) => {
                     const pos = {
@@ -113,6 +116,8 @@
                     };
                     Livewire.emit('changeLat', pos.lat);
                     Livewire.emit('changeLng', pos.lng);
+                    f=1;
+
                 },
                 () => {
                 }
