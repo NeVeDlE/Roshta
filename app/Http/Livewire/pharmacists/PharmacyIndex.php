@@ -42,7 +42,7 @@ class PharmacyIndex extends Component
             ->where('location_id', $this->pharmacy->id)
             ->where('medicine_id', $this->medicine)->first();
         //if there's already a quantity add it to the new value bcz im lazy to make a full crud xD
-        //so ill just leave it as it's
+        //so ill just leave it as it is
         if (isset($oldvalue)) {
             $oldQuantity = $oldvalue->quantity;
             \DB::delete("delete from location_medicines
