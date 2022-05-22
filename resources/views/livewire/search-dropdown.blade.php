@@ -66,7 +66,7 @@
 
                                 <li>
                                     <a
-                                        href="#"
+                                        href="/dashboard/medicines/{{$result->id}}/{{$lat}}/{{$lng}}"
                                         class="flex items-center px-4 py-4 hover:bg-gray-200 transition ease-in-out duration-150">
                                         @if(isset($result->photo))
                                             <img src="{{asset('storage/'.$result->photo )}}"
@@ -103,11 +103,11 @@
 </div>
 
 <script>
-    let f=0;
+    let f = 0;
     document.getElementById('search').addEventListener("keyup", () => {
         // Try HTML5 geolocation.
 
-        if (!f&&navigator.geolocation) {
+        if (!f && navigator.geolocation) {
             navigator.geolocation.getCurrentPosition(
                 (position) => {
                     const pos = {
@@ -116,7 +116,7 @@
                     };
                     Livewire.emit('changeLat', pos.lat);
                     Livewire.emit('changeLng', pos.lng);
-                    f=1;
+                    f = 1;
 
                 },
                 () => {

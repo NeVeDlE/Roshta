@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Auth\MedicineController;
 use App\Http\Controllers\Locations\ClinicController;
 use App\Http\Controllers\Locations\LocationRequestsController;
 use App\Http\Controllers\Locations\PharmacyController;
@@ -51,6 +52,10 @@ Route::middleware('can:pharmacist')->group(function () {
     Route::get('/dashboard/pharmacy/index', [PharmacyIndex::class, 'index'])->name('pharmacy-index');
     Route::post('/dashboard/pharmacies', [PharmacyController::class, 'store']);
 });
+Route::middleware(['auth', 'verified'])->group(function () {
+    Route::get('/dashboard/medicines/{medicine:id}/{lat}/{lng}', MedicineController::class);
+});
+
 
 Route::get('/dashboard', function () {
     return view('dashboard');
