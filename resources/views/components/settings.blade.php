@@ -85,10 +85,21 @@
 
                 </ul>
             @endcan
+            <h4 class="font-semibold mb-4">Patient</h4>
+            <ul>
+                <li class="mb-2">
+                    <a href="/dashboard/examinationRequests"
+                       class="{{request()->routeIs('examination-requests')? 'text-blue-500':'' }}">Examination
+                        Requests  {{\Illuminate\Support\Facades\DB::select("select count(id) as cnt from location_users
+                                           where user_id = ".auth()->id()." and status='accepted' ")[0]->cnt}}</a>
+                </li>
+                <li class="mb-2">
+                    <a href="/dashboard/QR"
+                       class="{{request()->routeIs('QR')? 'text-blue-500':'' }}">Get My ID</a>
+                </li>
+                @can('patient')
+                    <h4 class="font-semibold mb-4">Join Us!</h4>
 
-            @can('patient')
-                <h4 class="font-semibold mb-4">Join Us!</h4>
-                <ul>
                     <li class="mb-2">
                         <a href="/dashboard/jobs/index"
                            class="{{request()->routeIs('jobs-index')? 'text-blue-500':'' }}">My Job Requests</a>
@@ -108,8 +119,10 @@
                                class="{{request()->routeIs('pharmacists-register')? 'text-blue-500':'' }}">Pharmacist</a>
                         </li>
                     @endif
-                </ul>
-            @endcan
+
+                @endcan
+            </ul>
+
 
         </aside>
 

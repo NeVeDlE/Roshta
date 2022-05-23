@@ -11,11 +11,13 @@ use App\Http\Livewire\admin\jobs\JobsRequests;
 use App\Http\Livewire\admin\LocationsIndex;
 use App\Http\Livewire\admin\MedicinesIndex;
 use App\Http\Livewire\admin\RolesIndex;
+use App\Http\Livewire\doctors\ClinicExaminationRequests;
 use App\Http\Livewire\doctors\DoctorsCreate;
 use App\Http\Livewire\jobs\JobsIndex;
+use App\Http\Livewire\patient\PatientExaminationRequests;
 use App\Http\Livewire\pharmacists\PharmacistsCreate;
 use App\Http\Livewire\pharmacists\PharmacyIndex;
-use App\Http\Livewire\doctors\ClinicExaminationRequests;
+use App\Http\Controllers\Patient\QRController;
 
 /*
 |--------------------------------------------------------------------------
@@ -57,6 +59,8 @@ Route::middleware('can:pharmacist')->group(function () {
     Route::post('/dashboard/pharmacies', [PharmacyController::class, 'store']);
 });
 Route::middleware(['auth', 'verified'])->group(function () {
+    Route::get('/dashboard/QR', QRController::class);
+    Route::get('/dashboard/examinationRequests', [PatientExaminationRequests::class, 'index'])->name('examination-requests');
     Route::get('/dashboard/medicines/{medicine:id}/{lat}/{lng}', MedicineController::class);
     Route::get('/dashboard/locations/{location:id}/{lat}/{lng}', LocationController::class);
     Route::post('/dashboard/clinics/{location:id}/reserve', [ClinicManagementController::class, 'store']);
