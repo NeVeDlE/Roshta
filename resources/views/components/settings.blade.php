@@ -41,6 +41,12 @@
             @can('doctor')
                 <h4 class="font-semibold mb-4">Doctor</h4>
                 <ul>
+                    @can('hasClinic')
+                        <li class="mb-2">
+                            <a href=" /dashboard/clinics/index"
+                               class="{{request()->routeIs('clinic-management')? 'text-blue-500':'' }}">{{auth()->user()->locations->name}}</a>
+                        </li>
+                    @endcan
                     <li class="mb-2">
                         <a href="/dashboard/locations/preview"
                            class="{{request()->routeIs('locations-request-preview')? 'text-blue-500':'' }}">My Location

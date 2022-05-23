@@ -30,6 +30,6 @@ class CreateMedicinesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('Medicine');
+        Schema::dropIfExists('medicines');
     }
 }

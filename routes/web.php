@@ -15,6 +15,7 @@ use App\Http\Livewire\doctors\DoctorsCreate;
 use App\Http\Livewire\jobs\JobsIndex;
 use App\Http\Livewire\pharmacists\PharmacistsCreate;
 use App\Http\Livewire\pharmacists\PharmacyIndex;
+use App\Http\Livewire\doctors\ClinicExaminationRequests;
 
 /*
 |--------------------------------------------------------------------------
@@ -47,6 +48,7 @@ Route::middleware('can:both')->group(function () {
 });
 Route::middleware('can:doctor')->group(function () {
     Route::get('/dashboard/clinics/register', [ClinicController::class, 'index'])->name('clinics-register');
+    Route::get('/dashboard/clinics/index', [ClinicExaminationRequests::class, 'index'])->name('clinic-management');
     Route::post('/dashboard/clinics', [ClinicController::class, 'store']);
 });
 Route::middleware('can:pharmacist')->group(function () {

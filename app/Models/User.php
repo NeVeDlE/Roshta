@@ -40,7 +40,7 @@ class User extends Authenticatable implements MustVerifyEmail
 
     public function locations()
     {
-        return $this->hasMany(Location::Class, 'owner_id');
+        return $this->hasOne(Location::Class, 'owner_id');
     }
 
     public function role()
