@@ -50,13 +50,13 @@ class SearchDropdown extends Component
 
 
         if ($this->type == 'pharmacy') {
-            return \DB::select("select name ,
+            return \DB::select("select id, name ,
          round(SQRT((lat-{$this->lat})*(lat-{$this->lat})+(lng-{$this->lng})*(lng-{$this->lng}))*100 ,2)as distance
         from locations where name like '%' '{$this->search}' '%' and type = 'pharmacy'
           order By SQRT((lat-{$this->lat})*(lat-{$this->lat})+(lng-{$this->lng})*(lng-{$this->lng}))
           limit 10");
         } else if ($this->type == 'clinic') {
-            return \DB::select("select u.name as name ,s.name as SName,l.name as LName ,
+            return \DB::select("select l.id as id,u.name as name ,s.name as SName,l.name as LName ,
             round(SQRT((l.lat-{$this->lat})*(l.lat-{$this->lat})+(l.lng-{$this->lng})*(l.lng-{$this->lng}))*100,2) as distance
             from locations l
             join doctors d

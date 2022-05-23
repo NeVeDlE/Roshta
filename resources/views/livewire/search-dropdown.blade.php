@@ -22,9 +22,8 @@
                         @if($type=='pharmacy')
                             @foreach ($searchResults as $result)
                                 <li>
-
                                     <a
-                                        href="#"
+                                        href="/dashboard/locations/{{$result->id}}/{{$lat}}/{{$lng}}"
                                         class="flex items-center px-4 py-4 hover:bg-gray-200 transition ease-in-out duration-150">
                                         <div class="ml-4 leading-tight">
                                             <div class="font-semibold">
@@ -43,7 +42,7 @@
 
                                 <li>
                                     <a
-                                        href="#"
+                                        href="/dashboard/locations/{{$result->id}}/{{$lat}}/{{$lng}}"
                                         class="flex items-center px-4 py-4 hover:bg-gray-200 transition ease-in-out duration-150">
                                         <div class="ml-4 leading-tight">
                                             <div class="font-semibold">

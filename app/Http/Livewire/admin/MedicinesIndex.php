@@ -27,8 +27,8 @@ class MedicinesIndex extends Component
         return [
             'name' => ['required', 'string', 'max:255', 'min:2',
                 isset($this->medicine) ?
-                    Rule::unique('medicines', 'name')->ignore($this->medicine) :
-                    Rule::unique('medicines', 'name')
+                    Rule::unique('Medicine', 'name')->ignore($this->medicine) :
+                    Rule::unique('Medicine', 'name')
             ],
             'price' => 'numeric',
             'photo' => isset($this->medicine) ? isset($this->photo) ? ['image'] : [] : ['required', 'image', 'max:2048'],
@@ -45,7 +45,7 @@ class MedicinesIndex extends Component
     {
         Gate::authorize('admin');
         $atr = $this->validate();
-        if (isset($this->photo)) $atr['photo'] = $this->photo->store('medicines', 'public');
+        if (isset($this->photo)) $atr['photo'] = $this->photo->store('Medicine', 'public');
         Medicine::create($atr);
         $this->resetForm();
         $this->message = 'Medicine Created';
@@ -56,7 +56,7 @@ class MedicinesIndex extends Component
     {
         Gate::authorize('admin');
         $atr = array_merge($this->validate(), [
-            'photo' => $this->photo ? $this->photo->store('medicines', 'public') : $this->medicine->photo ?? null,
+            'photo' => $this->photo ? $this->photo->store('Medicine', 'public') : $this->medicine->photo ?? null,
         ]);
         if ($this->photo) {
             \Storage::disk('public')->delete($this->medicine->photo);
@@ -109,7 +109,7 @@ class MedicinesIndex extends Component
         if (Gate::authorize('admin')) {
             if (!$this->page_id)
                 return view('livewire.medicines.medicines-index', [
-                    'medicines' => Medicine::filter($this->search)->paginate(10),
+                    'Medicine' => Medicine::filter($this->search)->paginate(10),
                 ]);
             else if ($this->page_id == 1) {
                 return view('livewire.medicines.medicines-index');

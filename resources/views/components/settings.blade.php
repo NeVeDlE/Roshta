@@ -34,7 +34,7 @@
                         <a href="/dashboard/diseases" class="{{request()->routeIs('diseases')? 'text-blue-500':'' }}">Diseases</a>
                     </li>
                     <li class="mb-2">
-                        <a href="/dashboard/medicines" class="{{request()->routeIs('medicines')? 'text-blue-500':'' }}">Medicines</a>
+                        <a href="/dashboard/medicines" class="{{request()->routeIs('Medicine')? 'text-blue-500':'' }}">Medicines</a>
                     </li>
                 </ul>
             @endcan

@@ -9,7 +9,5 @@
             </div>
 
         </div>
-
-
     </x-settings>
 </x-dashboard-layout>

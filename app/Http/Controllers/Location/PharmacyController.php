@@ -1,25 +1,25 @@
 <?php
 
-namespace App\Http\Controllers\Locations;
+namespace App\Http\Controllers\Location;
 
 use App\Http\Controllers\Controller;
 use App\Models\Location;
 use Illuminate\Support\Facades\Gate;
 
-class ClinicController extends Controller
+class PharmacyController extends Controller
 {
     public function index()
     {
-        Gate::authorize('doctor');
+        Gate::authorize('pharmacist');
         if ($this->multiItem()) {
             return redirect('/dashboard');
         }
-        return view('doctors.clinics.create');
+        return view('pharmacists.pharmacies.create');
     }
 
     public function store()
     {
-        Gate::authorize('doctor');
+        Gate::authorize('pharmacist');
         if ($this->multiItem()) {
             return redirect('/dashboard');
         }
@@ -28,7 +28,7 @@ class ClinicController extends Controller
             'lat' => ['numeric', 'required'],
             'lng' => ['numeric', 'required'],
         ]);
-        auth()->user()->addLocation(request()->name, request()->lat, request()->lng, 'clinic');
+        auth()->user()->addLocation(request()->name, request()->lat, request()->lng, 'pharmacy');
         return redirect('/dashboard');
     }
 

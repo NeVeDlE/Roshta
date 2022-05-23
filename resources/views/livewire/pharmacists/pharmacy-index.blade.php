@@ -8,7 +8,7 @@
             <label class="block mb-2 uppercase font-bold text-xs text-gray-700">Place</label>
             <a
                 target="_blank"
-                href="https://www.google.com/maps/place/27%C2%B044'25.7%22N+30%C2%B050'21.9%22E/@27.740413,30.8413008,17z/data=!4m5!3m4!1s0x0:0x399e449f79a096aa!8m2!3d
+                href="https://www.google.com/maps/place/27%C2%B044'25.7%22N+30%C2%B050'21.9%22E/{{'@'.$pharmacy->lat}},{{$pharmacy->lng}},17z/data=!4m5!3m4!1s0x0:0x399e449f79a096aa!8m2!3d
                                                 {{$pharmacy->lat}}!4d{{$pharmacy->lng}}"
                 class="transition-colors duration-300 text-xs font-semibold bg-blue-200 hover:bg-blue-300 rounded-full py-2 px-8">
                 View Place

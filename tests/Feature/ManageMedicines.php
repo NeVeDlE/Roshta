@@ -33,7 +33,7 @@ class ManageMedicines extends TestCase
             ->set('description', $medicine['description'])->set('price', '19.5')
             ->set('photo', UploadedFile::fake()->image('test.png'))
             ->call('addMedicine');
-        $this->assertDatabaseHas('medicines', [
+        $this->assertDatabaseHas('Medicine', [
             'name' => $medicine['name'],
             'description' => $medicine['description'],
         ]);
@@ -49,6 +49,6 @@ class ManageMedicines extends TestCase
 
         \Livewire::test(MedicinesIndex::class)->assertSee($medicine->name)
             ->call('editPage', $medicine)->set('name', 'meow')->call('editMedicine');
-        $this->assertDatabaseHas('medicines', ['name' => 'meow']);
+        $this->assertDatabaseHas('Medicine', ['name' => 'meow']);
     }
 }

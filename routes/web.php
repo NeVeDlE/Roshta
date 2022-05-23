@@ -1,9 +1,11 @@
 <?php
 
-use App\Http\Controllers\Auth\MedicineController;
-use App\Http\Controllers\Locations\ClinicController;
-use App\Http\Controllers\Locations\LocationRequestsController;
-use App\Http\Controllers\Locations\PharmacyController;
+use App\Http\Controllers\Location\ClinicController;
+use App\Http\Controllers\Location\ClinicManagementController;
+use App\Http\Controllers\Location\LocationController;
+use App\Http\Controllers\Location\LocationRequestsController;
+use App\Http\Controllers\Location\PharmacyController;
+use App\Http\Controllers\Medicine\MedicineController;
 use App\Http\Livewire\admin\DiseasesIndex;
 use App\Http\Livewire\admin\jobs\JobsRequests;
 use App\Http\Livewire\admin\LocationsIndex;
@@ -31,7 +33,7 @@ Route::get('/', function () {
 Route::middleware('can:admin')->group(function () {
     Route::get('/dashboard/roles', [RolesIndex::class, 'index'])->name('roles');
     Route::get('/dashboard/diseases', [DiseasesIndex::class, 'index'])->name('diseases');
-    Route::get('/dashboard/medicines', [MedicinesIndex::class, 'index'])->name('medicines');
+    Route::get('/dashboard/Medicine', [MedicinesIndex::class, 'index'])->name('Medicine');
     Route::get('/dashboard/jobRequests', [JobsRequests::class, 'index'])->name('job-requests');
     Route::get('/dashboard/locations', [LocationsIndex::class, 'index'])->name('location-requests');
 });
@@ -54,6 +56,8 @@ Route::middleware('can:pharmacist')->group(function () {
 });
 Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/dashboard/medicines/{medicine:id}/{lat}/{lng}', MedicineController::class);
+    Route::get('/dashboard/locations/{location:id}/{lat}/{lng}', LocationController::class);
+    Route::post('/dashboard/clinics/{location:id}/reserve', [ClinicManagementController::class, 'store']);
 });
 
 
