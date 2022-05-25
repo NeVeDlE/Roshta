@@ -27,8 +27,8 @@ class MedicinesIndex extends Component
         return [
             'name' => ['required', 'string', 'max:255', 'min:2',
                 isset($this->medicine) ?
-                    Rule::unique('Medicine', 'name')->ignore($this->medicine) :
-                    Rule::unique('Medicine', 'name')
+                    Rule::unique('medicines', 'name')->ignore($this->medicine) :
+                    Rule::unique('medicines', 'name')
             ],
             'price' => 'numeric',
             'photo' => isset($this->medicine) ? isset($this->photo) ? ['image'] : [] : ['required', 'image', 'max:2048'],
@@ -109,7 +109,7 @@ class MedicinesIndex extends Component
         if (Gate::authorize('admin')) {
             if (!$this->page_id)
                 return view('livewire.medicines.medicines-index', [
-                    'Medicine' => Medicine::filter($this->search)->paginate(10),
+                    'medicines' => Medicine::filter($this->search)->paginate(10),
                 ]);
             else if ($this->page_id == 1) {
                 return view('livewire.medicines.medicines-index');

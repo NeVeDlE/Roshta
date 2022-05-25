@@ -38,7 +38,7 @@ Route::get('/', function () {
 Route::middleware('can:admin')->group(function () {
     Route::get('/dashboard/roles', [RolesIndex::class, 'index'])->name('roles');
     Route::get('/dashboard/diseases', [DiseasesIndex::class, 'index'])->name('diseases');
-    Route::get('/dashboard/Medicine', [MedicinesIndex::class, 'index'])->name('Medicine');
+    Route::get('/dashboard/medicines', [MedicinesIndex::class, 'index'])->name('medicines');
     Route::get('/dashboard/jobRequests', [JobsRequests::class, 'index'])->name('job-requests');
     Route::get('/dashboard/locations', [LocationsIndex::class, 'index'])->name('location-requests');
 });
@@ -64,17 +64,16 @@ Route::middleware('can:pharmacist')->group(function () {
     Route::post('/dashboard/pharmacies', [PharmacyController::class, 'store']);
 });
 Route::middleware(['auth', 'verified'])->group(function () {
+    Route::get('/dashboard', function () {return view('dashboard');})->name('dashboard');
     Route::get('/dashboard/QR', QRController::class);
     Route::get('/dashboard/examinationRequests', [PatientExaminationRequests::class, 'index'])->name('examination-requests');
     Route::get('/dashboard/medicines/{medicine:id}/{lat}/{lng}', MedicineController::class);
     Route::get('/dashboard/locations/{location:id}/{lat}/{lng}', LocationController::class);
     Route::post('/dashboard/clinics/{location:id}/reserve', [ClinicManagementController::class, 'store']);
-    Route::get('/dashboard/examinations', [ExaminationController::class, 'index']);
+    Route::get('/dashboard/examinations', [ExaminationController::class, 'index'])->name('examinations');
+    Route::get('/dashboard/examinations/{examination}/buy/qr', [ExaminationController::class, 'qr']);
+    Route::get('/dashboard/examinations/{examination}/buy/{lat}/{lng}', [ExaminationController::class, 'buy']);
 });
 
-
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
 
 require __DIR__ . '/auth.php';

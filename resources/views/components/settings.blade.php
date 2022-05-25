@@ -88,6 +88,12 @@
             <h4 class="font-semibold mb-4">Patient</h4>
             <ul>
                 <li class="mb-2">
+                    <a href="/dashboard/examinations"
+                       class="{{request()->routeIs('examinations')? 'text-blue-500':'' }}">Examinations
+                         {{\Illuminate\Support\Facades\DB::select("select count(id) as cnt from examinations
+                                           where patient_id = ".auth()->id())[0]->cnt}}</a>
+                </li>
+                <li class="mb-2">
                     <a href="/dashboard/examinationRequests"
                        class="{{request()->routeIs('examination-requests')? 'text-blue-500':'' }}">Examination
                         Requests  {{\Illuminate\Support\Facades\DB::select("select count(id) as cnt from location_users

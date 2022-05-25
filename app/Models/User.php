@@ -59,6 +59,11 @@ class User extends Authenticatable implements MustVerifyEmail
         ]);
     }
 
+    public function examinations()
+    {
+        return $this->hasMany(Examination::class, 'patient_id');
+    }
+
     public function addRole($name)
     {
 

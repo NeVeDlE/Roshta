@@ -9,8 +9,8 @@ class SearchDropdown extends Component
 {
     public $search;
     public $searchResults = [];
-    public $lat=0;
-    public $lng=0;
+    public $lat = 0;
+    public $lng = 0;
     public $type;
     protected $listeners = [
         'changeLat', 'changeLng'
@@ -52,7 +52,7 @@ class SearchDropdown extends Component
         if ($this->type == 'pharmacy') {
             return \DB::select("select id, name ,
          round(SQRT((lat-{$this->lat})*(lat-{$this->lat})+(lng-{$this->lng})*(lng-{$this->lng}))*100 ,2)as distance
-        from locations where name like '%' '{$this->search}' '%' and type = 'pharmacy'
+        from locations where name like '%' '{$this->search}' '%' and type = 'pharmacy' and status='accepted'
           order By SQRT((lat-{$this->lat})*(lat-{$this->lat})+(lng-{$this->lng})*(lng-{$this->lng}))
           limit 10");
         } else if ($this->type == 'clinic') {
@@ -69,7 +69,7 @@ class SearchDropdown extends Component
                  u.name like '%' '{$this->search}' '%'
               OR s.name like '%' '{$this->search}' '%'
               OR l.name like '%' '{$this->search}' '%'
-            )
+            ) and status='accepted'
             order by SQRT((l.lat-{$this->lat})*(l.lat-{$this->lat})+(l.lng-{$this->lng})*(l.lng-{$this->lng}))
             limit 10");
 

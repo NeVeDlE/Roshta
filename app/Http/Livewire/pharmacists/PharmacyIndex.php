@@ -20,7 +20,7 @@ class PharmacyIndex extends Component
     public function rules(): array
     {
         return [
-            'medicine' => ['required', Rule::exists('Medicine', 'id')],
+            'medicine' => ['required', Rule::exists('medicines', 'id')],
             'quantity' => ['required', 'numeric'],
 
         ];
@@ -87,9 +87,9 @@ class PharmacyIndex extends Component
     {
         if (!$this->page_id) {
             $medicines = \DB::table('location_medicines')
-                ->join('Medicine', 'location_medicines.medicine_id', 'Medicine.id')
+                ->join('medicines', 'location_medicines.medicine_id', 'medicines.id')
                 ->where('location_id', '=', $this->pharmacy->id)
-                ->select('location_medicines.quantity', 'Medicine.price')->get();
+                ->select('location_medicines.quantity', 'medicines.price')->get();
             $totalMoney = 0;
             foreach ($medicines as $medicine) {
                 $totalMoney += (int)$medicine->quantity * $medicine->price;
@@ -103,7 +103,7 @@ class PharmacyIndex extends Component
             ]);
         } else {
             return view('livewire.pharmacists.pharmacy-index', [
-                'Medicine' => Medicine::where('name', 'like', '%' . $this->search . '%')->take(10)->get(),
+                'medicines' => Medicine::where('name', 'like', '%' . $this->search . '%')->take(10)->get(),
             ]);
         }
     }

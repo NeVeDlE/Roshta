@@ -66,8 +66,9 @@
 
 
                     @if(sizeof($medicines))
+                        <option value="">-- Select Medicine --</option>
                         @foreach($medicines as $medicine)
-                            <option value="">-- Select Medicine --</option>
+
                             <option
                                 value="{{ $medicine->id }}">{{ $medicine->name }}</option>
                         @endforeach
