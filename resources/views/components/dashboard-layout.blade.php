@@ -1,7 +1,8 @@
 <!doctype html>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Codeitter</title>
-<link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+
+<script src="https://cdn.tailwindcss.com"></script>
 <link rel="preconnect" href="https://fonts.gstatic.com">
 <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
 <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
@@ -14,14 +15,14 @@
         /* The width is the width of the web page */
     }
 </style>
+
 <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+<script src="{{asset('js/html5-qrcode.min.js')}}"></script>
 <body style="font-family: Open Sans, sans-serif">
 <livewire:styles/>
-<style>
-    html {
-        scroll-behavior: smooth;
-    }
-</style>
+
+
+
 <section class="px-6 py-8">
     <nav class="md:flex md:justify-between md:items-center">
         <div>
@@ -98,5 +99,6 @@
 </section>
 <x-flash/>
 <livewire:scripts/>
+
 
 </body>

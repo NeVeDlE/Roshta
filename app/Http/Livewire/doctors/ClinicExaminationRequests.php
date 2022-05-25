@@ -2,12 +2,19 @@
 
 namespace App\Http\Livewire\doctors;
 
+use App\Models\Location;
 use Illuminate\Support\Facades\Gate;
 use Livewire\Component;
 
 class ClinicExaminationRequests extends Component
 {
     public $search;
+    public $clinic;
+
+    public function mount(Location $clinic)
+    {
+        $this->clinic = $clinic;
+    }
 
     public function accept($id)
     {
