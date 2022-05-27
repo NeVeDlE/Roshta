@@ -40,7 +40,10 @@ class AppServiceProvider extends ServiceProvider
             return $location->type == 'clinic';
         });
         Gate::define('hasClinic', function (User $user) {
-            return isset($user->locations) && $user->locations->type == 'clinic';
+            return isset($user->locations) && $user->locations->type == 'clinic'&& $user->locations->status = 'accepted';
+        });
+        Gate::define('hasPharmacy', function (User $user) {
+            return isset($user->locations) && $user->locations->type == 'pharmacy'&& $user->locations->status = 'accepted';
         });
         Gate::define('clinicOwner', function (User $user, Location $clinic) {
             return $user->id == $clinic->owner_id && $clinic->type == 'clinic';

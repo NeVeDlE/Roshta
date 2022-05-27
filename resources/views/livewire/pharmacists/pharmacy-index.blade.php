@@ -44,6 +44,13 @@
                 Add
             </button>
         </div>
+        <div class="mb-6 items-center justify-center">
+            <label class="block mb-2 uppercase font-bold text-xs text-gray-700">Have A Customer ?</label>
+            <a href="/dashboard/pharmacies/roshta/qr"
+               class="transition-colors duration-300 text-xs font-semibold bg-green-200 hover:bg-green-300 rounded-full py-2 px-8">
+                Scan his QR for the Roshta
+            </a>
+        </div>
     @else
         <div class="mb-4">
             <button wire:click="setPage(0)"

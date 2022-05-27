@@ -63,14 +63,15 @@
             @can('pharmacist')
                 <h4 class="font-semibold mb-4">Pharmacist</h4>
                 <ul>
-                    @if($pharmacy = \App\Models\Location::where('owner_id', auth()->id())
-                      ->where('type', 'pharmacy')->where('status','accepted')->first())
+                   @can('hasPharmacy')
                         <li class="mb-2">
                             <a href="/dashboard/pharmacy/index"
                                class="{{request()->routeIs('pharmacy-index')? 'text-blue-500':'' }}">
-                                {{$pharmacy->name}}</a>
+                                {{auth()->user()->locations->name}}</a>
                         </li>
-                    @endif
+
+                    @endcan
+
                     <li class="mb-2">
                         <a href="/dashboard/locations/preview"
                            class="{{request()->routeIs('locations-request-preview')? 'text-blue-500':'' }}">My Location

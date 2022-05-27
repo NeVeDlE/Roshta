@@ -11,6 +11,11 @@ class Examination extends Model
 
     protected $guarded = [];
 
+    public function patient()
+    {
+        return $this->belongsTo(User::class, 'patient_id', 'id');
+    }
+
     public function addMedicine(Medicine $medicine)
     {
         return $this->medicines()->attach($medicine);

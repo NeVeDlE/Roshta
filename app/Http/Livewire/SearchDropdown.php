@@ -69,7 +69,7 @@ class SearchDropdown extends Component
                  u.name like '%' '{$this->search}' '%'
               OR s.name like '%' '{$this->search}' '%'
               OR l.name like '%' '{$this->search}' '%'
-            ) and status='accepted'
+            ) and l.status='accepted'
             order by SQRT((l.lat-{$this->lat})*(l.lat-{$this->lat})+(l.lng-{$this->lng})*(l.lng-{$this->lng}))
             limit 10");
 

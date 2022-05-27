@@ -6,6 +6,7 @@ use App\Http\Controllers\Location\ClinicManagementController;
 use App\Http\Controllers\Location\LocationController;
 use App\Http\Controllers\Location\LocationRequestsController;
 use App\Http\Controllers\Location\PharmacyController;
+use App\Http\Controllers\Location\PharmacyManagementController;
 use App\Http\Controllers\Medicine\MedicineController;
 use App\Http\Controllers\Patient\ExaminationController;
 use App\Http\Controllers\Patient\QRController;
@@ -62,9 +63,14 @@ Route::middleware('can:pharmacist')->group(function () {
     Route::get('/dashboard/pharmacies/register', [PharmacyController::class, 'index'])->name('pharmacies-register');
     Route::get('/dashboard/pharmacy/index', [PharmacyIndex::class, 'index'])->name('pharmacy-index');
     Route::post('/dashboard/pharmacies', [PharmacyController::class, 'store']);
+    Route::get('/dashboard/pharmacies/roshta/qr', [PharmacyManagementController::class, 'index']);
+    Route::get('/dashboard/pharmacies/roshta/qr/{examination}', [PharmacyManagementController::class, 'create']);
+    Route::post('/dashboard/pharmacies/roshta/qr/{examination}', [PharmacyManagementController::class, 'store']);
 });
 Route::middleware(['auth', 'verified'])->group(function () {
-    Route::get('/dashboard', function () {return view('dashboard');})->name('dashboard');
+    Route::get('/dashboard', function () {
+        return view('dashboard');
+    })->name('dashboard');
     Route::get('/dashboard/QR', QRController::class);
     Route::get('/dashboard/examinationRequests', [PatientExaminationRequests::class, 'index'])->name('examination-requests');
     Route::get('/dashboard/medicines/{medicine:id}/{lat}/{lng}', MedicineController::class);

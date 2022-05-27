@@ -48,6 +48,8 @@ class ExaminePatientController extends Controller
         foreach (request()['diseases'] as $req) {
             $examination->addDisease(Disease::where('id', $req)->first());
         }
+        \DB::select("update location_users set status='done' where location_id ={auth()->user()->locations->id}
+             and user_id={$user->id}");
         return redirect('/dashboard/clinics/index')->with('success', 'Examination is made successfully!');
 
     }
