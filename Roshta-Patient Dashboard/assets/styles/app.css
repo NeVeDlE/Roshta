@@ -1,0 +1,615 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap");
+body {
+  font-family: "Open Sans", sans-serif;
+}
+
+textarea {
+  resize: none;
+}
+
+#sideBar.hide .dropJoinUs {
+  display: none;
+}
+
+#sideBar {
+  position: fixed;
+  z-index: 1000;
+  transition: 0.3s ease;
+  overflow: hidden;
+}
+#sideBar.hide {
+  width: 60px;
+}
+#sideBar.hide .sidebarTopMenu li a,
+#sideBar.hide .sidebarDownMenu li a {
+  width: 40px;
+}
+#sideBar.hide .sidebarTopMenu.active a,
+#sideBar.hide .sidebarDownMenu.active a {
+  width: 40px;
+}
+#sideBar .sidebarTopMenu li,
+#sideBar .sidebarDownMenu li {
+  height: 48px;
+  background-color: transparent;
+  margin-left: 6px;
+  border-radius: 48px 0 0 48px;
+  padding: 4px;
+}
+#sideBar .sidebarTopMenu li.active,
+#sideBar .sidebarDownMenu li.active {
+  position: relative;
+  background-color: #e5e7eb;
+}
+#sideBar .sidebarTopMenu li.active::before,
+#sideBar .sidebarDownMenu li.active::before {
+  content: "";
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  top: -40px;
+  right: 0;
+  box-shadow: 20px 20px 0 #e5e7eb;
+  z-index: -1;
+}
+#sideBar .sidebarTopMenu li.active::after,
+#sideBar .sidebarDownMenu li.active::after {
+  content: "";
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  bottom: -40px;
+  right: 0;
+  box-shadow: 20px -20px 0 #e5e7eb;
+  z-index: -1;
+}
+#sideBar .sidebarTopMenu li a,
+#sideBar .sidebarDownMenu li a {
+  width: 100%;
+  height: 100%;
+  background-color: white;
+  display: flex;
+  align-items: center;
+  border-radius: 48px;
+  font-size: 18px;
+  color: #28b3f4;
+  white-space: nowrap;
+  overflow-x: hidden;
+}
+#sideBar .sidebarTopMenu li a .sideBarIcon,
+#sideBar .sidebarDownMenu li a .sideBarIcon {
+  min-width: 40px;
+  align-items: center;
+  justify-content: center;
+}
+#sideBar .sidebarTopMenu li a:hover,
+#sideBar .sidebarDownMenu li a:hover {
+  color: white;
+  background-color: #6ccaf6;
+}
+#sideBar .sidebarDownMenu .logout {
+  color: red;
+}
+#sideBar .sidebarDownMenu .logout:hover {
+  background-color: red;
+  color: white;
+}
+#sideBar .dropJoinUs {
+  position: relative;
+  display: inline-block;
+}
+#sideBar .dropJoinUs .dropbtnJoin {
+  margin-top: -16px;
+  margin-left: -5px;
+}
+#sideBar .dropJoinUs .dropbtnJoin:hover {
+  background-color: #006797;
+}
+#sideBar .dropJoinUs .drop-Jobs {
+  display: none;
+  position: absolute;
+  background-color: #f1f1f1;
+  min-width: 160px;
+  overflow: auto;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+  bottom: 26px;
+  right: -97px;
+}
+#sideBar .dropJoinUs .drop-Jobs a {
+  color: black;
+  padding: 12px 6px;
+  text-decoration: none;
+  display: block;
+}
+#sideBar .dropJoinUs .drop-Jobs a:hover {
+  background-color: #ddd;
+}
+#sideBar .dropJoinUs .show {
+  display: block;
+}
+
+/*end SideBar*/
+/*start Content Header*/
+#sideBar.hide ~ #contentHeader {
+  width: calc(100% - 60px);
+  left: 60px;
+  transition: all 0.3s ease;
+}
+
+#contentHeader {
+  position: relative;
+  width: calc(100% - 240px);
+  left: 240px;
+  transition: all 0.3s ease;
+  height: 60px;
+}
+#contentHeader #searchBtn {
+  font-size: 16px;
+  background-color: #28b3f4;
+  color: white;
+  padding: 6px 7px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+#contentHeader #searchBtn:hover {
+  background-color: #006797;
+}
+#contentHeader .searchForm {
+  height: 65px;
+  position: absolute;
+  top: -110%;
+  left: 0;
+  right: 0;
+  padding: 0 15px;
+  background-color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-bottom: 2px solid white;
+  z-index: 0;
+  transition: all 0.3s ease;
+}
+#contentHeader .searchForm.show {
+  top: 100%;
+  border-bottom: 2px solid #28b3f4;
+}
+#contentHeader .searchForm .formInput {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+#contentHeader .searchForm .formInput input {
+  flex-grow: 2;
+  padding: 0 16px;
+  height: 100%;
+  border: none;
+  background: #e5e7eb;
+  border-radius: 36px 0 0 36px;
+}
+#contentHeader .searchForm .formInput input:focus-visible {
+  outline: none;
+  border: 2px solid #28b3f4;
+}
+#contentHeader .searchForm .formInput button {
+  border: none;
+  outline: none;
+  border-radius: 0 36px 36px 0;
+}
+#contentHeader nav {
+  position: relative;
+}
+#contentHeader nav::before {
+  content: "";
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  bottom: -40px;
+  left: 0;
+  box-shadow: -20px -20px 0 white;
+}
+#contentHeader .dropbtn:hover {
+  background-color: #006797;
+}
+#contentHeader .dropDown {
+  position: relative;
+  display: inline-block;
+}
+#contentHeader .dropDown .drop-roles {
+  display: none;
+  position: absolute;
+  background-color: #f1f1f1;
+  min-width: 160px;
+  overflow: auto;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+}
+#contentHeader .dropDown .drop-roles a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+#contentHeader .dropDown .drop-roles a:hover {
+  background-color: #ddd;
+}
+#contentHeader .dropDown .show {
+  display: block;
+}
+#contentHeader .showHideSide {
+  color: #28b3f4;
+}
+#contentHeader form {
+  width: 100%;
+}
+#contentHeader form .formInput input {
+  flex-grow: 2;
+  padding: 0 16px;
+  height: 100%;
+  border: none;
+  background: #e5e7eb;
+  border-radius: 36px 0 0 36px;
+}
+#contentHeader form .formInput input:focus-visible {
+  outline: none;
+  border: 2px solid #28b3f4;
+}
+#contentHeader form .formInput button {
+  border: none;
+  outline: none;
+  border-radius: 0 36px 36px 0;
+}
+#contentHeader .notfications {
+  font-size: 20px;
+  position: relative;
+}
+#contentHeader .numNotfi {
+  position: absolute;
+  top: -6px;
+  right: -9px;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  border: 2px solid white;
+}
+#contentHeader .profilePic img {
+  -o-object-fit: cover;
+     object-fit: cover;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+}
+
+#contentHeader main {
+  height: calc(100% - 40px);
+}
+#contentHeader main .pageIndex {
+  gap: 10px;
+  padding-left: 56px;
+}
+#contentHeader main .pageIndex li {
+  color: rgb(176, 175, 175);
+}
+#contentHeader main .pageIndex li:hover {
+  color: #28b3f4;
+}
+#contentHeader main .pageIndex .active {
+  color: #28b3f4;
+}
+#contentHeader main .pageIndex .chervon {
+  color: black;
+}
+#contentHeader main .pageIndex .chervon:hover {
+  color: black !important;
+}
+#contentHeader main .content {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 0.6fr));
+  grid-gap: 24px;
+}
+#contentHeader main .content .contentBox {
+  padding: 24px;
+  background: white;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  grid-gap: 24px;
+  font-weight: 600;
+  transition: all 0.2s ease;
+}
+#contentHeader main .content .contentBox:hover {
+  background-color: #eb6f6f;
+}
+#contentHeader main .content .contentBox .homeIcons {
+  width: 40px;
+  height: 40px;
+  padding: 20px;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 20px;
+}
+#contentHeader main .content .contentBox:nth-child(1) .homeIcons {
+  background-color: #cfe8ff;
+  color: #3c91e6;
+}
+#contentHeader main .content .contentBox:nth-child(2) .homeIcons {
+  background-color: #ffe0d3;
+  color: #fd7238;
+}
+#contentHeader main .content .contentBox:nth-child(3) .homeIcons {
+  background-color: #fff2c6;
+  color: #ffce26;
+}
+#contentHeader main .content .contentBox:nth-child(4) .homeIcons {
+  background-color: lightgreen;
+  color: green;
+}
+#contentHeader main .tableOfContent {
+  padding-bottom: 5rem;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+#contentHeader main .tableOfContent .headofTable {
+  align-items: center;
+  justify-content: start;
+  margin-top: 24px;
+  border-radius: 10px;
+  padding: 24px;
+  background-color: white;
+}
+#contentHeader main .tableOfContent .headofTable form input {
+  height: 34px;
+  padding: 0 15px;
+  background-color: #e5e7eb;
+  border-radius: 10px;
+  flex-grow: 2;
+}
+#contentHeader main .tableOfContent .headofTable form input:focus-visible {
+  outline: none;
+  border: 2px solid #28b3f4;
+}
+#contentHeader main .tableOfContent .headofTable form input:active {
+  border: 2px solid #28b3f4;
+}
+#contentHeader main .tableOfContent .idCode {
+  width: 70%;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+#contentHeader main .tableOfContent .idCode h4 {
+  padding: 2rem;
+  font-weight: bold;
+  color: #28b3f4;
+  text-align: center;
+}
+#contentHeader main .tableOfContent .idCode img {
+  width: 290px;
+  padding-bottom: 1rem;
+}
+#contentHeader main .tableOfContent #roleTable,
+#contentHeader main .tableOfContent #diseaseTable,
+#contentHeader main .tableOfContent #medicineTable {
+  width: 75%;
+  border-radius: 10px;
+  padding: 24px;
+  background-color: white;
+  overflow-y: scroll;
+}
+#contentHeader main .tableOfContent #roleTable .new,
+#contentHeader main .tableOfContent #diseaseTable .new,
+#contentHeader main .tableOfContent #medicineTable .new {
+  background-color: #eee;
+  width: 80%;
+  padding: 5px;
+  border-radius: 10px;
+}
+#contentHeader main .tableOfContent #roleTable .new:focus-visible, #contentHeader main .tableOfContent #roleTable .new:active,
+#contentHeader main .tableOfContent #diseaseTable .new:focus-visible,
+#contentHeader main .tableOfContent #diseaseTable .new:active,
+#contentHeader main .tableOfContent #medicineTable .new:focus-visible,
+#contentHeader main .tableOfContent #medicineTable .new:active {
+  outline: none;
+  border: 1px solid #28b3f4;
+}
+#contentHeader main .tableOfContent #roleTable .addRole,
+#contentHeader main .tableOfContent #roleTable .addDisease,
+#contentHeader main .tableOfContent #roleTable .addMedicine,
+#contentHeader main .tableOfContent #diseaseTable .addRole,
+#contentHeader main .tableOfContent #diseaseTable .addDisease,
+#contentHeader main .tableOfContent #diseaseTable .addMedicine,
+#contentHeader main .tableOfContent #medicineTable .addRole,
+#contentHeader main .tableOfContent #medicineTable .addDisease,
+#contentHeader main .tableOfContent #medicineTable .addMedicine {
+  width: 120px;
+  background-color: #28b3f4;
+  color: white;
+  padding: 5px 10px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+}
+#contentHeader main .tableOfContent #roleTable .addRole:hover,
+#contentHeader main .tableOfContent #roleTable .addDisease:hover,
+#contentHeader main .tableOfContent #roleTable .addMedicine:hover,
+#contentHeader main .tableOfContent #diseaseTable .addRole:hover,
+#contentHeader main .tableOfContent #diseaseTable .addDisease:hover,
+#contentHeader main .tableOfContent #diseaseTable .addMedicine:hover,
+#contentHeader main .tableOfContent #medicineTable .addRole:hover,
+#contentHeader main .tableOfContent #medicineTable .addDisease:hover,
+#contentHeader main .tableOfContent #medicineTable .addMedicine:hover {
+  background-color: #006797;
+}
+#contentHeader main .tableOfContent #roleTable th,
+#contentHeader main .tableOfContent #diseaseTable th,
+#contentHeader main .tableOfContent #medicineTable th {
+  text-align: left;
+  padding: 18px;
+}
+#contentHeader main .tableOfContent #roleTable td,
+#contentHeader main .tableOfContent #diseaseTable td,
+#contentHeader main .tableOfContent #medicineTable td {
+  gap: 10px;
+  padding: 18px;
+}
+#contentHeader main .tableOfContent #roleTable td.Options,
+#contentHeader main .tableOfContent #diseaseTable td.Options,
+#contentHeader main .tableOfContent #medicineTable td.Options {
+  display: flex;
+}
+#contentHeader main .tableOfContent #roleTable tr,
+#contentHeader main .tableOfContent #diseaseTable tr,
+#contentHeader main .tableOfContent #medicineTable tr {
+  border: 1px solid #eee;
+  border-radius: 10px;
+}
+#contentHeader main .tableOfContent #roleTable .editBtn,
+#contentHeader main .tableOfContent #roleTable .saveBtn,
+#contentHeader main .tableOfContent #diseaseTable .editBtn,
+#contentHeader main .tableOfContent #diseaseTable .saveBtn,
+#contentHeader main .tableOfContent #medicineTable .editBtn,
+#contentHeader main .tableOfContent #medicineTable .saveBtn {
+  cursor: pointer;
+  background-color: #28b3f4;
+  color: white;
+  padding: 5px 10px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+}
+#contentHeader main .tableOfContent #roleTable .editBtn:hover,
+#contentHeader main .tableOfContent #roleTable .saveBtn:hover,
+#contentHeader main .tableOfContent #diseaseTable .editBtn:hover,
+#contentHeader main .tableOfContent #diseaseTable .saveBtn:hover,
+#contentHeader main .tableOfContent #medicineTable .editBtn:hover,
+#contentHeader main .tableOfContent #medicineTable .saveBtn:hover {
+  background-color: #006797;
+}
+#contentHeader main .tableOfContent #roleTable .saveBtn,
+#contentHeader main .tableOfContent #diseaseTable .saveBtn,
+#contentHeader main .tableOfContent #medicineTable .saveBtn {
+  display: none;
+}
+#contentHeader main .tableOfContent #roleTable .deleteBtn,
+#contentHeader main .tableOfContent #diseaseTable .deleteBtn,
+#contentHeader main .tableOfContent #medicineTable .deleteBtn {
+  cursor: pointer;
+  background-color: #eb6f6f;
+  color: white;
+  padding: 5px 10px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+}
+#contentHeader main .tableOfContent #roleTable .deleteBtn:hover,
+#contentHeader main .tableOfContent #diseaseTable .deleteBtn:hover,
+#contentHeader main .tableOfContent #medicineTable .deleteBtn:hover {
+  background-color: #f13d3d;
+}
+
+/*End Content Header*/
+/*media Queries*/
+@media screen and (max-width: 768px) {
+  #sideBar {
+    width: 200px;
+  }
+
+  #contentHeader {
+    width: 100%;
+    left: 200px;
+  }
+  #contentHeader .searchBar {
+    width: 214px;
+  }
+  #contentHeader form .formInput {
+    width: 70%;
+  }
+  #contentHeader form .formInput select:focus-visible {
+    outline: none;
+  }
+
+  #dropbtn {
+    width: 130px;
+    padding: 0;
+  }
+
+  #contentHeader form.showSearchForm .formInput input {
+    display: block;
+  }
+  #contentHeader form.showSearchForm .formInput button {
+    width: 36px;
+    height: 100%;
+    border-radius: 0 36px 36px 0;
+    color: white;
+    background-color: #28b3f4;
+  }
+
+  .content {
+    flex-direction: column;
+  }
+  .content .contentBox {
+    width: 75%;
+  }
+}
+@media (max-width: 576px) {
+  #contentHeader .profilePic img {
+    width: 36px;
+    height: 36px;
+  }
+
+  #contentHeader {
+    width: 100%;
+  }
+  #contentHeader #searchBtn {
+    font-size: 14px;
+  }
+  #contentHeader .searchForm {
+    height: 33px;
+  }
+  #contentHeader main .content {
+    flex-direction: column;
+  }
+  #contentHeader main .content .contentBox {
+    width: 75%;
+  }
+  #contentHeader main .tableOfContent {
+    flex-direction: column;
+  }
+  #contentHeader main .tableOfContent .headofTable {
+    flex-direction: column;
+    justify-content: center;
+  }
+  #contentHeader main .tableOfContent table {
+    width: 100%;
+  }
+  #contentHeader main .tableOfContent table th {
+    font-size: 14px;
+  }
+  #contentHeader main .tableOfContent table td {
+    padding: 10px;
+    border-bottom: 2px solid #eee;
+  }
+  #contentHeader main .tableOfContent table td.roleOptions {
+    gap: 10px;
+  }
+  #contentHeader main .tableOfContent table .saveBtn,
+#contentHeader main .tableOfContent table .editBtn,
+#contentHeader main .tableOfContent table .deleteBtn {
+    width: 100%;
+  }
+}
+/*media Queries*//*# sourceMappingURL=app.css.map */

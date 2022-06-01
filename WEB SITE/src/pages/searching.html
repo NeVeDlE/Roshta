@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../assets/styles/app.css">
+    <link rel="stylesheet" href="../../assets/styles/all.min.css">
+    <link rel="icon" href="../../assets/images/Logo.png">
+    <title>Roshta</title>
+</head>
+<body class="bg-gray-100">
+    <header class="bg-gray-200 h-20 shadow-md">
+        <div class="container px-6 py-4 mx-auto">
+            <nav class="navbar flex justify-between items-center">
+                <a href="../../index.html"><img class="h-12" src="../../assets/images/Logo.png"></a>
+                <ul id="sidebar" class="navMenu flex justify-between items-center">
+                    <!-- <li class="navItem px-1 ml-5">
+                        <a class="text-blue-400 primary navLink" href="src/pages/login.html">Log In</a>
+                    </li> -->
+                    <li class="navItem  px-1 ml-5 ">
+                        <a class="navigation navLink" href="../../index.html">Home</a>
+                    </li>
+                    <li class="navItem  px-1 ml-5">
+                        <a class="navigation navLink" href="#">Register</a>
+                    </li>
+                    <div class="verticalBar"></div>
+                    <li class="navItem px-1 ml-5">
+                        <a class="navigation navLink" href="#">About Us</a>
+                    </li>
+                    <li class="navItem  px-1 ml-5">
+                        <a class="navigation navLink" href="#">Contact Us</a>
+                    </li>
+                </ul>
+                <div id="toggler" class="Hamburger">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div>
+            </nav>
+        </div>
+    </header>
+    <section id="landing" class="landingPage flex justify-center items-center z-auto">
+        <form class="Searching flex items-center justify-center bg-white">
+            <select class="selectCity form-select" id="government">
+                <option value="hide">Select City</option>
+                <option>Cairo</option>
+                <option>Giza</option>
+                <option>Alexandria</option>
+            </select>
+            <br></br>
+            <select class="selcetArea" id="Area">
+                <option>Select Area</option>
+            </select>
+            <select id="spciality">
+                <option>Select Spciality</option>
+                <option>Nursing</option>
+            </select>
+            <button class="text-red-400 ml-2 text-3xl"><i class="fa-solid fa-magnifying-glass cursor-pointer"></i></button>
+        </form>
+    </section>
+    <script src="../../assets/scripts/jquery-3.6.0.js"></script>
+    <script src="../../assets/scripts/all.min.js"></script>
+    <script src="../../assets/scripts/main.js"></script>
+</body>
+
+</html>

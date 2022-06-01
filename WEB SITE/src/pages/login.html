@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../assets/styles/app.css">
+    <link rel="stylesheet" href="../../assets/styles/all.min.css">
+    <link rel="icon" href="../../assets/images/Logo.png">
+    <title>Roshta</title>
+</head>
+
+<body class="bg-gray-100">
+    <header class="bg-gray-200 h-20 shadow-md">
+        <div class="container px-6 py-4 mx-auto">
+            <nav class="navbar flex justify-between items-center">
+                <a href="../../index.html"><img class="h-12" src="../../assets/images/Logo.png"></a>
+                <ul id="sidebar" class="navMenu flex justify-between items-center">
+                    <!-- <li class="navItem px-1 ml-5">
+                        <a class="text-blue-400 primary navLink" href="src/pages/login.html">Log In</a>
+                    </li> -->
+                    <li class="navItem  px-1 ml-5 ">
+                        <a class="navigation navLink" href="../../index.html">Home</a>
+                    </li>
+                    <li class="navItem  px-1 ml-5">
+                        <a class="navigation navLink" href="#">Register</a>
+                    </li>
+                    <div class="verticalBar"></div>
+                    <li class="navItem px-1 ml-5">
+                        <a class="navigation navLink" href="#">About Us</a>
+                    </li>
+                    <li class="navItem  px-1 ml-5">
+                        <a class="navigation navLink" href="#">Contact Us</a>
+                    </li>
+                </ul>
+                <div id="toggler" class="Hamburger">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div>
+            </nav>
+        </div>
+    </header>
+    <main class="loginFormSection w-full flex flex-col justify-center items-center">
+        <div class="py-8 flex flex-col justify-center items-center">
+            <img class="h-36" src="../../assets/images/Logo.png">
+        </div>
+        <div class="loginForm bg-white w-96 h-auto rounded-md shadow-md">
+            <h2 class="text-center text-blue-400 font-normal text-3xl mt-2">Log In</h2>
+            <form class="form flex flex-col" method="post" action="#">
+                <div class="formInput flex flex-col my-3">
+                    <label class="py-2 px-2 placeholder" for="userName">Email or ID Number:</label>
+                    <input type="text" name="email" class="w-10/12 mx-auto shadow-inner h-9 userName controller"
+                        id="email">
+                </div>
+                <div class="formInput my-3 flex flex-col">
+                    <label class="py-2 px-2 placeholder" for="passInput">Password:</label>
+                    <input type="password" name="password" class="w-10/12 mx-auto h-9 shadow-inner passInput controller"
+                        id="password">
+                        <i id="showHideLogin"class="cursor-pointer text-gray-400 fa-solid fa-eye"></i>
+
+                </div>
+                <div class="formInput my-2 flex justify-start items-center mx-2">
+
+                    <label class="px-2 text-blue-400 cursor-pointer"> <input type="checkbox" class="mr-2 shadow-md rememberMe">Remember
+                        Me?</label>
+
+                </div>
+                <button
+                    class="uppercase bg-red-400 py-2 px-3 mx-2 rounded-md text-white shadow-md hover:bg-red-500">Login</button>
+                <a href="forgetPass.html" class="text-center text-blue-400 my-1 underline mt-2">Forgotten Password?</a>
+            </form>
+
+            <hr class="w-full mt-5 mb-2 border border-gray-300">
+            <div class="createAccount flex flex-col justify-center items-center ">
+                <label class="getAcc text-blue-400">New User?</label>
+                <a class=" w-11/12 text-center uppercase bg-blue-400 py-2 px-3 mx-2 my-5 shadow-md rounded-md text-white hover:bg-blue-600"
+                    href="Registeration.html">Create Account</a>
+            </div>
+        </div>
+    </main>
+    <script src="../../assets/scripts/jquery-3.6.0.js"></script>
+    <script src="../../assets/scripts/all.min.js"></script>
+    <script src="../../assets/scripts/main.js"></script>
+</body>
+
+</html>

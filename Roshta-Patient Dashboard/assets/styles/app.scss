@@ -1,0 +1,596 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap");
+
+$gray: #e5e7eb;
+$blue: #28b3f4;
+body {
+  font-family: "Open Sans", sans-serif;
+}
+textarea {
+  resize: none;
+}
+#sideBar.hide {
+  .dropJoinUs {
+    display: none;
+  }
+}
+#sideBar {
+  position: fixed;
+  z-index: 1000;
+  transition: 0.3s ease;
+  overflow: hidden;
+  &.hide {
+    width: 60px;
+    .sidebarTopMenu,
+    .sidebarDownMenu {
+      li {
+        a {
+          width: calc(48px - (4px * 2));
+        }
+      }
+      &.active {
+        a {
+          width: calc(48px - (4px * 2));
+        }
+      }
+    }
+  }
+  .sidebarTopMenu,
+  .sidebarDownMenu {
+    li {
+      height: 48px;
+      background-color: transparent;
+      margin-left: 6px;
+      border-radius: 48px 0 0 48px;
+      padding: 4px;
+      &.active {
+        position: relative;
+        background-color: $gray;
+        &::before {
+          content: "";
+          position: absolute;
+          width: 40px;
+          height: 40px;
+          border-radius: 50%;
+          top: -40px;
+          right: 0;
+          box-shadow: 20px 20px 0 $gray;
+          z-index: -1;
+        }
+        &::after {
+          content: "";
+          position: absolute;
+          width: 40px;
+          height: 40px;
+          border-radius: 50%;
+          bottom: -40px;
+          right: 0;
+          box-shadow: 20px -20px 0 $gray;
+          z-index: -1;
+        }
+      }
+      a {
+        width: 100%;
+        height: 100%;
+        background-color: white;
+        display: flex;
+        align-items: center;
+        border-radius: 48px;
+        font-size: 18px;
+        color: $blue;
+        white-space: nowrap;
+        overflow-x: hidden;
+        .sideBarIcon {
+          min-width: calc(60px - ((4px + 6px) * 2));
+          align-items: center;
+          justify-content: center;
+        }
+        &:hover {
+          color: white;
+          background-color: #6ccaf6;
+        }
+      }
+    }
+  }
+  .sidebarDownMenu {
+    .logout {
+      color: red;
+      &:hover {
+        background-color: red;
+        color: white;
+      }
+    }
+  }
+  .dropJoinUs {
+    position: relative;
+    display: inline-block;
+    .dropbtnJoin {
+      margin-top: -16px;
+      margin-left: -5px;
+      &:hover {
+        background-color: #006797;
+      }
+    }
+    .drop-Jobs {
+      display: none;
+      position: absolute;
+      background-color: #f1f1f1;
+      min-width: 160px;
+      overflow: auto;
+      box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+      z-index: 1;
+      bottom: 26px;
+      right: -97px;
+      a {
+        color: black;
+        padding: 12px 6px;
+        text-decoration: none;
+        display: block;
+        &:hover {
+          background-color: #ddd;
+        }
+      }
+    }
+    .show {
+      display: block;
+    }
+  }
+}
+/*end SideBar*/
+/*start Content Header*/
+#sideBar.hide ~ #contentHeader {
+  width: calc(100% - 60px);
+  left: 60px;
+  transition: all 0.3s ease;
+}
+#contentHeader {
+  #searchBtn {
+    font-size: 16px;
+    background-color: #28b3f4;
+    color: white;
+    padding: 6px 7px;
+    border-radius: 10px;
+    cursor: pointer;
+    &:hover {
+      background-color: #006797;
+    }
+  }
+  .searchForm {
+    // width: 40%;
+    height:65px;
+    position: absolute;
+    top: -110%;
+    left: 0;
+    right: 0;
+    padding: 0 15px;
+    background-color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-bottom: 2px solid white;
+    z-index: 0;
+    transition: all 0.3s ease;
+    &.show {
+      top: 100%;
+      border-bottom: 2px solid $blue;
+    }
+    .formInput {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      input {
+        flex-grow: 2;
+        padding: 0 16px;
+        height: 100%;
+        border: none;
+        background: $gray;
+        border-radius: 36px 0 0 36px;
+        &:focus-visible {
+          outline: none;
+          border: 2px solid #28b3f4;
+        }
+      }
+      button {
+        border: none;
+        outline: none;
+        border-radius: 0 36px 36px 0;
+      }
+    }
+  }
+  position: relative;
+  width: calc(100% - (240px));
+  left: 240px;
+  transition: all 0.3s ease;
+  height: 60px;
+  nav {
+    position: relative;
+    &::before {
+      content: "";
+      position: absolute;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      bottom: -40px;
+      left: 0;
+      box-shadow: -20px -20px 0 white;
+    }
+  }
+  .dropbtn:hover {
+    background-color: #006797;
+  }
+  .dropDown {
+    position: relative;
+    display: inline-block;
+    .drop-roles {
+      display: none;
+      position: absolute;
+      background-color: #f1f1f1;
+      min-width: 160px;
+      overflow: auto;
+      box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+      z-index: 1;
+      a {
+        color: black;
+        padding: 12px 16px;
+        text-decoration: none;
+        display: block;
+        &:hover {
+          background-color: #ddd;
+        }
+      }
+    }
+    .show {
+      display: block;
+    }
+  }
+  .showHideSide {
+    color: $blue;
+  }
+  form {
+    width: 100%;
+
+    .formInput {
+      input {
+        flex-grow: 2;
+        padding: 0 16px;
+        height: 100%;
+        border: none;
+        background: $gray;
+        border-radius: 36px 0 0 36px;
+        &:focus-visible {
+          outline: none;
+          border: 2px solid #28b3f4;
+        }
+      }
+      button {
+        border: none;
+        outline: none;
+        border-radius: 0 36px 36px 0;
+      }
+    }
+  }
+  .notfications {
+    font-size: 20px;
+    position: relative;
+  }
+  .numNotfi {
+    position: absolute;
+    top: -6px;
+    right: -9px;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    border: 2px solid white;
+  }
+  .profilePic img {
+    object-fit: cover;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+  }
+}
+#contentHeader main {
+  .pageIndex {
+    gap: 10px;
+    padding-left: 56px;
+    li {
+      color: rgb(176, 175, 175);
+      &:hover {
+        color: #28b3f4;
+      }
+    }
+    .active {
+      color: #28b3f4;
+    }
+    .chervon {
+      color: black;
+      &:hover {
+        color: black !important;
+      }
+    }
+  }
+  height: calc(100% - 40px);
+  .content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 0.6fr));
+    grid-gap: 24px;
+    .contentBox {
+      padding: 24px;
+      background: white;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      grid-gap: 24px;
+      font-weight: 600;
+      transition: all 0.2s ease;
+      &:hover {
+        background-color: #eb6f6f;
+      }
+      .homeIcons {
+        width: 40px;
+        height: 40px;
+        padding: 20px;
+        border-radius: 10px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 20px;
+      }
+      &:nth-child(1) .homeIcons {
+        background-color: #cfe8ff;
+        color: #3c91e6;
+      }
+      &:nth-child(2) .homeIcons {
+        background-color: #ffe0d3;
+        color: #fd7238;
+      }
+      &:nth-child(3) .homeIcons {
+        background-color: #fff2c6;
+        color: #ffce26;
+      }
+      &:nth-child(4) .homeIcons {
+        background-color: lightgreen;
+        color: green;
+      }
+    }
+  }
+  .tableOfContent {
+    padding-bottom: 5rem;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    .headofTable {
+      align-items: center;
+      justify-content: start;
+      form {
+        input {
+          height: 34px;
+          padding: 0 15px;
+          background-color: #e5e7eb;
+          border-radius: 10px;
+          flex-grow: 2;
+          &:focus-visible {
+            outline: none;
+            border: 2px solid #28b3f4;
+          }
+          &:active {
+            border: 2px solid #28b3f4;
+          }
+        }
+      }
+      margin-top: 24px;
+      border-radius: 10px;
+      padding: 24px;
+      background-color: white;
+    }
+      .idCode{
+        width:70%;
+        background-color: white;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        h4{
+          padding:2rem;
+          font-weight: bold;
+          color:#28b3f4;
+          text-align: center;
+        }
+        img{
+          width:290px;
+          padding-bottom: 1rem;
+        }
+      }
+      
+    #roleTable,
+    #diseaseTable,
+    #medicineTable {
+      width: 75%;
+      border-radius: 10px;
+      padding: 24px;
+      background-color: white;
+      overflow-y: scroll;
+      .new {
+        background-color: #eee;
+        width: 80%;
+        padding: 5px;
+        border-radius: 10px;
+        &:focus-visible,
+        &:active {
+          outline: none;
+          border: 1px solid #28b3f4;
+        }
+      }
+      .addRole,
+      .addDisease,
+      .addMedicine {
+        width: 120px;
+        background-color: #28b3f4;
+        color: white;
+        padding: 5px 10px;
+        border-radius: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: all 0.2s ease;
+        &:hover {
+          background-color: #006797;
+        }
+      }
+      th {
+        text-align: left;
+        padding: 18px;
+        // font-size: 20px;
+      }
+      td {
+        &.Options {
+          display: flex;
+        }
+        gap: 10px;
+        padding: 18px;
+      }
+      tr {
+        border: 1px solid #eee;
+        border-radius: 10px;
+      }
+      .editBtn,
+      .saveBtn {
+        cursor: pointer;
+        background-color: #28b3f4;
+        color: white;
+        padding: 5px 10px;
+        border-radius: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: all 0.2s ease;
+        &:hover {
+          background-color: #006797;
+        }
+      }
+      .saveBtn {
+        display: none;
+      }
+      .deleteBtn {
+        cursor: pointer;
+        background-color: #eb6f6f;
+        color: white;
+        padding: 5px 10px;
+        border-radius: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: all 0.2s ease;
+        &:hover {
+          background-color: #f13d3d;
+        }
+      }
+    }
+  }
+}
+/*End Content Header*/
+
+/*media Queries*/
+
+@media screen and (max-width: 768px) {
+  #sideBar {
+    width: 200px;
+  }
+  #contentHeader {
+    width: calc(100%);
+    left: 200px;
+    .searchBar {
+      width: 214px;
+    }
+    form {
+      .formInput {
+        width: 70%;
+        select {
+          &:focus-visible {
+            outline: none;
+          }
+        }
+        // button {
+        //   width: auto;
+        //   height: auto;
+        //   background: transparent;
+        //   color: #28b3f4;
+        // }
+      }
+    }
+  }
+  #dropbtn {
+    width: 130px;
+    padding: 0;
+  }
+  #contentHeader form.showSearchForm {
+    .formInput {
+      input {
+        display: block;
+      }
+      button {
+        width: 36px;
+        height: 100%;
+        border-radius: 0 36px 36px 0;
+        color: white;
+        background-color: #28b3f4;
+      }
+    }
+
+  }
+  .content {
+    flex-direction: column;
+    .contentBox {
+      width: 75%;
+    }
+  }
+}
+@media (max-width: 576px) {
+  #contentHeader .profilePic img {
+    width: 36px;
+    height: 36px;
+  }
+  #contentHeader {
+    #searchBtn {
+      font-size: 14px;
+    }
+    .searchForm{
+      height:33px;
+    }
+    width: 100%;
+    main {
+      .content {
+        flex-direction: column;
+        .contentBox {
+          width: 75%;
+        }
+      }
+      .tableOfContent {
+        flex-direction: column;
+        .headofTable {
+          flex-direction: column;
+
+          justify-content: center;
+        }
+        table {
+          width: 100%;
+          th {
+            font-size: 14px;
+          }
+          td {
+            padding: 10px;
+            border-bottom: 2px solid #eee;
+            &.roleOptions {
+              gap: 10px;
+            }
+          }
+          .saveBtn,
+          .editBtn,
+          .deleteBtn {
+            width: 100%;
+          }
+        }
+      }
+    }
+  }
+}
+/*media Queries*/

@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../assets/styles/main.css">
+    <link rel="stylesheet" href="../assets/styles/app.css">
+    <link rel="stylesheet" href="../assets/styles/all.min.css">
+    <title>Doctor Dashboard</title>
+</head>
+
+<body class="bg-gray-200">
+
+    <!-- SideBar -->
+    <section id="sideBar" class="h-full w-60 top-0 left-0 bg-white">
+        <a href="#" class="brand flex justify-center items-center mt-2">
+            <img class="w-36 my-3 mb-9" src="../assets/images/Logo.png">
+        </a>
+        <ul class="sidebarTopMenu w-full mt-10">
+            <li>
+                <a href="../index.html">
+                    <i class="fa-solid fa-gauge sideBarIcon"></i>
+                    <span class="sideText">Dashboard</span>
+                </a>
+            </li>
+            <li>
+                <a href="jobrequest.html">
+                    <i class="fa-solid fa-people-group sideBarIcon"></i>
+                    <span class="sideText">Job Requests</span>
+                </a>
+            </li>
+            <li >
+                <a href="doctorinfo.html">
+                    <i class="fa-solid fa-square-virus sideBarIcon"></i>
+                    <span class="sideText">Doctor</span>
+                </a>
+            </li>
+            <li class="active">
+                <a href="pharmacistinfo.html">
+                    <i class="fa-solid fa-capsules sideBarIcon"></i>
+                    <span class="sideText">Pharmacist</span>
+                </a>
+            </li>
+        </ul>
+        <ul class="sidebarDownMenu mt-24">
+            <li>
+                <a href="#">
+                    <i class="fa-solid fa-gear sideBarIcon"></i>
+                    <span class="sideText">Settings</span>
+                </a>
+            </li>
+            <li>
+                <a class="logout" href="#">
+                    <i class="fa-solid fa-right-from-bracket sideBarIcon "></i>
+                    <span class="sideText">logout</span>
+                </a>
+            </li>
+
+        </ul>
+        <!-- <div class="dropJoinUs ml-5 mt-10">
+            <button onclick="JoinJob()" id="dropbtn-Join"
+                class="dropbtnJoin bg-blue-400 px-3 py-2 text-white rounded-md">Join Us
+                <i class="fa-solid fa-caret-down"></i></button>
+            <div id="dropJobs" class="drop-Jobs rounded-md">
+                <a href="#">Doctor</a>
+                <a href="#">Pharmacy</a>
+                <a href="#">Software Engineer</a>
+            </div>
+        </div> -->
+    </section>
+    <!-- end of sidebar -->
+
+    <!-- header -->
+    <section id="contentHeader" class="bg-white">
+        <nav class="bg-white h-full px-6 flex items-center gap-6">
+            <div id="TogglersideBar">
+                <i class="fa-solid fa-bars cursor-pointer text-2xl   text-blue-500"></i>
+            </div>
+            <div id="searchBtn" class="flex items-center justify-center shadow-md m-auto" onclick="openSearch()">
+                <h4 class="pr-2">Find something?</h4>
+                <i class="fa-solid fa-magnifying-glass"></i>
+            </div>
+            <form id="searchBar" action="#" class="searchForm mr-auto">
+                <div class="formInput flex items-center h-9">
+                    <input type="search" class="flex-grow" placeholder="Search for something?...">
+                    <div class="selectRole h-full">
+                        <select class="bg-gray-200 h-full text-base">
+                            <option>Doctor</option>
+                            <option>Medicine</option>
+                            <option>Pharmacy</option>
+                        </select>
+                    </div>
+                    <button type="submit"
+                        class="h-full flex items-center justify-center w-9 cursor-pointer bg-blue-500 text-white">
+                        <svg class="searchIcon svg-inline--fa fa-magnifying-glass" aria-hidden="true" focusable="false"
+                            data-prefix="fas" data-icon="magnifying-glass" role="img" xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 512 512" data-fa-i2svg="">
+                            <path fill="currentColor"
+                                d="M500.3 443.7l-119.7-119.7c27.22-40.41 40.65-90.9 33.46-144.7C401.8 87.79 326.8 13.32 235.2 1.723C99.01-15.51-15.51 99.01 1.724 235.2c11.6 91.64 86.08 166.7 177.6 178.9c53.8 7.189 104.3-6.236 144.7-33.46l119.7 119.7c15.62 15.62 40.95 15.62 56.57 0C515.9 484.7 515.9 459.3 500.3 443.7zM79.1 208c0-70.58 57.42-128 128-128s128 57.42 128 128c0 70.58-57.42 128-128 128S79.1 278.6 79.1 208z">
+                            </path>
+                        </svg>
+                    </button>
+                </div>
+            </form>
+            <a href="#" class="flex items-center notfications ">
+                <i class="fa-solid fa-bell notiBell text-xl"></i>
+                <div class="numNotfi absolute text-white bg-red-500 font-bold text-xs flex justify-center items-center">
+                    2</div>
+            </a>
+            <a href="#" class="profilePic">
+                <img src="../assets/images/Aymon.png">
+            </a>
+        </nav>
+        <main class="w-full py-9 px-6">
+            <div class="headerTitle">
+                <h1 class="text-2xl font-bold">Dashboard</h1>
+                <ul class="pl-14 pageIndex flex gap-2">
+                    <li>
+                        <a href="../index.html">Dashboard</a>
+                    </li>
+                    <li class="chervon">
+                        <i class="fa-solid fa-chevron-right"></i>
+                    </li>
+                    <li class="active">
+                        <a href="doctorinfo.html">Job Requests</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="content bg-white mt-9 shadow-md flex justify-center">
+                <form class="p-6">
+                    <div class="formGroup flex flex-col">
+                        <label for="university" class="block mt-3 p-2">University</label>
+                        <input type="text" name="university" class="w-full">
+                    </div>
+                    <div class="formGroup flex flex-col">
+                        <label for="GraduateDate" class="block mt-3 p-2">Graduate Date</label>
+                        <input type="date" name="GraduateDate" class="w-full">
+                    </div>
+                    <div class="formGroup flex flex-col">
+                        <label for="Degree" class="block mt-3 p-2">Degree</label>
+                        <input type="file" name="Degree" class="w-full ">
+                    </div>
+                    <div class="submitBtn flex justify-between mt-6">
+                        <button type="submit" class="sumitBtn rounded-sm">Submit</button>
+                        <button class="CancelBtn shadow-sm"> Cancel</button>
+                    </div>
+                </form>
+            </div>
+
+        </main>
+    </section>
+    <!-- end header -->
+    <script src="../assets/scripts/all.min.js"></script>
+    <script src="../assets/scripts/app.js"></script>
+</body>
+
+</html>

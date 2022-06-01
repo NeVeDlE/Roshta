@@ -1,0 +1,349 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
+body {
+  font-family: "Roboto", sans-serif;
+  height: 4000px;
+}
+.navigation {
+  @apply px-2  text-blue-400 font-normal text-lg hover:text-blue-600 hover:underline !important;
+}
+.primary {
+  @apply border border-blue-400 rounded-lg px-2 py-2 hover:text-white hover:bg-blue-600 !important;
+}
+.verticalBar {
+  @apply bg-blue-400 !important;
+  width: 1px;
+  height: 20px;
+}
+#sidebar {
+  flex-direction: row-reverse;
+}
+.Hamburger {
+  display: none;
+}
+.landingPage {
+  width: 100%;
+  height: calc(100vh - 4rem);
+  flex-direction: column;
+}
+.landingPage h1 {
+  letter-spacing: 3px;
+}
+#landing {
+  background-image: url(assets/images/main-slideShow/1.jpg);
+  background-size: cover;
+  background-position: top center;
+  position: relative;
+  animation: slideShow 30s ease-in-out infinite;
+}
+#landing::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  background-color: black;
+  opacity: 0.5;
+  z-index: 1;
+}
+.bar {
+  display: block;
+  width: 25px;
+  height: 3px;
+  margin: 5px auto;
+  transition: all 0.3s ease-in-out;
+  @apply bg-blue-500 !important;
+}
+#landing h1:nth-child(1) {
+  display: block;
+  position: relative;
+  width: fit-content;
+  color: transparent;
+  animation: text_reveal 0.5s ease forwards;
+  animation-delay: 1s;
+}
+#landing h1 {
+  display: block;
+  position: relative;
+  width: fit-content;
+  color: transparent;
+  animation: text_reveal_name 0.5s ease forwards;
+  animation-delay: 2s;
+  z-index: 2;
+}
+#landing .title1 {
+  margin-right: 430px;
+}
+#landing .title2 {
+  margin-left: 430px;
+}
+.getStarted {
+  display: block;
+  width: fit-content;
+  margin-top: 1rem;
+  color: transparent;
+  animation: button_reveal 0.5s ease forwards;
+  animation-delay: 3s;
+  animation-iteration-count: 1;
+  z-index: 2;
+}
+.Searching {
+  width: 900px;
+  height: 100px;
+  border-radius: 10px;
+  z-index: 2;
+}
+.Searching select {
+  cursor: pointer;
+  width: 220px;
+  height: 40px;
+}
+.Searching .select-hidden {
+  display: none;
+  visibility: hidden;
+  padding-right: 20px;
+}
+.Searching select {
+  position: relative;
+
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  color: white;
+  @apply bg-blue-400 !important;
+}
+.Searching select:hover {
+  @apply bg-blue-600 !important;
+  border-radius: 10px;
+  transition: 0.3s all ease;
+}
+.Searching select[rel="hide"] {
+  display: none;
+}
+.Searching select::after {
+  content: "";
+  width: 0;
+  height: 0;
+  border: 7px solid transparent;
+  border-color: white transparent transparent transparent;
+  position: absolute;
+  top: 16px;
+  right: 10px;
+}
+.registerationForm {
+  min-width: 350px;
+}
+.getStarted:hover {
+  background-color: rgb(96 165 250 / var(--tw-bg-opacity)) !important;
+  border-color: rgb(96 165 250 / var(--tw-bg-opacity)) !important ;
+}
+.formInput input {
+  border: 1px solid rgb(185, 180, 180);
+  border-radius: 5px;
+  position: relative;
+}
+.formInput label {
+  color: rgb(156, 150, 150);
+}
+.formInput .rememberMe {
+  width: 15px;
+  height: 15px;
+}
+.formInput .rememberMe:hover input ~ :checked {
+  @apply bg-slate-400 !important;
+}
+.formInput .rememberMe input:checked ~ :checked {
+  @apply bg-red-500 !important;
+}
+.formInput #email:active,
+#password:active {
+  border: 2px solid rgb(96 165 250 / var(--tw-bg-opacity));
+}
+.formInput input:focus-visible,
+input:focus-visible {
+  outline: none !important;
+  border: 2px solid rgb(96 165 250 / var(--tw-bg-opacity));
+}
+.formInput input:focus-visible,
+.formInput input:focus {
+  outline: none !important;
+  border: 1px solid rgb(96 165 250 / var(--tw-bg-opacity));
+}
+#email:focus + .placeholder,
+#password:valid + .placeholder {
+  font-weight: bold;
+  text-transform: uppercase;
+  color: rgb(96 165 250 / var(--tw-bg-opacity));
+}
+#showHideLogin {
+  position: absolute;
+  top: 58.5%;
+  right: 41%;
+}
+#showHide {
+  position: absolute;
+  top: 94.5%;
+  right: 597px;
+  transform: translateY(-50%);
+  cursor: pointer;
+}
+#showHideConfirm {
+  position: absolute;
+  top: 105.8%;
+  right: 597px;
+}
+@media (min-width: 1200) {
+  #showHide {
+    top: 94.5% !important;
+    right: 445px !important;
+  }
+}
+@media (max-width: 992px) {
+  #showHideLogin {
+    position: absolute;
+    top: 58.5% !important;
+    right: 333px !important;
+  }
+  #showHide {
+    top: 94.8% !important;
+    right: 347px !important;
+  }
+  #showHideConfirm {
+    top: 105.8%;
+    right: 347px;
+  }
+  #landing .title1,
+  #landing .title2 {
+    font-size: 40px;
+    margin-left: 0;
+    margin-right: 0;
+  }
+}
+@media (max-width: 450px) {
+  #showHideLogin {
+    position: absolute;
+    top: 57.5% !important;
+    right: 47px !important;
+  }
+  #showHide {
+    top: 117% !important;
+    right: 91px !important;
+  }
+}
+@media (max-width: 768px) {
+  #showHideLogin {
+    position: absolute;
+    top: 64.5% !important;
+    right: 230px !important;
+  }
+  #showHide {
+    top: 105.5% !important;
+    right: 241px !important;
+  }
+  #showHideConfirm {
+    top: 117%;
+    right: 241px;
+  }
+  #landing .title1,
+  #landing .title2 {
+    font-size: 40px;
+    margin-left: 0;
+    margin-right: 0;
+  }
+  .navMenu {
+    position: fixed;
+    align-items: center;
+    justify-content: center;
+    right: -100%;
+    top: 5.5rem;
+    flex-direction: column !important;
+    gap: 5px;
+    width: 70%;
+    border-radius: 10px;
+    text-align: center;
+    transition: 0.3s;
+    box-shadow: 0 10px 27px rgba(0, 0, 0, 0.05);
+    @apply bg-gray-200 !important;
+    z-index: 1000;
+  }
+  .showHide {
+    top: 63%;
+    left: 62%;
+  }
+  .verticalBar {
+    display: none;
+  }
+  .navMenu.active {
+    right: 6px;
+  }
+  .navItem {
+    margin: 2.5rem;
+  }
+  .Hamburger {
+    display: block;
+    cursor: pointer;
+  }
+  .Hamburger.active .bar:nth-child(2) {
+    opacity: 1;
+    transform: translateX(-10px);
+  }
+  .Hamburger.active .bar:nth-child(1) {
+    transform: translate3d(10px, 6px, 5px);
+    transform: translateY(3.5px) rotate(45deg);
+    width: 60%;
+  }
+  .Hamburger.active .bar:nth-child(3) {
+    transform: translateY(-3.5px) rotate(-45deg);
+    width: 60%;
+  }
+}
+@keyframes text_reveal {
+  100% {
+    color: rgb(96 165 250 / var(--tw-bg-opacity));
+  }
+}
+@keyframes text_reveal_name {
+  100% {
+    color: rgb(248 113 113 / var(--tw-text-opacity));
+  }
+}
+@keyframes button_reveal {
+  100% {
+    border: 1px solid rgb(239 68 68 / var(--tw-bg-opacity));
+    border-radius: 10px;
+    color: white;
+    background-color: rgb(239 68 68 / var(--tw-bg-opacity));
+    padding: 10px 15px;
+  }
+}
+@keyframes slideShow {
+  0%,
+  100% {
+    background-color: (0, 0, 0, 0.5);
+
+    background-image: url(assets/images/main-slideShow/2.jpg);
+  }
+  25% {
+    background-color: (0, 0, 0, 0.5);
+
+    background-image: url(assets/images/main-slideShow/3.jpg);
+  }
+  50% {
+    background-color: (0, 0, 0, 0.5);
+
+    background-image: url(assets/images/main-slideShow/4.jpg);
+  }
+  75% {
+    background-color: (0, 0, 0, 0.5);
+    background-image: url(assets/images/main-slideShow/5.jpg);
+  }
+}
+@import "tailwindcss/base";
+@import "./custom-base-les.css";
+
+@import "tailwindcss/components";
+@import "./custom-components.css";
+
+@import "tailwindcss/utilities";
+@import "./custom-utilities.css";
