@@ -29,7 +29,7 @@ body {
   letter-spacing: 3px;
 }
 #landing {
-  background-image: url(assets/images/main-slideShow/1.jpg);
+  background-image: url(../images/main-slideShow/1.jpg);
   background-size: cover;
   background-position: top center;
   position: relative;
@@ -322,21 +322,21 @@ input:focus-visible {
   100% {
     background-color: (0, 0, 0, 0.5);
 
-    background-image: url(assets/images/main-slideShow/2.jpg);
+    background-image: url(../images/main-slideShow/2.jpg);
   }
   25% {
     background-color: (0, 0, 0, 0.5);
 
-    background-image: url(assets/images/main-slideShow/3.jpg);
+    background-image: url(../images/main-slideShow/3.jpg);
   }
   50% {
     background-color: (0, 0, 0, 0.5);
 
-    background-image: url(assets/images/main-slideShow/4.jpg);
+    background-image: url(../images/main-slideShow/4.jpg);
   }
   75% {
     background-color: (0, 0, 0, 0.5);
-    background-image: url(assets/images/main-slideShow/5.jpg);
+    background-image: url(../images/main-slideShow/5.jpg);
   }
 }
 @import "tailwindcss/base";
