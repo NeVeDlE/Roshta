@@ -2,7 +2,7 @@
 
 body {
   font-family: "Roboto", sans-serif;
-  height: 4000px;
+  /* height: 4000px; */
 }
 
 .navigation{
@@ -260,7 +260,7 @@ input:focus-visible {
 #showHideLogin {
   position: absolute;
   top: 58.5%;
-  right: 41%;
+  right: 12%;
 }
 
 #showHide {
@@ -288,7 +288,7 @@ input:focus-visible {
   #showHideLogin {
     position: absolute;
     top: 58.5% !important;
-    right: 333px !important;
+    /* right: 333px !important; */
   }
 
   #showHide {
@@ -326,7 +326,7 @@ input:focus-visible {
   #showHideLogin {
     position: absolute;
     top: 64.5% !important;
-    right: 230px !important;
+    /* right: 230px !important; */
   }
 
   #showHide {
@@ -451,22 +451,22 @@ input:focus-visible {
   0%,
   100% {
     background-color: (0, 0, 0, 0.5);
-    background-image: url(assets/images/main-slideShow/2.jpg);
+    background-image: url(../images/main-slideShow/2.jpg);
   }
 
   25% {
     background-color: (0, 0, 0, 0.5);
-    background-image: url(assets/images/main-slideShow/3.jpg);
+    background-image: url(../images/main-slideShow/3.jpg);
   }
 
   50% {
     background-color: (0, 0, 0, 0.5);
-    background-image: url(assets/images/main-slideShow/4.jpg);
+    background-image: url(../images/main-slideShow/4.jpg);
   }
 
   75% {
     background-color: (0, 0, 0, 0.5);
-    background-image: url(assets/images/main-slideShow/5.jpg);
+    background-image: url(../images/main-slideShow/5.jpg);
   }
 }
 
@@ -474,22 +474,22 @@ input:focus-visible {
   0%,
   100% {
     background-color: (0, 0, 0, 0.5);
-    background-image: url(assets/images/main-slideShow/2.jpg);
+    background-image: url(../images/main-slideShow/2.jpg);
   }
 
   25% {
     background-color: (0, 0, 0, 0.5);
-    background-image: url(assets/images/main-slideShow/3.jpg);
+    background-image: url(../images/main-slideShow/3.jpg);
   }
 
   50% {
     background-color: (0, 0, 0, 0.5);
-    background-image: url(assets/images/main-slideShow/4.jpg);
+    background-image: url(../images/main-slideShow/4.jpg);
   }
 
   75% {
     background-color: (0, 0, 0, 0.5);
-    background-image: url(assets/images/main-slideShow/5.jpg);
+    background-image: url(../images/main-slideShow/5.jpg);
   }
 }
 

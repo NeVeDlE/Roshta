@@ -138,10 +138,12 @@ body {
     background-color: rgb(96 165 250 / var(--tw-bg-opacity)) !important;
     border-color: rgb(96 165 250 / var(--tw-bg-opacity)) !important ;
 }
+.formInput {
+    position: relative;
+}
 .formInput input {
     border: 1px solid rgb(185, 180, 180);
     border-radius: 5px;
-    position: relative;
 }
 .formInput label {
     color: rgb(156, 150, 150);
@@ -179,7 +181,7 @@ input:focus-visible {
 #showHideLogin {
     position: absolute;
     top: 58.5%;
-    right: 41%;
+    right: 12%;
 }
 #showHide {
     position: absolute;

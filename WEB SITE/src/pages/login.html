@@ -54,16 +54,19 @@
                     <input type="text" name="email" class="w-10/12 mx-auto shadow-inner h-9 userName controller"
                         id="email">
                 </div>
-                <div class="formInput my-3 flex flex-col">
+                <div class="formInput my-3 flex flex-col relative">
                     <label class="py-2 px-2 placeholder" for="passInput">Password:</label>
                     <input type="password" name="password" class="w-10/12 mx-auto h-9 shadow-inner passInput controller"
                         id="password">
-                        <i id="showHideLogin"class="cursor-pointer text-gray-400 fa-solid fa-eye"></i>
+                    <button id="showHideLogin" class="absolute">
+                        <i class="cursor-pointer text-gray-400 fa-solid fa-eye"></i>
 
+                    </button>
                 </div>
                 <div class="formInput my-2 flex justify-start items-center mx-2">
 
-                    <label class="px-2 text-blue-400 cursor-pointer"> <input type="checkbox" class="mr-2 shadow-md rememberMe">Remember
+                    <label class="px-2 text-blue-400 cursor-pointer"> <input type="checkbox"
+                            class="mr-2 shadow-md rememberMe">Remember
                         Me?</label>
 
                 </div>
