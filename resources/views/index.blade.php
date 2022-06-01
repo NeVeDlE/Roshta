@@ -1,22 +1,13 @@
 <x-layout>
-    <div class="home-page">
-        <div class="container">
-            <div class="landing-page text-center">
-                <div class="Homelogo">
-                    <img src="{{asset('images/Logo.png')}}">
-                </div>
-                <h1>All Healthcare in One Place</h1>
-                <div class="Searching">
-                    <div class="SearchDoctorButton text-center">
-                        <button type="button"
-                                class="mt-3 bg-blue-500 text-white uppercase font-semibold text-xs py-2 px-10 rounded-2xl hover:bg-blue-600">
-                            <a href="{{route('register')}}">Get Started</a>
-                        </button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+    <body class="bg-gray-50">
+
+    <section id="landing" class="landingPage flex justify-center items-center">
+        <h1 class="text-blue-400 font-semibold text-7xl title1">All HealthCare<span></span></h1> <br>
+        <h1 class="text-red-400 font-semibold text-7xl mb-4 title2"> in one place<span></span></h1>
+        <a class="hover:bg-blue-500 getStarted" href="{{route('register')}}">Get Started</a>
+    </section>
+
+    </body>
 </x-layout>
 
 

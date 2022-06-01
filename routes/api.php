@@ -2,6 +2,8 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Models\User;
+use Illuminate\Support\Facades\Hash;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,4 +18,24 @@ use Illuminate\Support\Facades\Route;
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
+});
+
+Route::post('/login',function(){
+    $user=User::where('email',request()->email)->first();
+    if(Hash::check(request()->password,$user->password)){
+        return [
+            "id"=> $user->id,
+            "name"=>$user->name,
+            "national_id"=> $user->national_id,
+            "phone"=> $user->phone,
+            "picture"=> $user->picture,
+            "birthday"=> $user->birthday,
+            "role_id"=> $user->role_id,
+            "email"=> $user->email,
+        ];
+    }
+    else {
+        return 'Not Found';
+    }
+
 });

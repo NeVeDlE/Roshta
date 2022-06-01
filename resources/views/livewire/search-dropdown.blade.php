@@ -99,29 +99,30 @@
         <option value="pharmacy">Pharmacy</option>
         <option value="medicine">Medicine</option>
     </select>
+    <script>
+        let f = 0;
+        document.getElementById('search').addEventListener("keyup", () => {
+            // Try HTML5 geolocation.
+
+            if (!f && navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(
+                    (position) => {
+                        const pos = {
+                            lat: position.coords.latitude,
+                            lng: position.coords.longitude,
+                        };
+                        Livewire.emit('changeLat', pos.lat);
+                        Livewire.emit('changeLng', pos.lng);
+                        f = 1;
+
+                    },
+                    () => {
+                    }
+                );
+            }
+        });
+    </script>
+
 </div>
 
-<script>
-    let f = 0;
-    document.getElementById('search').addEventListener("keyup", () => {
-        // Try HTML5 geolocation.
-
-        if (!f && navigator.geolocation) {
-            navigator.geolocation.getCurrentPosition(
-                (position) => {
-                    const pos = {
-                        lat: position.coords.latitude,
-                        lng: position.coords.longitude,
-                    };
-                    Livewire.emit('changeLat', pos.lat);
-                    Livewire.emit('changeLng', pos.lng);
-                    f = 1;
-
-                },
-                () => {
-                }
-            );
-        }
-    });
-</script>
 

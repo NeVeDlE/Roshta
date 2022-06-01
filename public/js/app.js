@@ -21994,15 +21994,7 @@ function ShowHidePass() {
 
 function checkInput() {}
 
-if (toggle || toogle1) {
-  toggle.addEventListener("click", ShowHidePass, false);
-  toggle1.addEventListener("click", ShowHidePass, false);
-}
 
-if (password || password1) {
-  password.addEventListener("keyup", checkInput, false);
-  password1.addEventListener("keyup", checkInput, false);
-}
 
 /***/ }),
 
@@ -39583,3 +39575,16 @@ module.exports = JSON.parse('{"name":"axios","version":"0.21.4","description":"P
 /******/
 /******/ })()
 ;
+$(document).ready(function () {
+    $(".Hamburger").on("click", function () {
+        $(this).toggleClass("active");
+        $(".navMenu").toggleClass("active");
+    });
+    $(".navLink").on("click", function () {
+        $(".Hamburger").toggleClass("active");
+        $(".navMenu").toggleClass("active");
+    });
+    $("#showHideLogin").on("click", function () {
+        $(this).toggleClass("showHideActive");
+    });
+});

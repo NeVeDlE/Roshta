@@ -31,110 +31,50 @@
 </head>
 
 <body>
-<header>
-    <nav class="navbar navbar-expand-lg ">
-        <div class="container">
-            <a class="navbar-brand" href="index.html">
-                <img src="{{asset('images/Logo.png')}}">
-            </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                    data-bs-target="#navbarSupportedContent"
-                    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <i class="fa-solid fa-bars"></i>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-                    <li class="nav-item">
-                        <form class="container justify-content-start">
-                            <a href="{{route('login')}}" class="btn me-2" type="button"><i
-                                    class="fa-solid fa-right-to-bracket"
-                                    style="padding-right:5px;"></i>Log In</a>
-                        </form>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link " href="{{route('register')}}" id="navbarDropdown" role="button">
-                            <i class="fa-solid fa-user-plus d-lg-none"></i>
-                            Register
-                        </a>
+<header class="bg-gray-200 h-20 shadow-md">
+    <div class="container px-6 py-2 mx-auto">
+        <nav class="navbar flex justify-between items-center">
+            <a href="#"><img class="h-12" src="{{asset('images/Logo.png')}}"></a>
+            <ul id="sidebar" class="navMenu flex justify-between items-center">
+                <li class="navItem px-1 ml-5">
+                    <a class="text-blue-400 primary navLink" href="{{route('login')}}">Log In</a>
+                </li>
+                <li class="navItem  px-1 ml-5">
+                    <a class="navigation navLink" href="{{route('register')}}">Register</a>
+                </li>
 
-                    </li>
-                    <li class="nav-item d-none">
-                        <a class="nav-link active" aria-current="page" href="#">
-                            <i class="fa-solid fa-house d-lg-none"></i>
-                            Home
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">About </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">contact Us </a>
-                    </li>
-                </ul>
+                <div class="verticalBar"></div>
+
+
+                <li class="navItem px-1 ml-5">
+                    <a class="navigation navLink" href="#">About Us</a>
+                </li>
+                <li class="navItem  px-1 ml-5">
+                    <a class="navigation navLink" href="#">Contact Us</a>
+                </li>
+            </ul>
+            <div id="toggler" class="Hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
             </div>
-        </div>
-    </nav>
+        </nav>
+    </div>
 </header>
+
 {{$slot}}
 
-
-<footer class="pt-5 pb-5 text-center">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-6 col-lg-3">
-                <div class="General-info justify-content-center align-items-center">
-                    <img src="images/Logo.png">
-                    <p class="text-center">All Healthcare in one Place</p>
-
-                </div>
-            </div>
-            <div class="col-md-6 col-lg-3 text-md-start">
-                <div class="links">
-                    <h5 class="fs-6">Important Links</h5>
-                    <ul class="list-unstyled lh-lg">
-                        <li><a href="src/pages/Login.html">Log in</a></li>
-                        <li><a href="src/pages/Patient-Register.html">Sign up as Patient</a></li>
-                        <li><a href="src/pages/Doctor-Pharmacist-Registeration.html">Sign up as Doctor / Pharmacist</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-            <div class="col-md-6 col-lg-3 text-md-start">
-                <div class="links">
-                    <h5 class="fs-6">Need Help?</h5>
-                    <ul class="list-unstyled lh-lg">
-                        <li><a href="#">Contact Us</a></li>
-                        <li><a href="#">Terms of Use</a></li>
-                        <li><a href="#">Privacy Policy</a></li>
-                        <li><a href="#">Doctors / Pharmacists Privacy Policy</a></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="col-md-6 col-lg-3 text-md-start">
-                <div class="links-mobile">
-                    <ul class="list-unstyled">
-                        <li><a href="#">
-                                <img src="images/Get-it-on-google-play-badge.png" alt="Download From Google Play Store">
-                            </a></li>
-                        <li><a href="#">
-                                <img src="images/download-on-the-app-store-apple.png">
-                            </a></li>
-                    </ul>
-                    <div class="social">
-                        <a href=""><i class="fa-brands fa-facebook-square"></i></a>
-                        <a href=""><i class="fa-brands fa-linkedin"></i></a>
-                        <a href=""><i class="fa-brands fa-twitter-square"></i></a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+<footer id="newsletter"
+        class="bg-gray-100 border border-black border-opacity-5 rounded-xl text-center py-16 px-10">
     <div class="credits ">
         Created By <span style="color:#26A0DB;">Ro<span style="color:#DF313B;"> ش </span>ta</span> Team<br>
         all Rights are Reserved
         &copy; 2022 Rostha.Inc
     </div>
+
+
 </footer>
+
 <livewire:scripts/>
 </body>
 

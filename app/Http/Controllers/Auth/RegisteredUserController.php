@@ -39,10 +39,11 @@ class RegisteredUserController extends Controller
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'national_id' => ['required', 'string', 'size:14', 'unique:users,national_id'],
             'phone' => ['required', 'string', 'size:11', 'unique:users,phone'],
-            'picture' => ['image:img'],
+           'picture' => ['image','sometimes'],
             'birthday' => ['required', 'date'],
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
         ]);
+
 
 
         $user = User::create([

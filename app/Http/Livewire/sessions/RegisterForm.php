@@ -81,7 +81,7 @@ class RegisterForm extends Component
 
     public function mount()
     {
-        $this->show = false;
+        $this->show = true;
     }
 
     public function toggle()
