@@ -11,8 +11,10 @@
             </div>
             <input wire:model.debounce.300ms="search"
                    id="search"
-                   class="block w-full pl-10 pr-3 py-2 border border-gray-300 rounded-md leading-5 bg-white placeholder-gray-500 focus:outline-none focus:placeholder-gray-400 focus:border-blue-300 focus:shadow-outline-blue sm:text-sm transition duration-150 ease-in-out"
-                   placeholder="Search" type="search" autocomplete="off">
+                   class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500
+                    focus:border-blue-500 w-full p-2.5 dark:bg-gray-700 dark:border-gray-600
+                    dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                   placeholder="      Search" type="search" autocomplete="off">
 
             @if (strlen($search) > 2)
                 <ul
@@ -92,13 +94,16 @@
                     @endif
                 </ul>
             @endif
+            <select wire:model="type" name="type" style="left: 73%; border: none "
+                    class="absolute bg-gray-50 text-gray-900 text-sm rounded-lg
+                     focus:outline-none p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                <option value="clinic">Clinic</option>
+                <option value="pharmacy">Pharmacy</option>
+                <option value="medicine">Medicine</option>
+            </select>
         </div>
     </div>
-    <select wire:model="type" name="type" class="bg-transparent placeholder-black font-semibold text-sm">
-        <option value="clinic">Clinic</option>
-        <option value="pharmacy">Pharmacy</option>
-        <option value="medicine">Medicine</option>
-    </select>
+
     <script>
         let f = 0;
         document.getElementById('search').addEventListener("keyup", () => {

@@ -21910,91 +21910,176 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;function _typeof
   \******************************************/
 /***/ (() => {
 
-// remember me function
-function setCookies() {
-  var date = new Date();
-  date.setMonth(date.getMonth(), 12);
-  var usernamevalue = document.getElementById("username").value;
-  var passwordvalue = document.getElementById("password-filed").value;
-  document.cookie = "remember-me-username=" + usernamevalue + ";expires=" + date;
-} //Brevious and next forms and buttons
-
-
-var BackButton = document.querySelectorAll(".bckbtn"),
-    NextButton = document.querySelectorAll(".nextbtn"),
-    FormSteps = document.querySelectorAll(".form-step");
-var FormStepsNumber = 0;
-NextButton.forEach(function (btn) {
-  btn.addEventListener("click", function (e) {
-    e.preventDefault(); // checkInputs();
-
-    FormStepsNumber++;
-    updateFormSteps();
-    updateProgressBar();
-  });
+document.querySelector(".Hamburger").addEventListener("click", function () {
+  document.querySelector(".Hamburger").classList.toggle("active");
+  document.querySelector(".navMenu").classList.toggle("active");
 });
-BackButton.forEach(function (btn) {
-  btn.addEventListener("click", function () {
-    FormStepsNumber--;
-    updateFormSteps();
-    updateProgressBar();
-  });
+document.querySelector(".navLink").addEventListener("click", function () {
+  document.querySelector(".Hamburger").classList.toggle("active");
+  document.querySelector(".navMenu").classList.toggle("active");
 });
 
-function updateFormSteps() {
-  FormSteps.forEach(function (FormStep) {
-    FormStep.classList.contains("active-form") && FormStep.classList.remove("active-form");
-  });
-  FormSteps[FormStepsNumber].classList.add("active-form");
-} // Brogress Bar Color
-
-
-var ProgressSteps = document.querySelectorAll(".progressbar-steps");
-var ProgressBarLine = document.getElementById("progressbar-line");
-
-function updateProgressBar() {
-  ProgressSteps.forEach(function (ProgressStep, ids) {
-    if (ids < FormStepsNumber + 1) {
-      ProgressStep.classList.add("progress-step-active");
-    } else {
-      ProgressStep.classList.remove("progress-step-active");
-    }
-  });
+function chooseRole() {
+  document.getElementById("dropRoles").classList.toggle("show");
 }
 
-var password = document.getElementById("password-filed"),
-    password1 = document.getElementById("password-filed1"),
-    password2 = document.getElementById("password-filed"),
-    toggle = document.getElementById("showpas"),
-    toggle1 = document.getElementById("showpas1"),
-    showIcon = document.getElementById("shopas"),
-    showIcon1 = document.getElementById("shopas1");
+function JoinJob() {
+  document.getElementById("dropJobs").classList.toggle("show");
+}
 
-function ShowHidePass() {
-  if (password.type === "password") {
-    password.type = "text";
+var searchBtn = document.getElementById("searchBtn");
+var searchBar = document.getElementById("searchBar");
 
-    if (password1) {
-      password1.type = "text";
-      toggle1.style.color = "#26A0DB";
+window.onclick = function (event) {
+  // if (!event.target.matches(".dropbtn")) {
+  //   var dropDown = document.getElementsByClassName("drop-roles");
+  //   for (var i = 0; i < dropDown.length; i++) {
+  //     var openDropDown = dropDown[i];
+  //     if (openDropDown.classList.contains("show")) {
+  //       openDropDown.classList.remove("show");
+  //     }
+  //   }
+  // }
+  if (!event.target.matches(".dropbtnJoin")) {
+    var dropJobs = document.getElementsByClassName("drop-Jobs");
+
+    for (var i = 0; i < dropJobs.length; i++) {
+      var openJobs = dropJobs[i];
+
+      if (openJobs.classList.contains("show")) {
+        openJobs.classList.remove("show");
+      }
     }
-
-    toggle.style.color = "#26A0DB";
-  } else {
-    password.type = "password";
-
-    if (password1) {
-      password1.type = "password";
-      toggle1.style.color = "#0000004d";
-    }
-
-    toggle.style.color = "#0000004d";
   }
+};
+
+function openSearch() {
+  searchBar.classList.toggle("show");
 }
 
-function checkInput() {}
+window.onscroll = function () {
+  searchBar.classList.remove("show");
+};
+
+var mainToggler = document.getElementById("TogglersideBar");
+var mainSideBar = document.getElementById("sideBar");
+mainToggler.addEventListener("click", function () {
+  mainSideBar.classList.toggle("hide");
+});
+var searchButton = document.querySelector("#contentHeader form .formInput button ");
+var searchButtonIcon = document.querySelector("#contentHeader form .formInput button fa-magnifying-glass");
+var searchForm = document.querySelector("#contentHeader form");
+var searchIcon = document.querySelector("#contentHeader form searchIcon");
+
+if (window.innerWidth < 768) {
+  mainSideBar.classList.add("hide");
+} // edit on rows of role table
 
 
+function editRoleRow(num) {
+  document.getElementById("editRoleBtn" + num).style.display = "none";
+  document.getElementById("saveRoleBtn" + num).style.display = "block";
+  var roleName = document.getElementById("roleName" + num);
+  var nameData = roleName.innerHTML;
+  roleName.innerHTML = "<input type='text' class='new' id='inputRoleName" + num + "' value='" + nameData + "'>";
+}
+
+function saveRoleRow(num) {
+  var roleNameValue = document.getElementById("inputRoleName" + num).value;
+  document.getElementById("roleName" + num).innerHTML = roleNameValue;
+  document.getElementById("editRoleBtn" + num).style.display = "block";
+  document.getElementById("saveRoleBtn" + num).style.display = "none";
+}
+
+function deleteRoleRow(num) {
+  var roleRow = document.getElementById("row" + num);
+  document.getElementById("roleTable").deleteRow(roleRow.rowIndex);
+}
+
+function addNewRole() {
+  var table = document.getElementById("roleTable");
+  var newRole = document.getElementById("inputRoleName").value;
+  var tableLen = table.rows.length - 1;
+  var row = table.insertRow(tableLen).outerHTML = "<tr id='row" + tableLen + "'><td id='roleName" + tableLen + "'>" + newRole + "</td><td class='Options'><input type='button' value='Edit' class='editBtn' id='editRoleBtn" + tableLen + "' onclick='editRoleRow(" + tableLen + ")'><input type='button' class='saveBtn' value='Save' id='saveRoleBtn" + tableLen + "' onclick='saveRoleRow(" + tableLen + ")' style='display:none'><input type='button' class='deleteBtn' value='Delete' onclick='deleteRoleRow(" + tableLen + ")'></td></tr>";
+  document.getElementById("inputRoleName").value = "";
+}
+
+function editDiseaseRow(num) {
+  document.getElementById("editDiseaseBtn" + num).style.display = "none";
+  document.getElementById("saveDiseaseBtn" + num).style.display = "block";
+  var diseaseName = document.getElementById("diseaseName" + num);
+  var nameData = diseaseName.innerHTML;
+  diseaseName.innerHTML = "<input type='text' class='new' id='inputDiseaseName" + num + "' value='" + nameData + "'>";
+  var diseaseDetails = document.getElementById("diseaseDetails" + num);
+  var detailsData = diseaseDetails.innerHTML;
+  diseaseDetails.innerHTML = "<textarea type='text' class='new' id='inputDiseaseDetails" + num + "'>" + detailsData + "</textarea>";
+}
+
+function saveDiseaseRow(num) {
+  var diseaseNameValue = document.getElementById("inputDiseaseName" + num).value;
+  document.getElementById("diseaseName" + num).innerHTML = diseaseNameValue;
+  var diseaseDetailsValue = document.getElementById("inputDiseaseDetails" + num).value;
+  document.getElementById("diseaseDetails" + num).innerHTML = diseaseDetailsValue;
+  document.getElementById("editDiseaseBtn" + num).style.display = "block";
+  document.getElementById("saveDiseaseBtn" + num).style.display = "none";
+}
+
+function deleteDiseaseRow(num) {
+  var diseaseRow = document.getElementById("diseaseRow" + num);
+  document.getElementById("diseaseTable").deleteRow(diseaseRow.rowIndex);
+}
+
+function addNewDisease() {
+  var table = document.getElementById("diseaseTable");
+  var newDisease = document.getElementById("inputDiseaseName").value;
+  var newDetails = document.getElementById("inputDiseaseDetails").value;
+  var tableLen = table.rows.length - 1;
+  var row = table.insertRow(tableLen).outerHTML = "<tr id='diseaseRow" + tableLen + "'><td id='diseaseName" + tableLen + "'>" + newDisease + "</td><td id='diseaseDetails" + tableLen + "'>" + newDetails + "</td><td class='Options'><input type='button' value='Edit' class='editBtn' id='editDiseaseBtn" + tableLen + "' onclick='editRow(" + tableLen + ")'><input type='button' class='saveBtn' value='Save' id='saveDiseaseBtn" + tableLen + "' onclick='saveRow(" + tableLen + ")' style='display:none'><input type='button' class='deleteBtn' value='Delete' onclick='deleteRow(" + tableLen + ")'></td></tr>";
+  document.getElementById("inputDiseaseName").value = "";
+  document.getElementById("inputDiseaseDetails").value = "";
+}
+
+function editMedicineRow(num) {
+  document.getElementById("editMedicineBtn" + num).style.display = "none";
+  document.getElementById("saveMedicineBtn" + num).style.display = "block";
+  var medicineName = document.getElementById("medicineName" + num);
+  var nameData = medicineName.innerHTML;
+  medicineName.innerHTML = "<input type='text' class='new' id='inputMedicineName" + num + "' value='" + nameData + "'>";
+  var medicineDetails = document.getElementById("medicineDetails" + num);
+  var detailsData = medicineDetails.innerHTML;
+  medicineDetails.innerHTML = "<textarea type='text' class='new' id='inputMedicineDetails" + num + "'>" + detailsData + "</textarea>";
+  var medicinePrice = document.getElementById("medicinePrice" + num);
+  var medicinePriceData = parseFloat(medicinePrice.innerHTML);
+  medicinePrice.innerHTML = "<input type='number' min='0.5' step='0.5' class='new' id='inputMedicinePrice" + num + "' value='" + medicinePriceData + "'>";
+}
+
+function saveMedicineRow(num) {
+  var medicineNameValue = document.getElementById("inputMedicineName" + num).value;
+  document.getElementById("medicineName" + num).innerHTML = medicineNameValue;
+  var medicineDetailsValue = document.getElementById("inputMedicineDetails" + num).value;
+  document.getElementById("medicineDetails" + num).innerHTML = medicineDetailsValue;
+  var medicinePriceValue = document.getElementById("inputMedicinePrice" + num).value;
+  document.getElementById("medicinePrice" + num).innerHTML = medicinePriceValue + "ج.م";
+  document.getElementById("editMedicineBtn" + num).style.display = "block";
+  document.getElementById("saveMedicineBtn" + num).style.display = "none";
+}
+
+function deleteMedicineRow(num) {
+  var medicineRow = document.getElementById("medicineRow" + num);
+  document.getElementById("medicineTable").deleteRow(medicineRow.rowIndex);
+}
+
+function addNewMedicine() {
+  var table = document.getElementById("medicineTable");
+  var newMedicine = document.getElementById("inputMedicineName").value;
+  var newDetails = document.getElementById("inputMedicineDetails").value;
+  var newPrice = document.getElementById("inputMedicinePrice").value;
+  var tableLen = table.rows.length - 1;
+  var row = table.insertRow(tableLen).outerHTML = "<tr id='medicineRow" + tableLen + "'><td id='medicineName" + tableLen + "'>" + newMedicine + "</td><td id='medicineDetails" + tableLen + "'>" + newDetails + "</td> <td id='medicinePrice" + tableLen + "'>" + newPrice + " ج.م </td><td class='Options'><input type='button' value='Edit' class='editBtn' id='editMedicineBtn" + tableLen + "' onclick='editMedicineRow(" + tableLen + ")'><input type='button' class='saveBtn' value='Save' id='saveMedicineBtn" + tableLen + "' onclick='saveMedicineRow(" + tableLen + ")' style='display:none'><input type='button' class='deleteBtn' value='Delete' onclick='deleteMedicineRow(" + tableLen + ")'></td></tr>";
+  document.getElementById("inputMedicineName").value = "";
+  document.getElementById("inputMedicineDetails").value = "";
+  document.getElementById("inputMedicinePrice").value = "";
+}
 
 /***/ }),
 
@@ -22007,6 +22092,8 @@ function checkInput() {}
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var alpinejs__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! alpinejs */ "./node_modules/alpinejs/dist/module.esm.js");
+__webpack_require__(/*! ../assets/scripts/jquery-3.6.0 */ "./resources/assets/scripts/jquery-3.6.0.js");
+
 __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
 __webpack_require__(/*! ../assets/scripts/main */ "./resources/assets/scripts/main.js");
@@ -22014,8 +22101,6 @@ __webpack_require__(/*! ../assets/scripts/main */ "./resources/assets/scripts/ma
 __webpack_require__(/*! ../assets/scripts/bootstrap.bundle.js */ "./resources/assets/scripts/bootstrap.bundle.js");
 
 __webpack_require__(/*! ../assets/scripts/all.min */ "./resources/assets/scripts/all.min.js");
-
-__webpack_require__(/*! ../assets/scripts/jquery-3.6.0 */ "./resources/assets/scripts/jquery-3.6.0.js");
 /*import '../assets/scripts/main'
 import '../assets/scripts/bootstrap.bundle.js'
 import '../assets/scripts/all.min'
@@ -39275,9 +39360,12 @@ var __WEBPACK_AMD_DEFINE_RESULT__;/**
 /*!*******************************!*\
   !*** ./resources/css/app.css ***!
   \*******************************/
-/***/ (() => {
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-throw new Error("Module build failed (from ./node_modules/mini-css-extract-plugin/dist/loader.js):\nModuleBuildError: Module build failed (from ./node_modules/css-loader/dist/cjs.js):\nError: Can't resolve '../webfonts/fa-brands-400.woff2' in 'C:\\Users\\SHAHER\\Desktop\\Roshta\\resources\\css'\n    at finishWithoutResolve (C:\\Users\\SHAHER\\Desktop\\Roshta\\node_modules\\enhanced-resolve\\lib\\Resolver.js:309:18)\n    at C:\\Users\\SHAHER\\Desktop\\Roshta\\node_modules\\enhanced-resolve\\lib\\Resolver.js:386:15\n    at C:\\Users\\SHAHER\\Desktop\\Roshta\\node_modules\\enhanced-resolve\\lib\\Resolver.js:435:5\n    at eval (eval at create (C:\\Users\\SHAHER\\Desktop\\Roshta\\node_modules\\tapable\\lib\\HookCodeFactory.js:33:10), <anonymous>:16:1)\n    at C:\\Users\\SHAHER\\Desktop\\Roshta\\node_modules\\enhanced-resolve\\lib\\Resolver.js:435:5\n    at eval (eval at create (C:\\Users\\SHAHER\\Desktop\\Roshta\\node_modules\\tapable\\lib\\HookCodeFactory.js:33:10), <anonymous>:27:1)\n    at C:\\Users\\SHAHER\\Desktop\\Roshta\\node_modules\\enhanced-resolve\\lib\\DescriptionFilePlugin.js:87:43\n    at C:\\Users\\SHAHER\\Desktop\\Roshta\\node_modules\\enhanced-resolve\\lib\\Resolver.js:435:5\n    at eval (eval at create (C:\\Users\\SHAHER\\Desktop\\Roshta\\node_modules\\tapable\\lib\\HookCodeFactory.js:33:10), <anonymous>:15:1)\n    at C:\\Users\\SHAHER\\Desktop\\Roshta\\node_modules\\enhanced-resolve\\lib\\Resolver.js:435:5\n    at processResult (C:\\Users\\SHAHER\\Desktop\\Roshta\\node_modules\\webpack\\lib\\NormalModule.js:758:19)\n    at C:\\Users\\SHAHER\\Desktop\\Roshta\\node_modules\\webpack\\lib\\NormalModule.js:860:5\n    at C:\\Users\\SHAHER\\Desktop\\Roshta\\node_modules\\loader-runner\\lib\\LoaderRunner.js:400:11\n    at C:\\Users\\SHAHER\\Desktop\\Roshta\\node_modules\\loader-runner\\lib\\LoaderRunner.js:252:18\n    at context.callback (C:\\Users\\SHAHER\\Desktop\\Roshta\\node_modules\\loader-runner\\lib\\LoaderRunner.js:124:13)\n    at Object.loader (C:\\Users\\SHAHER\\Desktop\\Roshta\\node_modules\\css-loader\\dist\\index.js:155:5)\n    at processTicksAndRejections (internal/process/task_queues.js:95:5)");
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+// extracted by mini-css-extract-plugin
+
 
 /***/ }),
 
@@ -39490,7 +39578,7 @@ module.exports = JSON.parse('{"name":"axios","version":"0.21.4","description":"P
 /************************************************************************/
 /******/ 	// The module cache
 /******/ 	var __webpack_module_cache__ = {};
-/******/
+/******/ 	
 /******/ 	// The require function
 /******/ 	function __webpack_require__(moduleId) {
 /******/ 		// Check if module is in cache
@@ -39504,18 +39592,53 @@ module.exports = JSON.parse('{"name":"axios","version":"0.21.4","description":"P
 /******/ 			loaded: false,
 /******/ 			exports: {}
 /******/ 		};
-/******/
+/******/ 	
 /******/ 		// Execute the module function
 /******/ 		__webpack_modules__[moduleId].call(module.exports, module, module.exports, __webpack_require__);
-/******/
+/******/ 	
 /******/ 		// Flag the module as loaded
 /******/ 		module.loaded = true;
-/******/
+/******/ 	
 /******/ 		// Return the exports of the module
 /******/ 		return module.exports;
 /******/ 	}
-/******/
+/******/ 	
+/******/ 	// expose the modules object (__webpack_modules__)
+/******/ 	__webpack_require__.m = __webpack_modules__;
+/******/ 	
 /************************************************************************/
+/******/ 	/* webpack/runtime/chunk loaded */
+/******/ 	(() => {
+/******/ 		var deferred = [];
+/******/ 		__webpack_require__.O = (result, chunkIds, fn, priority) => {
+/******/ 			if(chunkIds) {
+/******/ 				priority = priority || 0;
+/******/ 				for(var i = deferred.length; i > 0 && deferred[i - 1][2] > priority; i--) deferred[i] = deferred[i - 1];
+/******/ 				deferred[i] = [chunkIds, fn, priority];
+/******/ 				return;
+/******/ 			}
+/******/ 			var notFulfilled = Infinity;
+/******/ 			for (var i = 0; i < deferred.length; i++) {
+/******/ 				var [chunkIds, fn, priority] = deferred[i];
+/******/ 				var fulfilled = true;
+/******/ 				for (var j = 0; j < chunkIds.length; j++) {
+/******/ 					if ((priority & 1 === 0 || notFulfilled >= priority) && Object.keys(__webpack_require__.O).every((key) => (__webpack_require__.O[key](chunkIds[j])))) {
+/******/ 						chunkIds.splice(j--, 1);
+/******/ 					} else {
+/******/ 						fulfilled = false;
+/******/ 						if(priority < notFulfilled) notFulfilled = priority;
+/******/ 					}
+/******/ 				}
+/******/ 				if(fulfilled) {
+/******/ 					deferred.splice(i--, 1)
+/******/ 					var r = fn();
+/******/ 					if (r !== undefined) result = r;
+/******/ 				}
+/******/ 			}
+/******/ 			return result;
+/******/ 		};
+/******/ 	})();
+/******/ 	
 /******/ 	/* webpack/runtime/define property getters */
 /******/ 	(() => {
 /******/ 		// define getter functions for harmony exports
@@ -39527,7 +39650,7 @@ module.exports = JSON.parse('{"name":"axios","version":"0.21.4","description":"P
 /******/ 			}
 /******/ 		};
 /******/ 	})();
-/******/
+/******/ 	
 /******/ 	/* webpack/runtime/global */
 /******/ 	(() => {
 /******/ 		__webpack_require__.g = (function() {
@@ -39539,12 +39662,12 @@ module.exports = JSON.parse('{"name":"axios","version":"0.21.4","description":"P
 /******/ 			}
 /******/ 		})();
 /******/ 	})();
-/******/
+/******/ 	
 /******/ 	/* webpack/runtime/hasOwnProperty shorthand */
 /******/ 	(() => {
 /******/ 		__webpack_require__.o = (obj, prop) => (Object.prototype.hasOwnProperty.call(obj, prop))
 /******/ 	})();
-/******/
+/******/ 	
 /******/ 	/* webpack/runtime/make namespace object */
 /******/ 	(() => {
 /******/ 		// define __esModule on exports
@@ -39555,7 +39678,7 @@ module.exports = JSON.parse('{"name":"axios","version":"0.21.4","description":"P
 /******/ 			Object.defineProperty(exports, '__esModule', { value: true });
 /******/ 		};
 /******/ 	})();
-/******/
+/******/ 	
 /******/ 	/* webpack/runtime/node module decorator */
 /******/ 	(() => {
 /******/ 		__webpack_require__.nmd = (module) => {
@@ -39564,27 +39687,69 @@ module.exports = JSON.parse('{"name":"axios","version":"0.21.4","description":"P
 /******/ 			return module;
 /******/ 		};
 /******/ 	})();
-/******/
+/******/ 	
+/******/ 	/* webpack/runtime/jsonp chunk loading */
+/******/ 	(() => {
+/******/ 		// no baseURI
+/******/ 		
+/******/ 		// object to store loaded and loading chunks
+/******/ 		// undefined = chunk not loaded, null = chunk preloaded/prefetched
+/******/ 		// [resolve, reject, Promise] = chunk loading, 0 = chunk loaded
+/******/ 		var installedChunks = {
+/******/ 			"/js/app": 0,
+/******/ 			"css/app": 0
+/******/ 		};
+/******/ 		
+/******/ 		// no chunk on demand loading
+/******/ 		
+/******/ 		// no prefetching
+/******/ 		
+/******/ 		// no preloaded
+/******/ 		
+/******/ 		// no HMR
+/******/ 		
+/******/ 		// no HMR manifest
+/******/ 		
+/******/ 		__webpack_require__.O.j = (chunkId) => (installedChunks[chunkId] === 0);
+/******/ 		
+/******/ 		// install a JSONP callback for chunk loading
+/******/ 		var webpackJsonpCallback = (parentChunkLoadingFunction, data) => {
+/******/ 			var [chunkIds, moreModules, runtime] = data;
+/******/ 			// add "moreModules" to the modules object,
+/******/ 			// then flag all "chunkIds" as loaded and fire callback
+/******/ 			var moduleId, chunkId, i = 0;
+/******/ 			if(chunkIds.some((id) => (installedChunks[id] !== 0))) {
+/******/ 				for(moduleId in moreModules) {
+/******/ 					if(__webpack_require__.o(moreModules, moduleId)) {
+/******/ 						__webpack_require__.m[moduleId] = moreModules[moduleId];
+/******/ 					}
+/******/ 				}
+/******/ 				if(runtime) var result = runtime(__webpack_require__);
+/******/ 			}
+/******/ 			if(parentChunkLoadingFunction) parentChunkLoadingFunction(data);
+/******/ 			for(;i < chunkIds.length; i++) {
+/******/ 				chunkId = chunkIds[i];
+/******/ 				if(__webpack_require__.o(installedChunks, chunkId) && installedChunks[chunkId]) {
+/******/ 					installedChunks[chunkId][0]();
+/******/ 				}
+/******/ 				installedChunks[chunkId] = 0;
+/******/ 			}
+/******/ 			return __webpack_require__.O(result);
+/******/ 		}
+/******/ 		
+/******/ 		var chunkLoadingGlobal = self["webpackChunk"] = self["webpackChunk"] || [];
+/******/ 		chunkLoadingGlobal.forEach(webpackJsonpCallback.bind(null, 0));
+/******/ 		chunkLoadingGlobal.push = webpackJsonpCallback.bind(null, chunkLoadingGlobal.push.bind(chunkLoadingGlobal));
+/******/ 	})();
+/******/ 	
 /************************************************************************/
-/******/
+/******/ 	
 /******/ 	// startup
 /******/ 	// Load entry module and return exports
-/******/ 	__webpack_require__("./resources/js/app.js");
-/******/ 	// This entry module doesn't tell about it's top-level declarations so it can't be inlined
-/******/ 	var __webpack_exports__ = __webpack_require__("./resources/css/app.css");
-/******/
+/******/ 	// This entry module depends on other loaded chunks and execution need to be delayed
+/******/ 	__webpack_require__.O(undefined, ["css/app"], () => (__webpack_require__("./resources/js/app.js")))
+/******/ 	var __webpack_exports__ = __webpack_require__.O(undefined, ["css/app"], () => (__webpack_require__("./resources/css/app.css")))
+/******/ 	__webpack_exports__ = __webpack_require__.O(__webpack_exports__);
+/******/ 	
 /******/ })()
 ;
-$(document).ready(function () {
-    $(".Hamburger").on("click", function () {
-        $(this).toggleClass("active");
-        $(".navMenu").toggleClass("active");
-    });
-    $(".navLink").on("click", function () {
-        $(".Hamburger").toggleClass("active");
-        $(".navMenu").toggleClass("active");
-    });
-    $("#showHideLogin").on("click", function () {
-        $(this).toggleClass("showHideActive");
-    });
-});

@@ -71,7 +71,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/dashboard', function () {
         return view('dashboard');
     })->name('dashboard');
-    Route::get('/dashboard/QR', QRController::class);
+    Route::get('/dashboard/QR', QRController::class)->name('QR');
     Route::get('/dashboard/examinationRequests', [PatientExaminationRequests::class, 'index'])->name('examination-requests');
     Route::get('/dashboard/medicines/{medicine:id}/{lat}/{lng}', MedicineController::class);
     Route::get('/dashboard/locations/{location:id}/{lat}/{lng}', LocationController::class);

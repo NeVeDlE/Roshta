@@ -1,10 +1,5 @@
 <x-dashboard-layout>
-
-    <x-settings heading="{{auth()->user()->name}}'s Examination ">
         <div>
-            <input
-                class="relative flex lg:inline-flex items-center bg-gray-100 rounded-xl px-3 py-2 bg-transparent placeholder-black font-semibold text-sm"
-                placeholder="Search For Something!" type="search" id="search" wire:model.debounce.400="search">
             <div class="flex flex-col">
                 <main class="max-w-6xl mt-6  space-y-6">
                     <h1>Examinations Page</h1>
@@ -81,9 +76,6 @@
                                 lat: position.coords.latitude,
                                 lng: position.coords.longitude,
                             };
-                            Livewire.emit('changeLat', pos.lat);
-                            Livewire.emit('changeLng', pos.lng);
-
                         },
                         () => {
                         }
@@ -97,5 +89,5 @@
 
 
         </script>
-    </x-settings>
+
 </x-dashboard-layout>

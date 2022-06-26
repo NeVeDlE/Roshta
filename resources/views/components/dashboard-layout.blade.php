@@ -2,10 +2,32 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Codeitter</title>
 
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="shortcut icon" href="{{asset('favicon.ico')}}" type="image/x-icon">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="csrf-token" content="{{ csrf_token() }}">
+
+
+<title>{{ config('app.name', 'Laravel') }}</title>
+
+<!-- Fonts -->
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap">
+
+<!-- Styles -->
+<link rel="stylesheet" href="{{ asset('css/app.css') }}">
+<style>
+    html {
+        scroll-behavior: smooth;
+    }
+</style>
+<!-- Scripts -->
+<script src="{{ asset('js/app.js') }}" defer></script>
 <script src="https://cdn.tailwindcss.com"></script>
-<link rel="preconnect" href="https://fonts.gstatic.com">
-<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
-<script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+<livewire:styles/>
+<title>Ro ش ta</title>
 <style>
     /* Set the size of the div element that contains the map */
     #map {
@@ -18,87 +40,41 @@
 
 <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
 <script src="{{asset('js/html5-qrcode.min.js')}}"></script>
-<body style="font-family: Open Sans, sans-serif">
+<body style="font-family: Open Sans, sans-serif" class="bg-gray-200">
 <livewire:styles/>
 
-
-
-<section class="px-6 py-8">
-    <nav class="md:flex md:justify-between md:items-center">
-        <div>
-            <a href="/">
-                <h1 class="text-4xl">
-                    <img src="{{asset('images/Logo.png')}}" alt="Laracasts Logo" width="165" height="16">
-                </h1>
-            </a>
+<x-settings></x-settings>
+<section id="contentHeader" class="bg-white">
+    <nav class="bg-white h-full px-6 flex items-center gap-6">
+        <div id="TogglersideBar">
+            <i class="fa-solid fa-bars cursor-pointer text-2xl   text-blue-500"></i>
         </div>
-        @auth
 
             <livewire:search-dropdown/>
-        @endauth
 
-        <div class="mt-8 md:mt-0 flex items-center">
-            @auth
-                <x-dropdown class="mr-5">
-                    <x-slot name="trigger">
-                        <span class="text-xs font-bold uppercase">Discover</span>
-                    </x-slot>
+        <div class="flex items-center justify-between">
 
-                    <x-dropdown-item href="/discover/users"
-                                     :active="request()->routeIs('discover-users')">Users
-                    </x-dropdown-item>
-                    <x-dropdown-item href="/discover/trainings"
-                                     :active="request()->routeIs('discover-trainings')">Trainings
-                    </x-dropdown-item>
-                    <x-dropdown-item href="/discover/posts" :active="request()->routeIs('discover-posts')">Posts
-                    </x-dropdown-item>
-                </x-dropdown>
-
-                <x-dropdown>
-                    <x-slot name="trigger">
-                        <span class="text-xs font-bold uppercase">Welcome, {{auth()->user()->name }}!</span>
-                    </x-slot>
-
-                    <x-dropdown-item href="/posts/{{Auth::user()->username}}/myposts"
-                                     :active="request()->routeIs('myPosts')">Dashboard
-                    </x-dropdown-item>
-                    <x-dropdown-item href="/settings"
-                                     :active="request()->routeIs('settings')">Settings
-                    </x-dropdown-item>
-                    <x-dropdown-item href="#" x-data="{}"
-                                     @click.prevent="document.querySelector('#logout-form').submit()">Log Out
-                    </x-dropdown-item>
-                </x-dropdown>
-                <form id="logout-form" action="/logout" method="POST"
-                      class="text-xs font-semibold text-blue-500 ml-6 hidden">
-                    @csrf
-                </form>
-            @else
-                <a href="/register" class="text-xs font-bold uppercase">Register</a>
-                <a href="/login" class=" ml-6 text-xs font-bold uppercase">Log In</a>
-            @endauth
-
-
+            <h4 class="text-blue-400 font-semibold ">Welcome {{auth()->user()->name}}!</h4>
         </div>
     </nav>
+    <main class="w-full py-9 px-6">
+        {{$slot}}
 
-    {{$slot}}
-
-
-    <footer id="newsletter"
-            class="bg-gray-100 border border-black border-opacity-5 rounded-xl text-center py-16 px-10 mt-16">
-        <h5 class="text-3xl">This is Roshta's website made by <a
-                href="https://www.linkedin.com/in/mostafa-shaher-4433a0223/"
-                class="text-blue-500 no-underline hover:underline ... hover:text-blue-700" target="_blank">Mostafa
-                Shaher</a> for my graduation project</h5>
-        <p class="text-sm mt-3">the front belongs to Laracasts, Laravel from scratch series but i did add some front
-            because i made new features xD</p>
-
-
-    </footer>
+    </main>
 </section>
+
+
 <x-flash/>
 <livewire:scripts/>
 
-
+<script>
+    function openSearch() {
+        searchBar.classList.toggle("show");
+    }
+    var mainToggler = document.getElementById("TogglersideBar");
+    var mainSideBar = document.getElementById("sideBar");
+    mainToggler.addEventListener("click", function () {
+        mainSideBar.classList.toggle("hide");
+    });
+</script>
 </body>
