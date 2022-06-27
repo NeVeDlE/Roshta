@@ -59,6 +59,14 @@ class User extends Authenticatable implements MustVerifyEmail
         ]);
     }
 
+    public function requestsNumber(): int
+    {
+        return sizeof(\DB::table('location_users')
+            ->select('location_users.id')
+            ->where('location_users.user_id', '=', $this->id)
+            ->where('status', 'pending')->get());
+    }
+
     public function examinations()
     {
         return $this->hasMany(Examination::class, 'patient_id');

@@ -1,7 +1,7 @@
 <x-dashboard-layout>
 
-    <x-settings heading="{{$medicine->name}}'s Info">
-        <div>
+
+        <div class="bg-white">
             <h3 class="my-2 mx-2">{{$medicine->name}}</h3>
             <p class="my-2 mx-2">{{$medicine->description}}</p>
             <p class="my-2 mx-2">{{$medicine->price}} ج.م</p>
@@ -17,5 +17,4 @@
         </div>
 
 
-    </x-settings>
 </x-dashboard-layout>

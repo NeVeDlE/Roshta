@@ -1,7 +1,6 @@
 <x-dashboard-layout>
 
-    <x-settings heading="{{auth()->user()->name}}'s Location Requests">
-        <div>
+        <div class="bg-white">
             @if(isset($req))
                 <div class="flex flex-col">
                     <main class="max-w-6xl mx-auto mt-6 lg:mt-20 space-y-6">
@@ -42,5 +41,5 @@
         </div>
 
 
-    </x-settings>
+
 </x-dashboard-layout>

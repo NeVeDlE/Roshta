@@ -77,6 +77,10 @@ class MedicinesIndex extends Component
         $this->medicine = $medicine;
         $this->setPage(2);
     }
+    public function deleteMedicine(Medicine $medicine){
+        $medicine->delete();
+        $this->setPage(0);
+    }
 
     public function resetForm()
     {

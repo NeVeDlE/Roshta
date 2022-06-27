@@ -1,6 +1,3 @@
 <x-dashboard-layout>
-
-    <x-settings heading="Medicines">
-        <livewire:admin.medicines-index/>
-    </x-settings>
+    <livewire:admin.medicines-index/>
 </x-dashboard-layout>

@@ -34,13 +34,6 @@
                 </a>
             </li>
 
-            <li class="mb-2">
-                <a href="/dashboard/locations"
-                   class="{{request()->routeIs('location-requests')? 'text-blue-500':'' }}">Location
-                    Requests @if(\App\Models\Location::where('status','pending')->count() >0)
-                        {{\App\Models\Location::where('status','pending')->count()}}
-                    @endif</a>
-            </li>
 
             <li class="{{request()->routeIs('roles')? 'active':'' }}">
                 <a href="{{ route('roles') }}">
@@ -149,5 +142,9 @@
             </a>
         </li>
     </ul>
+    <form id="logout-form" action="/logout" method="POST"
+          class="text-xs font-semibold text-blue-500 ml-6 hidden">
+        @csrf
+    </form>
 </section>
 

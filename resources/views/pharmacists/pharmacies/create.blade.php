@@ -1,6 +1,6 @@
 <x-dashboard-layout>
 
-    <x-settings heading="Clinic's Register">
+
         <h1 class="text-center font-bold text-xl">Register!</h1>
         <form action="/dashboard/pharmacies" method="POST" class="mt-10" enctype="multipart/form-data">
             @csrf
@@ -51,5 +51,5 @@
             src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCuZGl4wf86aziESc5BDGrJuC8PsJlFUbg&callback=initMap&v=weekly"
             defer
         ></script>
-    </x-settings>
+
 </x-dashboard-layout>

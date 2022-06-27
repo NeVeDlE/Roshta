@@ -2,6 +2,7 @@
 
 use App\Models\Doctor;
 use App\Models\Examination;
+use App\Models\Location;
 use App\Models\Medicine;
 use App\Models\Pharmacist;
 use App\Models\Specialization;
@@ -23,8 +24,26 @@ use Illuminate\Validation\Rules;
 |
 */
 
+
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
+});
+
+//use it to make examinations requires user_id, location_id
+Route::post('/examinations/reserve', function () {
+    $validator = Validator::make(request()->all(), [
+        'user_id' => 'required|exists:users,id',
+        'location_id' => 'required|exists:locations,id'
+    ]);
+    if (!$validator->fails()) {
+        $location = Location::where('id', request()->location_id)->first();
+        $user = User::where('id', request()->user_id)->first();
+        if (!$user->requestsNumber() && $location->type == 'clinic') {
+            return 'Success';
+        }
+        return 'Error';
+    }
+    return $validator->errors();
 });
 
 //returns diseases for a specific examinations
@@ -112,12 +131,12 @@ Route::post('/search', function () {
     $lat = isset(request()->lat) ? request()->lat : '0';
     $lng = isset(request()->lng) ? request()->lng : '0';
     if ($type == 'pharmacy') {
-        return \DB::select("select id, name ,
+        return \DB::select("select id, name , lat ,lng,
          round(SQRT((lat-{$lat})*(lat-{$lat})+(lng-{$lng})*(lng-{$lng}))*100 ,2)as distance
         from locations where name like '%' '{$search}' '%' and type = 'pharmacy' and status='accepted'
           order By SQRT((lat-{$lat})*(lat-{$lat})+(lng-{$lng})*(lng-{$lng}))");
     } else if ($type == 'clinic') {
-        return \DB::select("select l.id as id,u.name as name ,s.name as SName,l.name as LName ,
+        return \DB::select("select l.id as id,u.name as name ,s.name as SName,l.name as LName  ,l.lat ,l.lng,
             round(SQRT((l.lat-{$lat})*(l.lat-{$lat})+(l.lng-{$lng})*(l.lng-{$lng}))*100,2) as distance
             from locations l
             join doctors d
@@ -263,4 +282,5 @@ Route::post('/register', function (Request $request) {
     }
 
 });
+
 

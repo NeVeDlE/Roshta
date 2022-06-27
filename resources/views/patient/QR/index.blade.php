@@ -1,6 +1,5 @@
 <x-dashboard-layout>
 
-    <x-settings heading="QR Generation">
-        <div>     {!! QrCode::size(300)->generate(auth()->id()) !!}</div>
-    </x-settings>
+        <div class="items-center text-center justify-between">     {!! QrCode::size(300)->generate(auth()->id()) !!}</div>
+
 </x-dashboard-layout>

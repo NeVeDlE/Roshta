@@ -1,6 +1,5 @@
 <x-dashboard-layout>
 
-    <x-settings heading="{{auth()->user()->locations->name}}'s Examination Process">
 
 
         <div class="flex flex-col">
@@ -55,6 +54,5 @@
         </div>
 
 
-    </x-settings>
 
 </x-dashboard-layout>

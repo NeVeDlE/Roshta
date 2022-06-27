@@ -37,6 +37,7 @@ class AppServiceProvider extends ServiceProvider
             return $user->role->name == 'doctor';
         });
         Gate::define('clinic', function (User $user, Location $location) {
+
             return $location->type == 'clinic';
         });
         Gate::define('hasClinic', function (User $user) {

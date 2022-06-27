@@ -19,10 +19,13 @@ class ExaminationController extends Controller
         $pos = \DB::table('location_medicines')
             ->join('locations', 'locations.id', '=', 'location_medicines.location_id')
             ->where('location_medicines.medicine_id', '=', $examination->medicines()->pluck('medicine_id'))
+            ->where('location_medicines.quantity', '>', '0')
             ->select('locations.lat', 'locations.lng')
             ->orderByRaw("SQRT((locations.lat-{$lat})*(locations.lat-{$lat})+(locations.lng-{$lng})*(locations.lng-{$lng}))")
             ->first();
-        return redirect("https://www.google.com/maps/dir/{$lat},{$lng}/{$pos->lat},{$pos->lng}/@{$lat},{$lng},17z");
+        if (isset($pos))
+            return redirect("https://www.google.com/maps/dir/{$lat},{$lng}/{$pos->lat},{$pos->lng}/@{$lat},{$lng},17z");
+        return back()->with(['success' => "You don't have all medicines in ur pharmacy"]);
 
     }
 
