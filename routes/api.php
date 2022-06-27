@@ -39,9 +39,56 @@ Route::post('/examinations/reserve', function () {
         $location = Location::where('id', request()->location_id)->first();
         $user = User::where('id', request()->user_id)->first();
         if (!$user->requestsNumber() && $location->type == 'clinic') {
-            return 'Success';
+            $location->addExaminationRequest($user);
+            $x = \DB::table('location_users')
+                ->select('location_users.status as status')
+                ->where('location_users.user_id', '=', $user->id)
+                ->where('status', 'pending')->latest()->first();
+            return array_merge(collect($x)->toArray(), [
+                'name' => $location->name,
+                'lat' => $location->lat,
+                'lng' => $location->lng
+            ]);
         }
         return 'Error';
+    }
+    return $validator->errors();
+});
+
+//returns diseases for a specific patient
+Route::post('/user/diseases', function () {
+    $validator = Validator::make(request()->all(), [
+        'user_id' => 'required|exists:users,id',
+        'search' => 'string|nullable'
+    ]);
+    if (!$validator->fails()) {
+        $search = isset(request()->search) ? request()->search : '';
+        return DB::table('examination_diseases')
+            ->join('diseases', 'examination_diseases.disease_id', '=', 'diseases.id')
+            ->join('examinations', 'examination_diseases.examination_id', '=', 'examinations.id')
+            ->where('examinations.patient_id', '=', request()->user_id)
+            ->where('diseases.name', 'like', '%' . $search . '%')
+            ->select('diseases.id', 'diseases.name', 'diseases.description', 'diseases.created_at', 'diseases.updated_at')
+            ->distinct()->get();
+    }
+    return $validator->errors();
+});
+
+//returns medicines for a specific patient
+Route::post('/user/medicines', function () {
+    $validator = Validator::make(request()->all(), [
+        'user_id' => 'required|exists:users,id',
+        'search' => 'string|nullable'
+    ]);
+    if (!$validator->fails()) {
+        $search = isset(request()->search) ? request()->search : '';
+        return DB::table('examination_medicines')
+            ->join('medicines', 'examination_medicines.medicine_id', '=', 'medicines.id')
+            ->join('examinations', 'examination_medicines.examination_id', '=', 'examinations.id')
+            ->where('medicines.name', 'like', '%' . $search . '%')
+            ->where('examinations.patient_id', '=', request()->user_id)
+            ->select('medicines.id', 'medicines.name', 'medicines.description', 'medicines.price',
+                'medicines.photo', 'medicines.created_at', 'medicines.updated_at')->distinct()->get();
     }
     return $validator->errors();
 });
@@ -99,7 +146,7 @@ Route::post('/examinationRequests', function () {
         $search = isset(request()->search) ? request()->search : '';
         return \DB::table('location_users')
             ->join('locations', 'locations.id', '=', 'location_users.location_id')
-            ->select('locations.name', 'locations.lat', 'locations.lng', 'location_users.status')
+            ->select('locations.name', 'locations.lat', 'locations.lng', 'location_users.status', 'location_users.created_at')
             ->where('location_users.user_id', '=', request()->user_id)
             ->where('locations.name', 'like', '%' . request()->search . '%')
             ->orderByRaw('FIELD(location_users.status,"accepted","pending","cancelled")')

@@ -25,7 +25,7 @@ class ExaminationController extends Controller
             ->first();
         if (isset($pos))
             return redirect("https://www.google.com/maps/dir/{$lat},{$lng}/{$pos->lat},{$pos->lng}/@{$lat},{$lng},17z");
-        return back()->with(['success' => "You don't have all medicines in ur pharmacy"]);
+        return back()->with(['success' => "There's no pharmacy that have all these the full roshta"]);
 
     }
 

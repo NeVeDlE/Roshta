@@ -332,7 +332,7 @@ body {
     letter-spacing: 3px;
 }
 #landing {
-    background-image: url(/images/1.jpg?31d6cfe0d16ae931b73c59d7e0c089c0);
+    background-image: url(../images/main-slideShow/1.jpg);
     background-size: cover;
     background-position: top center;
     position: relative;
@@ -678,44 +678,44 @@ input:focus-visible {
     0%,
     100% {
         background-color: (0, 0, 0, 0.5);
-        background-image: url(/images/2.jpg?31d6cfe0d16ae931b73c59d7e0c089c0);
+        background-image: url(../images/main-slideShow/2.jpg);
     }
 
     25% {
         background-color: (0, 0, 0, 0.5);
-        background-image: url(/images/3.jpg?31d6cfe0d16ae931b73c59d7e0c089c0);
+        background-image: url(../images/main-slideShow/3.jpg);
     }
 
     50% {
         background-color: (0, 0, 0, 0.5);
-        background-image: url(/images/4.jpg?31d6cfe0d16ae931b73c59d7e0c089c0);
+        background-image: url(../images/main-slideShow/4.jpg);
     }
 
     75% {
         background-color: (0, 0, 0, 0.5);
-        background-image: url(/images/5.jpg?31d6cfe0d16ae931b73c59d7e0c089c0);
+        background-image: url(../images/main-slideShow/5.jpg);
     }
 }
 @keyframes slideShow {
     0%,
     100% {
         background-color: (0, 0, 0, 0.5);
-        background-image: url(/images/2.jpg?31d6cfe0d16ae931b73c59d7e0c089c0);
+        background-image: url(../images/main-slideShow/2.jpg);
     }
 
     25% {
         background-color: (0, 0, 0, 0.5);
-        background-image: url(/images/3.jpg?31d6cfe0d16ae931b73c59d7e0c089c0);
+        background-image: url(../images/main-slideShow/3.jpg);
     }
 
     50% {
         background-color: (0, 0, 0, 0.5);
-        background-image: url(/images/4.jpg?31d6cfe0d16ae931b73c59d7e0c089c0);
+        background-image: url(../images/main-slideShow/4.jpg);
     }
 
     75% {
         background-color: (0, 0, 0, 0.5);
-        background-image: url(/images/5.jpg?31d6cfe0d16ae931b73c59d7e0c089c0);
+        background-image: url(../images/main-slideShow/5.jpg);
     }
 }
 /*
@@ -16202,5 +16202,29 @@ select{
   .xl\:w-96{
     width: 24rem;
   }
+}
+.numNotfi{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    position:absolute;
+    width:20px;
+    height:20px;
+    left:85%;
+    border-radius: 50%;
+    border:2px solid white;
+}
+#sideBar.hide .sidebarTopMenu li .numNotfi,
+#sideBar.hide .sidebarDownMenu li .numNotfi {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    left: 40%;
+    top: -1%;
+    border-radius: 50%;
+    border: 2px solid white;
 }
 

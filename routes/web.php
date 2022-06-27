@@ -63,7 +63,7 @@ Route::middleware('can:pharmacist')->group(function () {
     Route::get('/dashboard/pharmacies/register', [PharmacyController::class, 'index'])->name('pharmacies-register');
     Route::get('/dashboard/pharmacy/index', [PharmacyIndex::class, 'index'])->name('pharmacy-index');
     Route::post('/dashboard/pharmacies', [PharmacyController::class, 'store']);
-    Route::get('/dashboard/pharmacies/roshta/qr', [PharmacyManagementController::class, 'index']);
+    Route::get('/dashboard/pharmacies/roshta/qr', [PharmacyManagementController::class, 'index'])->name('pharmacies.roshta.qr');
     Route::get('/dashboard/pharmacies/roshta/qr/{examination}', [PharmacyManagementController::class, 'create']);
     Route::post('/dashboard/pharmacies/roshta/qr/{examination}', [PharmacyManagementController::class, 'store']);
 });

@@ -2,13 +2,7 @@
     <div class="max-w-lg w-full lg:max-w-xs">
 
         <div class="relative">
-            <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                <svg class="h-5 w-5 text-gray-400" fill="currentColor" viewBox="0 0 20 20">
-                    <path fill-rule="evenodd"
-                          d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z"
-                          clip-rule="evenodd"/>
-                </svg>
-            </div>
+
             <input wire:model.debounce.300ms="search"
                    id="search"
                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500
@@ -26,7 +20,7 @@
                                 <li>
                                     <a
                                         href="/dashboard/locations/{{$result->id}}/{{$lat}}/{{$lng}}"
-                                        class="flex items-center px-4 py-4 hover:bg-gray-200 transition ease-in-out duration-150">
+                                        class="flex items-center px-4 py-4 hover:bg-green-200 transition ease-in-out duration-150">
                                         <div class="ml-4 leading-tight">
                                             <div class="font-semibold">
                                                 {{ $result->name}}
@@ -45,7 +39,7 @@
                                 <li>
                                     <a
                                         href="/dashboard/locations/{{$result->id}}/{{$lat}}/{{$lng}}"
-                                        class="flex items-center px-4 py-4 hover:bg-gray-200 transition ease-in-out duration-150">
+                                        class="flex items-center px-4 py-4 hover:bg-green-200 transition ease-in-out duration-150">
                                         <div class="ml-4 leading-tight">
                                             <div class="font-semibold">
                                                 {{$result->LName}}
@@ -68,7 +62,7 @@
                                 <li>
                                     <a
                                         href="/dashboard/medicines/{{$result->id}}/{{$lat}}/{{$lng}}"
-                                        class="flex items-center px-4 py-4 hover:bg-gray-200 transition ease-in-out duration-150">
+                                        class="flex items-center px-4 py-4 hover:bg-green-200 transition ease-in-out duration-150">
                                         @if(isset($result->photo))
                                             <img src="{{asset('storage/'.$result->photo )}}"
                                                  alt="album art" class="w-10">
@@ -94,7 +88,7 @@
                     @endif
                 </ul>
             @endif
-            <select wire:model="type" name="type" style="left: 73%; border: none "
+            <select wire:model="type" name="type" style="left: 60%; width: 40%; border: none "
                     class="absolute bg-gray-50 text-gray-900 text-sm rounded-lg
                      focus:outline-none p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                 <option value="clinic">Clinic</option>

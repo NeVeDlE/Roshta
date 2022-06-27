@@ -126,7 +126,7 @@
                                                         <button wire:click="decline({{$req->id}})"
                                                                 class="transition-colors duration-300 text-xs text-white font-semibold bg-red-400 hover:bg-red-500 rounded-full py-2 px-8">
                                                             Decline
-                                                            </bublue
+                                                            </button>
                                                     </td>
                                                 @endif
                                             @endcan

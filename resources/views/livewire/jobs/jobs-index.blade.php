@@ -1,39 +1,88 @@
 <div>
-    @if(isset($job))
-        <div class="flex flex-col">
-            <main class="max-w-6xl mx-auto mt-6 lg:mt-20 space-y-6">
-                @if(class_basename($job)=='Doctor')
-                    <div class="mb-6">
-                        <label class="block mb-2 uppercase font-bold text-xs text-gray-700">Specialization(In Doctor's
-                            Only)</label>
-                        <h2 class="border border-gray-200 p-2  w-full rounded">{{$job->speciality->name}}</h2>
+    <div class="headerTitle ">
+        <h1 class="text-2xl mb-3 font-bold">Examinations</h1>
+        <ul class="pl-14 pageIndex flex gap-2">
+            <li>
+                <a href="{{route('job-requests')}}">Dashboard</a>
+            </li>
+            <li class="chervon">
+                <i class="fa-solid fa-chevron-right"></i>
+            </li>
+            <li class="active">
+                <a href="{{route('job-requests')}}">My Job Requests</a>
+            </li>
+        </ul>
+    </div>
+    <div class="tableOfContent flex flex-wrap gap-6 mt-7 w-full">
+        <div class="flex justify-center items-center" style="width: 75%">
+            <div class="flex flex-col p-3 items-center w-full bg-white rounded-xl shadow" style="width: 75%">
+                <main class=" mt-6  space-y-6">
+                    <div class="flex flex-col">
+                        <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
+                            <div class="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
+                                @if(isset($job))
+                                    @if(class_basename($job)=='Doctor')
+                                        <div class="mb-6">
+                                            <x-form.label name="Job"/>
+                                            <input class="border border-gray-200 p-2 rounded-xl w-full bg-gray-100"
+                                                   type="text" value="Doctor" disabled>
+                                        </div>
+                                        <div class="mb-6">
+                                            <x-form.label name="Specialization(In Doctor's Only)"/>
+                                            <input class="border border-gray-200 p-2 rounded-xl w-full bg-gray-100"
+                                                   type="text" value="{{$job->speciality->name}}" disabled>
+                                        </div>
+                                    @else
+                                        <div class="mb-6">
+                                            <x-form.label name="Job"/>
+                                            <input class="border border-gray-200 p-2 rounded-xl w-full bg-gray-100"
+                                                   type="text" value="Pharmacist" disabled>
+                                        </div>
+                                    @endif
+                                    <div class="mb-6">
+                                        <x-form.label name="University"/>
+                                        <input class="border border-gray-200 p-2 rounded-xl w-full bg-gray-100"
+                                               type="text" value="{{$job->university}}" disabled>
+                                    </div>
+                                    <div class="mb-6">
+                                        <x-form.label name="Graduate Date"/>
+                                        <input class="border border-gray-200 p-2 rounded-xl w-full bg-gray-100"
+                                               type="text" value="{{$job->graduate_date}}" disabled>
+                                    </div>
+                                    <div class="mb-6">
+                                        <x-form.label name="Published"/>
+                                        <input class="border border-gray-200 p-2 rounded-xl w-full bg-gray-100"
+                                               type="text" value="{{$job->created_at->diffForHumans()}}" disabled>
+                                    </div>
+                                    <div class="mb-6">
+                                        <x-form.label name="Status"/>
+                                        @if($job->status=='accepted')
+                                            <input
+                                                class="border border-gray-200 text-center text-green-400 p-2 rounded-xl w-full bg-gray-100"
+                                                type="text" value="{{ucwords($job->status)}}" disabled>
+                                        @elseif($job->status=='pending')
+                                            <input
+                                                class="border border-gray-200 text-center text-yellow-600 p-2 rounded-xl w-full bg-gray-100"
+                                                type="text" value="{{ucwords($job->status)}}" disabled>
+                                        @else
+                                            <input
+                                                class="border border-gray-200 text-center text-red-400 p-2 rounded-xl w-full bg-gray-100"
+                                                type="text" value="{{ucwords($job->status)}}" disabled>
+                                        @endif
+
+                                    </div>
+
+                                @else
+                                    No Reqs.
+                                @endif
+                            </div>
+                        </div>
                     </div>
-                @endif
-                <div class="mb-6">
-                    <label class="block mb-2 uppercase font-bold text-xs text-gray-700">University</label>
-                    <h2 class="border border-gray-200 p-2 w-full rounded">{{$job->university}}</h2>
-                </div>
-                <div class="mb-6">
-                    <label class="block mb-2 uppercase font-bold text-xs text-gray-700">Graduate Date</label>
-                    <h2 class="border border-gray-200 p-2 w-full rounded">{{$job->graduate_date}}</h2>
-                </div>
-                <div class="mb-6">
-                    <label class="block mb-2 uppercase font-bold text-xs text-gray-700">Published</label>
-                    <h2 class="border border-gray-200 p-2 w-full rounded">{{$job->created_at->diffForHumans()}}</h2>
-                </div>
-                <div class="mb-6">
-                    <label class="block mb-2 uppercase font-bold text-xs text-gray-700">Status</label>
-                    @if($job->status=='accepted')
-                        <h2 class="border text-green-600 border-gray-200 p-2 w-full rounded">{{ucwords($job->status)}}</h2>
-                    @elseif($job->status=='pending')
-                        <h2 class="border text-yellow-600 border-gray-200 p-2 w-full rounded">{{ucwords($job->status)}}</h2>
-                    @else
-                        <h2 class="border text-red-600 border-gray-200 p-2 w-full rounded">{{ucwords($job->status)}}</h2>
-                    @endif
-                </div>
-            </main>
+                </main>
+            </div>
         </div>
-    @else
-        <p>No Reqs yet</p>
-    @endif
+
+
+    </div>
+
 </div>

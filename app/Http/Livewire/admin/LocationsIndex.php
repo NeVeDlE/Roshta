@@ -48,7 +48,10 @@ class LocationsIndex extends Component
                 ->join('locations', 'users.id', '=', 'locations.owner_id')
                 ->select('locations.name as LName', 'locations.lat', 'locations.lng', 'locations.status',
                     'users.name', 'locations.id')
-                ->where('users.name', 'like', '%' . $this->search . '%')
+                ->where(function ($query) {
+                    $query->where('users.name', 'like', '%' . $this->search . '%')
+                        ->orWhere('locations.name', 'like', '%' . $this->search . '%');
+                })
                 ->where('type', '=', 'clinic')
                 ->orderByRaw('FIELD(status,"pending","accepted","cancelled")')
                 ->paginate(10);;
@@ -57,7 +60,7 @@ class LocationsIndex extends Component
                 ->join('locations', 'users.id', '=', 'locations.owner_id')
                 ->select('locations.name as LName', 'locations.lat', 'locations.lng', 'locations.status',
                     'users.name', 'locations.id')
-                ->where('users.name', 'like', '%' . $this->search . '%')
+                ->where('locations.name', 'like', '%' . $this->search . '%')
                 ->where('type', '=', 'pharmacy')
                 ->orderByRaw('FIELD(status,"pending","accepted","cancelled")')
                 ->paginate(10);;

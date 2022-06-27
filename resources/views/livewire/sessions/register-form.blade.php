@@ -1,4 +1,4 @@
-<div>
+<div class="mb-4">
     <main class="registerForm w-full flex flex-col justify-center items-center">
         <div class="py-8 flex flex-col justify-center items-center">
             <img class="h-36" src="{{asset('images/Logo.png')}}">
@@ -103,9 +103,9 @@
                     @enderror
                 @endif
                 <div class="formInput flex flex-col my-3">
-                    < <label class="py-2 px-2" for="userPic">Upload Picture:</label>
+                     <label class="py-2 px-2" for="userPic">Upload Picture:</label>
                     <input name="picture" type="file" wire:model="picture"
-                           class="w-10/12 mx-auto shadow-inner h-9 userPic controller">>
+                           class="w-10/12 mx-auto shadow-inner h-9 userPic controller">
                     @error('picture')
                     <p class="text-red-500 text-xs mt-2 ml-9 ">{{$message}}</p>
                     @enderror

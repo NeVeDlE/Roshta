@@ -34,7 +34,7 @@
 <header class="bg-gray-200 h-20 shadow-md">
     <div class="container px-6 py-2 mx-auto">
         <nav class="navbar flex justify-between items-center">
-            <a href="#"><img class="h-12" src="{{asset('images/Logo.png')}}"></a>
+            <a href="/"><img class="h-12" src="{{asset('images/Logo.png')}}"></a>
             <ul id="sidebar" class="navMenu flex justify-between items-center">
                 <li class="navItem px-1 ml-5">
                     <a class="text-blue-400 primary navLink" href="{{route('login')}}">Log In</a>
