@@ -3,7 +3,6 @@
 namespace App\Http\Controllers\Location;
 
 use App\Http\Controllers\Controller;
-use App\Http\Livewire\pharmacists\PharmacyIndex;
 use App\Models\Location;
 use Illuminate\Support\Facades\Gate;
 

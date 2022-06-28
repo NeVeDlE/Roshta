@@ -11,7 +11,6 @@ use Tests\TestCase;
 class ManageDiseasesTest extends TestCase
 {
     use RefreshDatabase;
-
     public function test_a_patient_cannot_render_disease()
     {
         $this->boot();

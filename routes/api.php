@@ -54,7 +54,6 @@ Route::post('/examinations/reserve', function () {
     }
     return $validator->errors();
 });
-
 //returns diseases for a specific patient
 Route::post('/user/diseases', function () {
     $validator = Validator::make(request()->all(), [
@@ -73,7 +72,6 @@ Route::post('/user/diseases', function () {
     }
     return $validator->errors();
 });
-
 //returns medicines for a specific patient
 Route::post('/user/medicines', function () {
     $validator = Validator::make(request()->all(), [

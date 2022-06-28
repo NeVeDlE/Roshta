@@ -18,11 +18,9 @@
                 <a href="{{ route('job-requests') }}" class="relative">
                     <div
                         class="numNotfi absolute text-white bg-red-500 font-bold text-xs flex justify-center items-center">
-                        @if(\App\Models\Doctor::where('status','pending')->count() >0
-                             ||App\Models\Pharmacist::where('status','pending')->count())
                             {{\App\Models\Doctor::where('status','pending')->count()
                             + \App\Models\Pharmacist::where('status','pending')->count()}}
-                        @endif</div>
+                       </div>
                     <i class="fa-solid fa-code-pull-request sideBarIcon"></i>
                     <span class="sideText">Job Request </span>
                 </a>

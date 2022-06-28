@@ -47,8 +47,6 @@ class SearchDropdown extends Component
         if (strlen($this->search) < 3) {
             return [];
         }
-
-
         if ($this->type == 'pharmacy') {
             return \DB::select("select id, name ,
          round(SQRT((lat-{$this->lat})*(lat-{$this->lat})+(lng-{$this->lng})*(lng-{$this->lng}))*100 ,2)as distance

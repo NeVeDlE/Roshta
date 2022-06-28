@@ -12,7 +12,6 @@ use Livewire\WithPagination;
 class MedicinesIndex extends Component
 {
     use WithPagination, WithFileUploads;
-
     public $photo;
     public $name;
     public $description;
@@ -21,7 +20,6 @@ class MedicinesIndex extends Component
     public $page_id;
     public $message;
     public $search;
-
     public function rules(): array
     {
         return [

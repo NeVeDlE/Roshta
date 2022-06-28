@@ -26,10 +26,8 @@ class ExaminePatientController extends Controller
         ]);
 
     }
-
     public function store(Location $location, User $user)
     {
-
         request()->validate([
             'report' => ['required', 'string', 'min:2', 'max:255'],
             'diseases' => ["required", 'array', 'min:1'],
