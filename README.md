@@ -17,7 +17,7 @@
 
 Roshta is a graduation project created by computer science students at Minya University in Egypt 
 
-**[Mustafa Shaher Abduallah](https://github.com/NeVeDlE) (Back-end developer)**
+**[Mostafa Shaher Abduallah](https://github.com/NeVeDlE) (Back-end developer)**
 
 **[Mahmoud Ayman](https://github.com/MahmoodAyman) (Front-end web developer)**
 
