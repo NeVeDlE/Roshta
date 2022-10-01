@@ -57,7 +57,7 @@ The answers we got was 59.4% “Yes”, 23.8% “Maybe” and 16.8% “No”.
 ### Technologies:
 
 - **Google Maps API** by adjusting JavaScript code
-- •  For Database we are using: **MYSQL**, as it considered the best DB right now and we are going to use API to interact with it.
+- For Database we are using: **MYSQL**, as it considered the best DB right now and we are going to use API to interact with it.
 - **Restful API** for link between website and mobile application database
 - For Web Frontend we used a framework called: **React**, it makes the front work easier and faster.
 - For Web Backend we used a framework called: **Laravel**, It's the fastest and strongest framework for web right now.
