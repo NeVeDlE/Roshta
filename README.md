@@ -23,7 +23,7 @@ Roshta is a graduation project created by computer science students at Minya Uni
 
 **Yasser Gomma (Android developer)**
 
-The main idea of this project is converting the medical proccess in egypt and to link between Patient, Doctor and Pharmacist.
+**The main idea of this project is converting the medical proccess in egypt and to link between Patient, Doctor and Pharmacist.**
 
 mainly we go throw web but also we have an android application developed by **Yasser Gomma** for patient to make it easy to control his account 
 
@@ -33,13 +33,15 @@ the main idea of this project is to digitalize all the process of examination an
 
 ## main Feature:
 
-the feature that we care about the most on this project is to make it the process of finding medicines easier
+The feature that we care about the most on this project is to make it the process of finding medicines easier and looking for doctors,
 
-since we in Egypt have a little trouble in finding medicines 
+since we in Egypt have a little trouble in finding medicines,
 
-with **Roshta** this will be easy you can search for pharmacy that contain all the medicine you want 
+with **Roshta** this will be easy you can search for pharmacy that contain all the medicine you want,
 
-also will be sorted by the closest to you 
+or a doctor whom you are looking for,
+
+also will be sorted by the closest to you. 
 
 ## Analysis:
 
@@ -60,10 +62,10 @@ The answers we got was 59.4% “Yes”, 23.8% “Maybe” and 16.8% “No”.
 - For Database we are using: **MYSQL**, as it considered the best DB right now and we are going to use API to interact with it.
 - **Restful API** for link between website and mobile application database
 - For Web Frontend we used a framework called: **React**, it makes the front work easier and faster.
-- For Web Backend we used a framework called: **Laravel**, It's the fastest and strongest framework for web right now.
+- For Backend we used a framework called: **Laravel**, It's the fastest and strongest framework for Backend right now.
 - **Java** for Android Development
 
-### software development Process:
+### Software development Process:
 
 for development process we use **TDD Test-driven development** that relying on software requirements being converted to test cases before the software is fully developed, and tracking all software development by repeatedly testing the software against all test cases. This is as opposed to software being developed first and test cases being created later.
 
@@ -75,7 +77,7 @@ for development process we use **TDD Test-driven development** that relying on s
 4. For the first few years or months the Nearest Pharmacy feature won’t be strong enough as it will only locate pharmacies only who’s working with us so it may result to far pharmacies.
 5. For some old mobile phones, the non-paper to paper process may not work perfectly as it has weak camera’s which the whole process depends on.
 
-## our users and Targets:
+## Our users and Targets:
 
 our main users are one of three: 
 
