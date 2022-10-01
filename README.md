@@ -23,7 +23,7 @@ Roshta is a graduation project created by computer science students at Minya Uni
 
 **Yasser Gomma (Android developer)**
 
-the main idea of this project is to link between Patient, Doctor and Pharmacist 
+The main idea of this project is converting the medical proccess in egypt and to link between Patient, Doctor and Pharmacist.
 
 mainly we go throw web but also we have an android application developed by **Yasser Gomma** for patient to make it easy to control his account 
 
