@@ -98,6 +98,12 @@ this product mainly targets the patient most of features are made for patient li
 ## Demo:
 
 ---
+# Here is a video demo:
+
+
+https://github.com/NeVeDlE/Roshta/assets/56787182/729b6725-4fb8-40a6-a0e1-c91e4f794a67
+
+---
 # How to run the project:
 
 ### Requirements:
